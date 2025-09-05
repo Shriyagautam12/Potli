@@ -1,0 +1,219 @@
+---
+// Hero.astro
+---
+
+<section class="hero" id="hero">
+  <!-- Text content on the left -->
+  <div class="content">
+    <span class="badge">Accepting new projects</span>
+    <h1>
+      Creating timeless <br />
+      brands that <span class="highlight">inspire.</span>
+    </h1>
+    <p>
+      Expertly crafted brand experiences that captivate, connect 
+      with discerning audiences, and leave a lasting impression.
+    </p>
+    <a href="/contact" class="btn">Get in touch →</a>
+  </div>
+
+  <!-- Video container on the right -->
+  <div class="video-container">
+    <video class="bg-video" autoplay loop muted playsinline>
+      <source src="../../../public/assets/bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</section>
+
+<style>
+  .hero {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    background: #c5b3a4;
+    overflow: hidden;
+    position: relative;
+    z-index: 1; /* Lowest z-index */
+    transform: translateZ(0); /* Force hardware acceleration and create stacking context */
+    isolation: isolate; /* Create new stacking context */
+    backface-visibility: hidden; /* Prevent flickering */
+    -webkit-backface-visibility: hidden; /* Safari support */
+  }
+
+  .content {
+    flex: 1;
+    max-width: 600px;
+    padding: 2rem 4rem 2rem 2rem;
+    color: #111;
+    z-index: 3;
+    position: relative;
+  }
+
+  .video-container {
+    flex: 1;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  .bg-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  .badge {
+    display: inline-block;
+    background: #b68b6f;
+    color: white;
+    padding: 0.4rem 0.9rem;
+    border-radius: 1rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+
+  h1 {
+    font-size: 58px;
+    line-height: 1.1;
+    margin: 0 0 1.5rem 0;
+    font-weight: 600;
+  }
+
+  .highlight {
+    color: #7a6c57;
+  }
+
+  p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+    color: #444;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    background: #111;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    gap: 0.5rem;
+  }
+
+  .btn:hover {
+    background: #333;
+    transform: translateY(-1px);
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .hero {
+      flex-direction: column;
+      height: auto;
+      min-height: 100vh;
+    }
+
+    .content {
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .video-container {
+      height: 50vh;
+      min-height: 300px;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .content {
+      padding: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    .video-container {
+      height: 40vh;
+    }
+  }
+</style>
+
+<script>
+  // Optimized parallax effect for hero section
+  let ticking = false;
+  let lastScrollY = 0;
+
+  function updateHeroParallax() {
+    const scrolled = window.pageYOffset;
+    const hero = document.getElementById('hero');
+    
+    // Only update if scroll has changed significantly
+    if (Math.abs(scrolled - lastScrollY) < 1) {
+      ticking = false;
+      return;
+    }
+    
+    if (hero) {
+      const heroHeight = hero.offsetHeight;
+      const parallaxSpeed = 0.3; // Reduced speed for smoother effect
+      
+      if (scrolled < heroHeight * 1.2) { // Extended range for smoother transition
+        const offset = scrolled * parallaxSpeed;
+        hero.style.transform = `translate3d(0, ${offset}px, 0)`;
+        hero.style.willChange = 'transform';
+      } else {
+        // Clean reset when out of view
+        hero.style.transform = 'translate3d(0, 0, 0)';
+        hero.style.willChange = 'auto';
+      }
+    }
+    
+    lastScrollY = scrolled;
+    ticking = false;
+  }
+
+  function requestTick() {
+    if (!ticking) {
+      requestAnimationFrame(updateHeroParallax);
+      ticking = true;
+    }
+  }
+
+  if (typeof window !== 'undefined') {
+    // Throttle scroll events
+    let scrollTimeout: ReturnType<typeof setTimeout> | undefined;
+    window.addEventListener('scroll', () => {
+      clearTimeout(scrollTimeout);
+      requestTick();
+      
+      // Clean up after scroll stops
+      scrollTimeout = setTimeout(() => {
+        const hero = document.getElementById('hero');
+        if (hero) {
+          hero.style.willChange = 'auto';
+        }
+      }, 150);
+    }, { passive: true });
+    
+    // Initial call
+    updateHeroParallax();
+  
+    window.addEventListener('beforeunload', () => {
+      window.removeEventListener('scroll', requestTick);
+    });
+  }
+</script>

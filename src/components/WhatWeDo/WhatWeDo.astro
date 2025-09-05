@@ -1,0 +1,163 @@
+---
+// WhatWeDo.astro
+---
+
+<section class="what-we-do" id="what-we-do">
+  <div class="container">
+    <div class="content">
+      <h2>What we do</h2>
+      <p class="subtitle">Bespoke services are designed to elevate your brand.</p>
+      
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L13.09 8.26L20 9L13.09 9.74L12 16L10.91 9.74L4 9L10.91 8.26L12 2Z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3>Brand Strategy</h3>
+          <p>Developing a tailored roadmap that defines your brand's voice, vision, and positioning in the luxury market.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/>
+              <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Visual Identity</h3>
+          <p>Creating iconic logos, color palettes, and design elements that embody your brand's unique character.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="currentColor" stroke-width="2"/>
+              <polyline points="14,2 14,8 20,8" stroke="currentColor" stroke-width="2"/>
+              <line x1="16" y1="13" x2="8" y2="13" stroke="currentColor" stroke-width="2"/>
+              <line x1="16" y1="17" x2="8" y2="17" stroke="currentColor" stroke-width="2"/>
+              <polyline points="10,9 9,9 8,9" stroke="currentColor" stroke-width="2"/>
+            </svg>
+          </div>
+          <h3>Brand Messaging</h3>
+          <p>Crafting compelling messaging that resonates with discerning clients and strengthens brand loyalty.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .what-we-do {
+    padding: 60px 0; /* Reduced from 120px */
+    background-color: #faf9f7;
+    position: relative;
+    z-index: 10;
+    transform: translateZ(0); 
+    isolation: isolate; 
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: auto;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .content {
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 0 0 16px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
+
+  .subtitle {
+    font-size: 1.125rem;
+    color: #666;
+    margin: 0 0 60px 0; /* Reduced from 80px */
+    font-weight: 400;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .service-card {
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #a68b5b;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 32px auto;
+    color: white;
+  }
+
+  .service-card h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1a1a1a;
+    margin: 0 0 20px 0;
+  }
+
+  .service-card p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+    margin: 0;
+  }
+
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .what-we-do {
+      padding: 80px 0;
+    }
+
+    .container {
+      padding: 0 20px;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
+
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+
+    .service-icon {
+      width: 64px;
+      height: 64px;
+      margin-bottom: 24px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    h2 {
+      font-size: 2rem;
+    }
+    
+    .subtitle {
+      margin-bottom: 60px;
+    }
+  }
+</style>
