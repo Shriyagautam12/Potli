@@ -1,0 +1,105 @@
+---
+// src/components/FAQ.astro
+
+
+const faqs = [
+  {
+    question: "What types of brands do you work with?",
+    answer:
+      "We specialize in working with luxury brands that prioritize quality, elegance, and distinction. Our expertise spans industries such as beauty, lifestyle, hospitality, fashion, and premium services. If your brand seeks to create a timeless impression and resonate with discerning audiences, we’re here to help.",
+  },
+  {
+    question: "How long does the branding process take?",
+    answer:
+      "The timeline depends on the scope of your project, but most branding processes take between 4–8 weeks.",
+  },
+  {
+    question: "Do you offer custom branding packages?",
+    answer:
+      "Yes, we tailor our branding packages to meet the specific needs of each client.",
+  },
+  {
+    question: "Will I receive all the files needed for my brand?",
+    answer:
+      "Absolutely. You’ll receive all design assets, source files, and guidelines required to manage your brand.",
+  },
+  {
+    question: "What makes Timeless different from other branding agencies?",
+    answer:
+      "Our focus on timeless design ensures your brand stands out and remains relevant for years to come.",
+  },
+];
+---
+
+<section class="faq-section">
+  <h2>Frequently asked questions</h2>
+  <p class="subtitle">We’ve answered your top questions to show how we can transform your brand.</p>
+
+  <div class="faq-container">
+    {faqs.map((faq, index) => (
+      <details class="faq-item">
+        <summary>
+          {faq.question}
+          <span class="icon">⌄</span>
+        </summary>
+        <p>{faq.answer}</p>
+      </details>
+    ))}
+  </div>
+</section>
+
+<style>
+  .faq-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 1rem;
+    text-align: center;
+  }
+
+  .faq-section h2 {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .faq-section .subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .faq-container {
+    text-align: left;
+  }
+
+  .faq-item {
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
+  }
+
+  .faq-item summary {
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    font-weight: 500;
+    font-size: 1.1rem;
+    outline: none;
+    list-style: none;
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item .icon {
+    transition: transform 0.2s ease;
+  }
+
+  .faq-item[open] .icon {
+    transform: rotate(180deg);
+  }
+
+  .faq-item p {
+    margin-top: 0.5rem;
+    color: #555;
+    line-height: 1.6;
+  }
+</style>

@@ -1,0 +1,119 @@
+---
+// Features.astro
+---
+
+<section class="features">
+  <div class="grid">
+    
+    <!-- Top-left: Swift Turnaround -->
+    <div class="card image-card">
+      <img src="/swift.jpg" alt="Swift Turnaround" />
+      <div class="overlay">Swift turnaround</div>
+    </div>
+
+    <!-- Top-right: Strategic storytelling -->
+    <div class="card text-card">
+      <h3>Strategic storytelling</h3>
+      <p>
+        Every great brand begins with a story, but not all stories are created equal. 
+        At Timeless, we believe storytelling is the bridge between your brand and your 
+        audience, a way to resonate deeply and leave a lasting impression. We dive into 
+        the heart of your brand, uncovering the unique elements that set you apart, and 
+        craft narratives that weave emotion with strategy.
+      </p>
+    </div>
+
+    <!-- Bottom-left: Client retention -->
+    <div class="card stat-card">
+      <h2>94%</h2>
+      <p>client retention rate</p>
+    </div>
+
+    <!-- Bottom-right: Attention to detail -->
+    <div class="card image-card">
+      <img src="/eye.jpg" alt="Attention to detail" />
+      <div class="overlay">Attention to detail</div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+.features {
+  padding: 3rem 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* General card style */
+.card {
+  position: relative;
+  border-radius: 1rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Image cards */
+.image-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.overlay {
+  position: absolute;
+  bottom: 1.2rem;
+  left: 1.2rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+/* Text card */
+.text-card {
+  padding: 2rem;
+  line-height: 1.6;
+}
+
+.text-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Stat card */
+.stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.stat-card h2 {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.stat-card p {
+  font-size: 1rem;
+  color: #555;
+  margin-top: 0.5rem;
+}
+</style>
