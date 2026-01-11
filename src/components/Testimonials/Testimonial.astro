@@ -26,6 +26,13 @@ const testimonials = [
     company: "Personal Branding",
     image: "/assets/Person3.jpeg",
     alt: "Karolina Antoniades from Personal Branding"
+  },
+  {
+    id: 4,
+    quote: 'Potli, as the Branding Partner for Talimi Mela: The Evighet, played a defining role in ushering the festival into a new era. Their vision went far beyond visual identity. From conceptual narrative to on ground curation, Potli reimagined the entire experience of Talimi Mela, giving it a cohesive, contemporary, and culturally rooted expression. The scale, structure, and storytelling of the event reflected a rare depth of strategic thinking and creative discipline. The Evighet edition stands as a landmark moment in Jamia’s history, setting a new benchmark for how student led cultural festivals can be curated, experienced, and remembered.',
+   author:' ',
+    company: "Jamia Milia Islamia",
+    image:"/assets/jamia.png"
   }
 ];
 ---
@@ -127,6 +134,12 @@ const testimonials = [
     align-items: center;
     min-height: 600px;
   }
+  .testimonial-quote.small-text {
+  font-size: 20px;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
 
   .testimonial-content {
     padding-right: 40px;
@@ -350,108 +363,74 @@ const testimonials = [
     }
   }
 </style>
-
 <script define:vars={{ testimonials }}>
   document.addEventListener('DOMContentLoaded', () => {
     let currentIndex = 0;
-    const totalTestimonials = testimonials.length;
-    
-    // Get DOM elements
-    const quoteElement = document.getElementById('testimonial-quote');
-    const clientInfoElement = document.getElementById('client-info');
-    const imageElement = document.getElementById('testimonial-image');
-    const prevButton = document.getElementById('prev-btn');
-    const nextButton = document.getElementById('next-btn');
-    const indicators = document.querySelectorAll('.indicator-dot');
-    const contentElement = document.querySelector('.testimonial-content');
-    const imageContainer = document.querySelector('.testimonial-image');
+    const total = testimonials.length;
 
-    // Function to update testimonial content
-    function updateTestimonial(index, direction = 'next') {
-      const testimonial = testimonials[index];
-      
-      // Add fade out effect
-      contentElement.classList.add('fade-out');
-      imageContainer.classList.add('fade-out');
-      
+    const quoteEl = document.getElementById('testimonial-quote');
+    const clientEl = document.getElementById('client-info');
+    const imageEl = document.getElementById('testimonial-image');
+    const prevBtn = document.getElementById('prev-btn');
+    const nextBtn = document.getElementById('next-btn');
+    const dots = document.querySelectorAll('.indicator-dot');
+    const content = document.querySelector('.testimonial-content');
+    const imageBox = document.querySelector('.testimonial-image');
+
+    function updateTestimonial(index) {
+      const t = testimonials[index];
+
+      content.classList.add('fade-out');
+      imageBox.classList.add('fade-out');
+
       setTimeout(() => {
-        // Update content
-        quoteElement.textContent = testimonial.quote;
-        clientInfoElement.textContent = `${testimonial.author} from ${testimonial.company}`;
-        imageElement.src = testimonial.image;
-        imageElement.alt = testimonial.alt;
-        
-        // Update indicators
-        indicators.forEach((dot, i) => {
-          dot.classList.toggle('active', i === index);
-        });
-        
-        // Remove fade out effect
-        contentElement.classList.remove('fade-out');
-        imageContainer.classList.remove('fade-out');
-      }, 250);
+        quoteEl.textContent = t.quote;
+
+        // Smaller font only for long testimonial
+        if (index === 3) {
+          quoteEl.classList.add('small-text');
+        } else {
+          quoteEl.classList.remove('small-text');
+        }
+
+        clientEl.textContent = `${t.author} from ${t.company}`;
+        imageEl.src = t.image;
+        imageEl.alt = t.alt || '';
+
+        dots.forEach((dot, i) =>
+          dot.classList.toggle('active', i === index)
+        );
+
+        content.classList.remove('fade-out');
+        imageBox.classList.remove('fade-out');
+      }, 400);
     }
 
-    // Next button functionality
-    function goToNext() {
-      currentIndex = (currentIndex + 1) % totalTestimonials;
-      updateTestimonial(currentIndex, 'next');
+    function next() {
+      currentIndex = (currentIndex + 1) % total;
+      updateTestimonial(currentIndex);
     }
 
-    // Previous button functionality  
-    function goToPrevious() {
-      currentIndex = (currentIndex - 1 + totalTestimonials) % totalTestimonials;
-      updateTestimonial(currentIndex, 'prev');
+    function prev() {
+      currentIndex = (currentIndex - 1 + total) % total;
+      updateTestimonial(currentIndex);
     }
 
-    // Go to specific testimonial
-    function goToTestimonial(index) {
-      if (index !== currentIndex) {
-        const direction = index > currentIndex ? 'next' : 'prev';
-        currentIndex = index;
-        updateTestimonial(currentIndex, direction);
-      }
-    }
+    nextBtn?.addEventListener('click', next);
+    prevBtn?.addEventListener('click', prev);
 
-    // Event listeners
-    if (nextButton) {
-      nextButton.addEventListener('click', goToNext);
-    }
-
-    if (prevButton) {
-      prevButton.addEventListener('click', goToPrevious);
-    }
-
-    // Indicator dots functionality
-    indicators.forEach((dot, index) => {
-      dot.addEventListener('click', () => goToTestimonial(index));
+    dots.forEach((dot, i) => {
+      dot.addEventListener('click', () => {
+        if (i !== currentIndex) {
+          currentIndex = i;
+          updateTestimonial(i);
+        }
+      });
     });
 
-    // Keyboard navigation
     document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') {
-        goToNext();
-      } else if (e.key === 'ArrowLeft') {
-        goToPrevious();
-      }
+      if (e.key === 'ArrowRight') next();
+      if (e.key === 'ArrowLeft') prev();
     });
-
-    // Auto-play functionality (optional - uncomment to enable)
-    // let autoPlayInterval;
-    // function startAutoPlay() {
-    //   autoPlayInterval = setInterval(goToNext, 5000);
-    // }
-    
-    // function stopAutoPlay() {
-    //   clearInterval(autoPlayInterval);
-    // }
-
-    // // Start auto-play
-    // startAutoPlay();
-
-    // // Pause on hover
-    // const carouselElement = document.querySelector('.testimonial-carousel');
-    // carouselElement.addEventListener('mouseenter', stopAutoPlay);
-    // carouselElement.addEventListener('mouseleave', startAutoPlay);
   });
 </script>

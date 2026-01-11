@@ -1,0 +1,596 @@
+---
+---
+
+<section class="awards-page">
+
+  <!-- HERO -->
+<section class="hero">
+  <!-- Corner labels -->
+  <span class="corner left">
+    <span class="corner-line horizontal"></span>
+    <span class="corner-line vertical"></span>
+   <img src="/assets/logo.png" alt="Potli Logo" class="logo" />
+  </span>
+  
+  <span class="corner right">
+    TALIMI MELA<br />
+    <small>THE EVIGHET</small>
+    <span class="corner-line horizontal"></span>
+    <span class="corner-line vertical"></span>
+  </span>
+  
+
+  <!-- Decorative stars -->
+  <span class="star s1">	&#10209</span>
+  <span class="star s2"> &#10209  </span>
+  <span class="star s3">	&#10209   </span>
+  <span class="star s4">	&#10209</span>
+  <span class="star s5">	&#10209</span>
+  <span class="diamond d1">&#9670;</span>
+  <span class="diamond d2">&#9670;</span>
+  <span class="diamond d3">	&#9670;</span>
+
+  <h1>
+    AWARDS <br />
+    <span>&</span> <br />
+    <span>RECOGNITION</span>
+  </h1>
+
+  <p class="subtitle">Celebrating Excellence in Partnership</p>
+
+  <span class="badge">OFFICIAL BRANDING PARTNER</span>
+</section>
+
+
+  <!-- EVENT INFO -->
+  <section class="event-section">
+    <h2 class="event-title">
+      TALIMI MELA <br />
+      <span class="event-subtitle-gold">THE EVIGHET</span>
+    </h2>
+
+    <p class="event-subtitle">
+      98th Edition | Jamia Millia Islamia's 105th Foundation Day
+    </p>
+
+    <div class="info-grid">
+      <!-- Left -->
+      <div class="info-card light">
+        <h3>EVIGHET</h3>
+        <p class="eternity">(Eternity)</p>
+        <p class="role">Potli's Defining Role</p>
+
+        <ul>
+          <li>Central theme development & narrative curation</li>
+          <li>Unified festival experience design</li>
+          <li>Spatial architecture & stage environments</li>
+          <li>Comprehensive visual language system</li>
+          <li>Heritage-contemporary balance</li>
+          <li>Cultural sensitivity & immersive storytelling</li>
+        </ul>
+      </div>
+
+      <!-- Right -->
+      <div class="info-card dark">
+        <h3>UNPRECEDENTED IMPACT</h3>
+
+        <div class="stat">
+          <span class="value">2.5M+</span>
+          <span class="label">Digital Interactions</span>
+        </div>
+
+        <div class="stat">
+          <span class="value">300K+</span>
+          <span class="label">Attendees Across Six Days</span>
+        </div>
+
+        <p class="note">
+          Nationally Acclaimed Artists, Scholars, Government Officials & Community Leaders.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFICIAL RECOGNITION -->
+  <section class="recognition">
+    <h2>OFFICIAL RECOGNITION</h2>
+
+    <div class="certificate">
+      <div class="cert-image-frame">
+        <img
+          src="/assets/award.jpg"
+          alt="Official Recognition Ceremony"
+          class="cert-image"
+        />
+      </div>
+
+      <div class="cert-content">
+        <p class="cert-name">Shriya Gautam</p>
+        <p class="cert-role">Chief Technology Officer, Potli</p>
+        <p class="cert-receiving">Receiving Recognition from</p>
+        <p class="cert-officials">Vice Chancellor | Registrar | Dean Students' Welfare</p>
+      </div>
+
+      <p class="cert-org">JAMIA MILLIA ISLAMIA</p>
+    </div>
+  </section>
+
+  <!-- FOOT NOTE -->
+  <p class="closing">A Landmark Chapter</p>
+
+</section>
+
+<style>
+/* ===== PAGE ===== */
+.awards-page {
+  font-family: system-ui, sans-serif;
+  color: #111;
+}
+
+/* ===== HERO ===== */
+.hero {
+  position: relative;
+  min-height: 70vh;
+  padding: 8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+  background:
+    radial-gradient(circle at 50% 45%, rgba(201,162,77,0.35), transparent 55%),
+    linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(45deg, rgba(201,162,77,0.05) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(201,162,77,0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.corner {
+  position: absolute;
+  top: 1.5rem;
+  color: #c9a24d;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  z-index: 3;
+}
+
+.corner.left {
+  left: 1.5rem;
+  padding-left: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.corner.right {
+  right: 1.5rem;
+  text-align: right;
+  padding-right: 1.5rem;
+  padding-top: 1.5rem;
+}
+
+.corner-line {
+  position: absolute;
+  background: rgba(201,162,77,0.7);
+}
+
+.corner.left .horizontal {
+  top: 0;
+  left: 0;
+  width: 18px;
+  height: 1px;
+}
+
+.corner.left .vertical {
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 18px;
+}
+
+.corner.right .horizontal {
+  top: 0;
+  right: 0;
+  width: 18px;
+  height: 1px;
+}
+
+.corner.right .vertical {
+  top: 0;
+  right: 0;
+  width: 1px;
+  height: 18px;
+}
+
+
+/* STARS & DIAMONDS */
+.star, .diamond {
+  position: absolute;
+  color: #c9a24d;
+  opacity: 0.6;
+  font-size: 0.65rem;
+  z-index: 1;
+}
+
+.diamond {
+  font-size: 0.5rem;
+  opacity: 0.5;
+}
+
+.s1 { top: 32%; left: 22%; }
+.s2 { top: 55%; right: 30%; }
+.s3 { top: 25%; right: 20%; }
+.s4 { top: 45%; left: 15%; }
+.s5 { top: 60%; left: 25%; }
+.d1 { top: 20%; left: 30%; }
+.d2 { top: 50%; right: 25%; }
+.d3 { top: 35%; left: 50%; }
+
+.logo{
+  width: 100px;
+  height: auto;
+}
+
+/* TITLE */
+.hero h1 {
+  font-family: "Times New Roman", serif;
+  font-size: clamp(2.4rem, 5vw, 3.2rem);
+  letter-spacing: 0.35em;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-bottom: 1.2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 span {
+  display: block;
+  font-weight: 300;
+}
+
+/* SUBTITLE */
+.subtitle {
+  font-size: 0.85rem;
+  letter-spacing: 0.25em;
+  opacity: 0.85;
+  margin-bottom: 2.2rem;
+  position: relative;
+  z-index: 1;
+  font-family: system-ui, sans-serif;
+  font-weight: 300;
+}
+
+/* BADGE */
+.badge {
+  padding: 0.6rem 1.6rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  border-radius: 999px;
+  color: #c9a24d;
+  border: 1px solid rgba(201,162,77,0.6);
+  background: linear-gradient(
+    180deg,
+    rgba(201,162,77,0.15),
+    rgba(201,162,77,0.05)
+  );
+  box-shadow:
+    inset 0 0 12px rgba(201,162,77,0.2),
+    0 0 20px rgba(201,162,77,0.15);
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+}
+
+
+/* ===== EVENT ===== */
+.event-section {
+  background: #fff;
+  padding: 4rem 1.5rem;
+  text-align: center;
+}
+
+.event-title {
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  font-family: "Times New Roman", serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.event-title .event-subtitle-gold {
+  font-weight: 300;
+  color: #c9a24d;
+  font-family: system-ui, sans-serif;
+  font-size: 0.9em;
+  letter-spacing: 0.15em;
+}
+
+.event-subtitle {
+  color: #777;
+  font-size: 0.9rem;
+  margin-bottom: 3rem;
+  letter-spacing: 0.05em;
+}
+
+/* GRID */
+.info-grid {
+  display: grid;
+  gap: 1.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* CARDS */
+.info-card {
+  padding: 2rem;
+  border-radius: 12px;
+  text-align: left;
+}
+
+.info-card h3 {
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.eternity {
+  color: #c9a24d;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  font-style: italic;
+}
+
+.light {
+  background: #fafafa;
+  border: 1px solid rgba(201,162,77,0.3);
+}
+
+.dark {
+  background: #111;
+  color: #fff;
+  border: 1px solid rgba(201,162,77,0.3);
+}
+
+.dark .info-card li::before {
+  color: #c9a24d;
+}
+
+.role {
+  color: #888;
+  margin-bottom: 1rem;
+}
+
+.info-card ul {
+  padding-left: 1.2rem;
+  list-style: none;
+}
+
+.info-card li {
+  margin-bottom: 0.75rem;
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: 1rem;
+}
+
+.info-card li::before {
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #c9a24d;
+}
+
+/* STATS */
+.stat {
+  margin-bottom: 1.5rem;
+}
+
+.value {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #c9a24d;
+  margin-bottom: 0.25rem;
+}
+
+.dark .value {
+  color: #c9a24d;
+}
+
+.label {
+  font-size: 0.8rem;
+  opacity: 0.85;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.note {
+  font-size: 0.8rem;
+  opacity: 0.75;
+  margin-top: 1.5rem;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+/* ===== RECOGNITION ===== */
+/* ===== RECOGNITION ===== */
+.recognition {
+  background: #0b0b0b;
+  color: #fff;
+  padding: 5rem 1.5rem;
+  text-align: center;
+}
+
+.recognition h2 {
+  font-family: "Times New Roman", serif;
+  letter-spacing: 0.25em;
+  font-size: clamp(2rem, 4vw, 2.6rem);
+  margin-bottom: 3.5rem;
+  color: #c9a24d;
+  text-transform: uppercase;
+}
+
+/* CERTIFICATE CARD */
+.certificate {
+  max-width: 520px;
+  margin: 0 auto;
+  border: 1px solid rgba(201,162,77,0.6);
+  background: #0d0d0d;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+}
+
+/* IMAGE FRAME */
+.cert-image-frame {
+  position: relative;
+  padding: 12px;
+  background: linear-gradient(
+    180deg,
+    rgba(201,162,77,0.35),
+    rgba(201,162,77,0.05)
+  );
+}
+
+.cert-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* CONTENT */
+.cert-content {
+  padding: 2.5rem 2rem 2rem;
+}
+
+.cert-name {
+  font-family: "Times New Roman", serif;
+  font-size: 1.6rem;
+  color: #c9a24d;
+  margin-bottom: 0.4rem;
+}
+
+.cert-role {
+  font-size: 0.9rem;
+  opacity: 0.85;
+  margin-bottom: 1.2rem;
+}
+
+.cert-receiving {
+  font-size: 0.75rem;
+  letter-spacing: 0.12em;
+  opacity: 0.6;
+  margin-bottom: 0.5rem
+}
+
+.cert-officials {
+  font-size: 0.75rem;
+  opacity: 0.7;
+  margin-bottom: 1.5rem;
+  color: #fff;
+}
+
+.cert-org {
+  font-size: 0.85rem;
+  color: #c9a24d;
+  margin-top: 0;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-family: system-ui, sans-serif;
+  border-top: 1px solid rgba(201,162,77,0.3);
+  background: rgba(201,162,77,0.05);
+}
+
+/* FOOT */
+.closing {
+  text-align: center;
+  letter-spacing: 0.2em;
+  font-size: 0.75rem;
+  padding: 3rem 1rem;
+  color: #777;
+}
+
+/* ===== DESKTOP ===== */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .info-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .event-section {
+    padding: 5rem 2rem;
+  }
+
+  .recognition {
+    padding: 5rem 2rem;
+  }
+
+  .cert-image-placeholder {
+    height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 5rem 1rem 4rem;
+    min-height: 60vh;
+  }
+
+  .hero h1 {
+    font-size: 2rem;
+    letter-spacing: 0.18em;
+  }
+
+  .corner {
+    font-size: 0.6rem;
+    top: 1rem;
+  }
+
+  .corner.left {
+    left: 1rem;
+  }
+
+  .corner.right {
+    right: 1rem;
+  }
+
+  .event-section {
+    padding: 3rem 1rem;
+  }
+
+  .recognition {
+    padding: 3rem 1rem;
+  }
+
+  .recognition h2 {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .cert-image-placeholder {
+    height: 250px;
+  }
+
+  .cert-content {
+    padding: 1.5rem;
+  }
+
+  .cert-name {
+    font-size: 1.2rem;
+  }
+}
+
+</style>

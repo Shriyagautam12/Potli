@@ -10,7 +10,7 @@
   <div class="content">
     <span class="badge">Accepting new projects</span>
     <h1>
-      Creating Potli <br />
+      Creating <br class="desktop-break" />
       brands that <span class="highlight">inspire.</span>
     </h1>
     <p>
@@ -23,7 +23,7 @@
   <!-- Video container on the right -->
   <div class="video-container">
     <video class="bg-video" autoplay loop muted playsinline>
-        <source src="/assets/bg.mp4" type="video/mp4" />
+      <source src="/assets/bg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
   </div>
@@ -37,11 +37,11 @@
     background: #c5b3a4;
     overflow: hidden;
     position: relative;
-    z-index: 1; /* Lowest z-index */
-    transform: translateZ(0); /* Force hardware acceleration and create stacking context */
-    isolation: isolate; /* Create new stacking context */
-    backface-visibility: hidden; /* Prevent flickering */
-    -webkit-backface-visibility: hidden; /* Safari support */
+    z-index: 1;
+    transform: translateZ(0);
+    isolation: isolate;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
   }
 
   .logo {
@@ -84,10 +84,10 @@
     display: inline-block;
     background: #b68b6f;
     color: white;
-    padding: 0.4rem 0.9rem;
-    border-radius: 1rem;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    padding: 0.5rem 1.2rem;
+    border-radius: 2rem;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
   }
 
   h1 {
@@ -95,6 +95,10 @@
     line-height: 1.1;
     margin: 0 0 1.5rem 0;
     font-weight: 600;
+  }
+
+  .desktop-break {
+    display: block;
   }
 
   .highlight {
@@ -113,7 +117,7 @@
     align-items: center;
     background: #111;
     color: white;
-    padding: 0.75rem 1.5rem;
+    padding: 0.9rem 1.8rem;
     border-radius: 2rem;
     text-decoration: none;
     font-weight: 500;
@@ -133,16 +137,18 @@
       height: 100vh;
       min-height: 100vh;
       justify-content: center;
+      padding: 0 1.5rem;
     }
 
     .logo {
-      width: 100px;
-      top: 1.5rem;
-      left: 1.5rem;
+      width: 120px;
+      top: 2rem;
+      left: 50%;
+      transform: translateX(-50%);
     }
 
     .content {
-      padding: 8rem 2rem 2rem 2rem;
+      padding: 0;
       text-align: center;
       max-width: 100%;
       display: flex;
@@ -151,9 +157,14 @@
       justify-content: center;
     }
 
+    .desktop-break {
+      display: none;
+    }
+
     .badge {
-      font-size: 0.85rem;
-      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+      padding: 0.6rem 1.4rem;
+      margin-bottom: 2rem;
     }
 
     .video-container {
@@ -161,45 +172,74 @@
     }
 
     h1 {
-      font-size: 2.5rem;
-      line-height: 1.2;
+      font-size: 2.8rem;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+    }
+
+    .highlight {
+      color: #8b7a64;
     }
 
     p {
-      font-size: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.65;
       max-width: 90%;
+      color: #5a5a5a;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn {
+      padding: 0.85rem 1.6rem;
+      font-size: 1rem;
     }
   }
 
   @media (max-width: 480px) {
-    .logo {
-      width: 80px;
-      top: 1rem;
-      left: 1rem;
+    .hero {
+      padding: 0 1.25rem;
     }
 
-    .content {
-      padding: 6rem 1.5rem 2rem 1.5rem;
+    .logo {
+      width: 100px;
+      top: 1.5rem;
     }
 
     .badge {
-      font-size: 0.75rem;
-      padding: 0.4rem 0.8rem;
+      font-size: 0.85rem;
+      padding: 0.55rem 1.2rem;
     }
 
     h1 {
-      font-size: 1.75rem;
-      margin-bottom: 1rem;
+      font-size: 2.2rem;
+      margin-bottom: 1.25rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      max-width: 95%;
+    }
+
+    .btn {
+      padding: 0.8rem 1.5rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  @media (max-width: 380px) {
+    .logo {
+      width: 85px;
+      top: 1.25rem;
+      left: 15%;
+    }
+
+    h1 {
+      font-size: 1.9rem;
     }
 
     p {
       font-size: 0.95rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .btn {
-      padding: 0.65rem 1.3rem;
-      font-size: 0.9rem;
     }
   }
 </style>
@@ -213,7 +253,6 @@
     const scrolled = window.pageYOffset;
     const hero = document.getElementById('hero');
     
-    // Only update if scroll has changed significantly
     if (Math.abs(scrolled - lastScrollY) < 1) {
       ticking = false;
       return;
@@ -221,14 +260,13 @@
     
     if (hero) {
       const heroHeight = hero.offsetHeight;
-      const parallaxSpeed = 0.3; // Reduced speed for smoother effect
+      const parallaxSpeed = 0.3;
       
-      if (scrolled < heroHeight * 1.2) { // Extended range for smoother transition
+      if (scrolled < heroHeight * 1.2) {
         const offset = scrolled * parallaxSpeed;
         hero.style.transform = `translate3d(0, ${offset}px, 0)`;
         hero.style.willChange = 'transform';
       } else {
-        // Clean reset when out of view
         hero.style.transform = 'translate3d(0, 0, 0)';
         hero.style.willChange = 'auto';
       }
@@ -246,13 +284,11 @@
   }
 
   if (typeof window !== 'undefined') {
-    // Throttle scroll events
     let scrollTimeout: ReturnType<typeof setTimeout> | undefined;
     window.addEventListener('scroll', () => {
       clearTimeout(scrollTimeout);
       requestTick();
       
-      // Clean up after scroll stops
       scrollTimeout = setTimeout(() => {
         const hero = document.getElementById('hero');
         if (hero) {
@@ -261,7 +297,6 @@
       }, 150);
     }, { passive: true });
     
-    // Initial call
     updateHeroParallax();
   
     window.addEventListener('beforeunload', () => {
