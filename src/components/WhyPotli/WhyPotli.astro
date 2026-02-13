@@ -2,17 +2,16 @@
 // WhyPotli.astro
 ---
 
-<section class="why-Potli">
-  <div class="container">
-    <h2 class="title">Why Potli?</h2>
-    <p class="subtitle">
+<section class="py-24 bg-white z-10">
+  <div class="px-24 py-12 flex flex-col items-center ">
+    <h2 class="text-5xl font-medium tracking-tight text-[#1a1a1a] text-center">Why Potli?</h2>
+    <p class="text-[#666] text-xl text-center mt-4 mb-16">
       Discover what sets us apart in the art of luxury branding.
     </p>
-
-    <div class="content-grid">
+    <div class="grid grid-cols-3 items-stretch gap-6">
       <!-- Row 1: Top three cards -->
-      <div class="feature-card collaboration-card">
-        <h3 class="featTitile">Seamless collaboration</h3>
+      <div class="rounded-3xl  relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee]">
+        <h3 class="text-5xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Seamless collaboration</h3>
         <div class="hands-image" id="handsBox">
           <img
             src="/assets/leftHand.avif"
@@ -28,9 +27,9 @@
       </div>
 
       <!-- Brand Portfolio -->
-      <div class="feature-card portfolio-card">
-        <div class="brands-showcase">
-          <div class="brand-circle circle-1">
+      <div class="rounded-3xl  relative min-h-[600px] flex flex-col items-center justify-between bg-[#f3f0ee] ">
+        <div class="brands-showcase animate-[spin_20s_linear_infinite]">
+          <div class="brand-circle circle-1  ">
             <img src="/assets/bag.avif" alt="Brand logo" />
           </div>
           <div class="brand-circle circle-2">
@@ -55,12 +54,12 @@
             <img src="/assets/watch.avif" alt="Brand logo" />
           </div>
         </div>
-        <h3>Over 100+ brands transformed</h3>
+        <h3 class="text-4xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Over 45+ brands transformed</h3>
       </div>
 
       <!-- Elevated Brand Identity -->
-      <div class="feature-card identity-card">
-        <h3>Elevated brand identity</h3>
+      <div class="rounded-3xl  relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee] ">
+        <h3 class="text-4xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Elevated brand identity</h3>
         <div class="tork-logo">
           <img src="/assets/black_potli.png" alt="Potli Logo"  />
         </div>
@@ -68,7 +67,7 @@
 
       <!-- Row 2: Swift turnaround + Strategic storytelling (spans 2 columns) -->
       <!-- Swift Turnaround -->
-      <div class="feature-card image-card">
+      <div class="rounded-3xl  relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee] image-card">
         <img src="/assets/work.avif" alt="Swift Turnaround" />
         <div class="overlay">
           <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
@@ -80,8 +79,8 @@
       </div>
 
       <!-- Strategic storytelling (spans 2 columns) -->
-      <div class="feature-card text-card span-2">
-        <h3>Strategic storytelling</h3>
+      <div class="rounded-3xl  relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee] text-card col-span-2">
+        <h3 class="text-5xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Strategic storytelling</h3>
         <p>
           <span class="dropcap">E</span>very great brand begins with a story, but not all stories are created equal. 
           At Potli, we believe storytelling is the bridge between your brand and your 
@@ -94,8 +93,7 @@
     </div>
   </div>
 </section>
-
-<script>
+<!-- <script>
   // Run only in the browser
   if (typeof window !== "undefined") {
     const handsBox = document.getElementById("handsBox");
@@ -115,83 +113,15 @@
 
     if (handsBox) observer.observe(handsBox);
   }
-</script>
-
+</script> -->
 <style>
-  .why-Potli {
-    padding: 100px 0;
-    background-color: #ffffff;
-  }
-
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .title {
-    font-size: 3.5rem;
-    font-weight: 500;
-    text-align: center;
-    color: #1a1a1a;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .subtitle {
-    font-size: 1.125rem;
-    color: #666;
-    text-align: center;
-    margin-bottom: 80px;
-    font-weight: 400;
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .span-2 {
-    grid-column: span 2;
-  }
-
-  .feature-card {
-    background: #f8f8f8;
-    border-radius: 24px;
-    text-align: left;
-    position: relative;
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 40px;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  }
-
-  .feature-card h3 {
-    font-size: 32px;
-    font-weight: 500;
-    color: #1a1a1a;
-    margin: 0;
-    line-height: 1.3;
-  }
 
 
-  /* Collaboration Card */
-  .collaboration-card {
-    background: #f5f5f5;
-    overflow: hidden;
-  }
+
+
+
+
+
 
   /* Base styles */
   .hands-image {
@@ -224,33 +154,6 @@
     max-height: 95px;
   }
 
-  /* When visible -> hands move closer */
-  .animate-hands .left-hand {
-    transform: translateX(80px);
-  }
-
-  .animate-hands .right-hand {
-    transform: translateX(-160px);
-  }
-
-  /* Keyframes */
-  @keyframes moveLeftHand {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(140px);
-    }
-  }
-
-  @keyframes moveRightHand {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-140px);
-    }
-  }
 
   /* Portfolio Card */
   .portfolio-card {
@@ -267,7 +170,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: rotateCircle 20s linear infinite;
   }
 
   .brand-circle {
@@ -324,10 +226,6 @@
     }
   }
 
-  /* Identity Card */
-  .identity-card {
-    background: #f5f5f5;
-  }
 
   .tork-logo {
     flex: 1;

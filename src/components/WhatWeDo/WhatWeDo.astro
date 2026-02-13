@@ -2,14 +2,14 @@
 // WhatWeDo.astro
 ---
 
-<section class="what-we-do">
-  <div class="container">
-    <h2 class="title">What we do</h2>
-    <p class="subtitle">Bespoke services are designed to elevate your brand.</p>
+<section class="bg-[#fafafa] py-20 z-10">
+  <div class="mx-auto px-6">
+    <h2 class="text-5xl font-medium tracking-tight text-[#1a1a1a] text-center">What we do</h2>
+    <p class="text-[#666] text-xl text-center mt-4 mb-16">Bespoke services are designed to elevate your brand.</p>
     
-    <div class="services-grid">
-      <div class="service-card">
-        <div class="icon-wrapper">
+    <div class="grid grid-cols-3 max-w-6xl gap-8 mx-auto ">
+      <div class="bg-[#f3f0ee] py-10 px-8 rounded-2xl">
+        <div class="flex h-14 w-14 bg-[#a1806f] rounded-full text-white items-center justify-center mb-10">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M16 3h5v5"></path>
             <path d="m21 3-7 7"></path>
@@ -17,144 +17,33 @@
             <path d="m3 21 7-7"></path>
           </svg>
         </div>
-        <h3>Brand Strategy</h3>
-        <p>Developing a tailored roadmap that defines your brand's voice, vision, and positioning in the luxury market.</p>
+        <h3 class="text-xl tracking-tight font-semibold text-[#1a1a1a] mb-4">Brand Strategy</h3>
+        <p class="text-lg text-[#666]   ">Developing a tailored roadmap that defines your brand's voice, vision, and positioning in the luxury market.</p>
       </div>
       
-      <div class="service-card">
-        <div class="icon-wrapper">
+      <div class="bg-[#f3f0ee] py-10 px-8 rounded-2xl">
+        <div class="flex h-14 w-14 bg-[#a1806f] rounded-full text-white items-center justify-center mb-10">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
             <circle cx="12" cy="12" r="3"></circle>
           </svg>
         </div>
-        <h3>Visual Identity</h3>
-        <p>Creating iconic logos, color palettes, and design elements that embody your brand's unique character.</p>
+        <h3 class="text-xl tracking-tight font-semibold text-[#1a1a1a] mb-4">Visual Identity</h3>
+        <p class="text-lg text-[#666]   ">Creating iconic logos, color palettes, and design elements that embody your brand's unique character.</p>
       </div>
       
-      <div class="service-card">
-        <div class="icon-wrapper">
+      <div class="bg-[#f3f0ee] py-10 px-8 rounded-2xl">
+        <div class="flex h-14 w-14 bg-[#a1806f] rounded-full text-white items-center justify-center mb-10">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <path d="M7 8h10"></path>
             <path d="M7 12h4"></path>
             <path d="M7 16h9"></path>
           </svg>
         </div>
-        <h3>Brand Messaging</h3>
-        <p>Crafting compelling messages that resonate with discerning clients and strengthens brand loyalty.</p>
+        <h3 class="text-xl tracking-tight font-semibold text-[#1a1a1a] mb-4">Brand Messaging</h3>
+        <p class="text-lg text-[#666]   ">Crafting compelling messages that resonate with discerning clients and strengthens brand loyalty.</p>
       </div>
     </div>
   </div>
 </section>
 
-<style>
-  .what-we-do {
-    padding: 80px 0;
-    background-color: #fafafa;
-  }
-
-  .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .title {
-    font-size: 3rem;
-    font-weight: 600;
-    text-align: center;
-    color: #1a1a1a;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .subtitle {
-    font-size: 1.125rem;
-    color: #666;
-    text-align: center;
-    margin-bottom: 64px;
-    font-weight: 400;
-  }
-
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 32px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-
-  .service-card {
-    background: white;
-    border-radius: 16px;
-    padding: 40px 32px;
-    text-align: left;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-  }
-
-  .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  }
-
-  .icon-wrapper {
-    width: 56px;
-    height: 56px;
-    background-color: #a68b73;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 24px;
-    color: white;
-  }
-
-  .service-card h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1a1a1a;
-    margin-bottom: 16px;
-    line-height: 1.3;
-  }
-
-  .service-card p {
-    font-size: 1rem;
-    color: #666;
-    line-height: 1.6;
-    margin: 0;
-  }
-
-  @media (max-width: 768px) {
-    .what-we-do {
-      padding: 60px 0;
-    }
-
-    .title {
-      font-size: 2.5rem;
-    }
-
-    .services-grid {
-      grid-template-columns: 1fr;
-      gap: 24px;
-    }
-
-    .service-card {
-      padding: 32px 24px;
-    }
-
-    .container {
-      padding: 0 16px;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .title {
-      font-size: 2rem;
-    }
-
-    .subtitle {
-      margin-bottom: 48px;
-    }
-  }
-</style>

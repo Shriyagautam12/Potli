@@ -1,221 +1,53 @@
 ---
 // Testimonial.astro
+import {Star} from "@lucide/astro"
 ---
 
-<section class="testimonial-section" id="testimonial">
-  <div class="testimonial-content">
-    <div class="stars">
-      ★★★★★
+<section class="bg-[#EFEAE5] py-28 z-10" id="testimonial">
+  <div class=" flex flex-col items-center gap-4">
+    <div class="flex gap-1">
+
+      <Star size={"30px"}  fill="#000"/>
+      <Star size={"30px"} fill="#000"/>
+      <Star size={"30px"} fill="#000"/>
+      <Star size={"30px"} fill="#000"/>
+      <Star size={"30px"} fill="#000"/>
     </div>
-    <h2>
-      Potli transformed our brand into a powerful 
-      presence allowing us to <span class="highlight-gray">work with the best.</span>
+    <h2 class="text-5xl font-medium tracking-tight text-center">
+      Potli transformed our brand into a powerful <br>
+      presence allowing us to <span class="text-[#696765]">work with the best.</span>
     </h2>
-    <p class="author">– Luxe & Co.</p>
+    <p class="text-[#696765] text-lg font-medium">– Luxe & Co.</p>
   </div>
 
-  <div class="brands-section">
-    <p class="brands-text">Elevating brands that define luxury and excellence:</p>
+  <div class="mt-12 flex flex-col gap-8">
+    <p class="text-xl font-light text-center text-[#696765] ">Elevating brands that define luxury and excellence:</p>
     
-   <div class="carousel-container">
-  <div class="carousel">
-    <!-- IMAGE LOGOS -->
-    <img src="/assets/111skin.jpg" alt="111Skin" class="logo-img" />
-    <img src="/assets/logo_brand.jpg" alt="Brand 2" class="logo-img" />
-    <img src="/assets/lulu.png" alt="Brand 3" class="logo-img" />
-     <img src="/assets/2.png" alt="Brand 3" class="logo-img" />
-      <img src="/assets/3.png" alt="Brand 3" class="logo-img" />
+   <div class="w-fit mx-auto relative flex overflow-x-hidden">
+  <div class="flex gap-4 justify-center animate-marquee py-12 whitespace-nowrap">
 
-    <!-- DUPLICATE FOR LOOP -->
-    <img src="/assets/111skin.jpg" alt="111Skin" class="logo-img" />
-    <img src="/assets/logo_brand.jpg" alt="Brand 2" class="logo-img" />
-    <img src="/assets/lulu.png" alt="Brand 3" class="logo-img" />
-  </div>
+    <img src="/assets/111Skin.png" alt="111Skin" class="h-[60px]" />
+    <img src="/assets/logo_brand.jpg" alt="Brand 2" class="h-[60px]" />
+    <img src="/assets/lulu.png" alt="Brand 3" class="h-[60px]" />
+     <img src="/assets/2.png" alt="Brand 3" class="h-[60px]" />
+      <img src="/assets/3.png" alt="Brand 3" class="h-[60px]" />
+</div>
+  <div class="flex gap-4 justify-center absolute top-0 animate-marquee2 py-12 whitespace-nowrap">
+
+    <img src="/assets/111Skin.png" alt="111Skin" class="h-[60px]" />
+    <img src="/assets/logo_brand.jpg" alt="Brand 2" class="h-[60px]" />
+    <img src="/assets/lulu.png" alt="Brand 3" class="h-[60px]" />
+     <img src="/assets/2.png" alt="Brand 3" class="h-[60px]" />
+      <img src="/assets/3.png" alt="Brand 3" class="h-[60px]" />
+</div>
+
 </div>
 
   </div>
 </section>
 
-<style>
-  .testimonial-section {
-    min-height: 80vh; /* Reduced from 100vh */
-    background: #f5f1ed;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem 2rem; /* Reduced padding */
-    position: relative;
-    z-index: 5; /* Higher than hero but lower than what-we-do */
-    transform: translateZ(0); /* Force hardware acceleration and create stacking context */
-    isolation: isolate; /* Create new stacking context */
-    backface-visibility: hidden; /* Prevent flickering */
-    -webkit-backface-visibility: hidden; /* Safari support */
-  }
 
-  .testimonial-content {
-    text-align: center;
-    max-width: 900px;
-    margin-bottom: 2rem; /* Reduced from 4rem */
-  }
-
-  .stars {
-    font-size: 2rem;
-    color: #111;
-    margin-bottom: 2rem;
-    letter-spacing: 0.2rem;
-  }
-
-  h2 {
-    font-size: 2.5rem;
-    line-height: 1.2;
-    color: #111;
-    margin-bottom: 2rem;
-    font-weight: 500;
-  }
-
-  .highlight-gray {
-    color: #888;
-  }
-
-  .author {
-    font-size: 1.1rem;
-    color: #666;
-    font-style: italic;
-    margin-bottom: 0;
-  }
-
-  .brands-section {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    text-align: center;
-  }
-
-  .brands-text {
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 2rem; /* Reduced from 3rem */
-  }
-
-  .carousel-container {
-  width: 60%;
-  overflow: hidden;
-}
-
-.carousel {
-  display: flex;
-  align-items: center;
-  gap: 4rem;
-  width: max-content;
-  animation: scroll 25s linear infinite;
-}
-
-/* IMAGE LOGOS */
-.logo-img {
-  height: 60px;
-  width: auto;
-  object-fit: contain;
-  opacity: 0.7;
-  transition: opacity 0.3s ease, transform 0.3s ease;
-}
-
-.logo-img:hover {
-  opacity: 1;
-  transform: scale(1.05);
-}
-
-@keyframes scroll {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
-
-  .brand-logo {
-    font-size: 1.8rem;
-    color: #333;
-    white-space: nowrap;
-    opacity: 0.7;
-    transition: opacity 0.3s ease;
-  }
-
-  .brand-logo:hover {
-    opacity: 1;
-  }
-
-  .brand-logo.script {
-    font-style: italic;
-    font-family: cursive;
-  }
-
-  .brand-logo.dots {
-    font-size: 2.5rem;
-    letter-spacing: 0.5rem;
-  }
-
-  .brand-logo.bold {
-    font-weight: 900;
-    font-size: 2.2rem;
-    background: #111;
-    color: white;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-  }
-
-  @keyframes scroll {
-    0% {
-      transform: translateX(0);
-    }
-    100% {
-      transform: translateX(-50%);
-    }
-  }
-
-  /* Responsive design */
-  @media (max-width: 768px) {
-    h2 {
-      font-size: 2rem;
-    }
-
-    .carousel {
-      gap: 2rem;
-    }
-
-    .brand-logo {
-      font-size: 1.4rem;
-    }
-
-    .testimonial-section {
-      padding: 3rem 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    h2 {
-      font-size: 1.6rem;
-    }
-
-    .brand-logo {
-      font-size: 1.2rem;
-    }
-
-    .carousel {
-      gap: 1.5rem;
-    }
-  }
-</style>
-
-<script>
+<!-- <script>
   // Optimized counter-parallax effect for testimonial section
   let ticking = false;
   let lastScrollY = 0;
@@ -277,4 +109,4 @@
       window.removeEventListener('scroll', requestTick);
     });
   }
-</script>
+</script> -->
