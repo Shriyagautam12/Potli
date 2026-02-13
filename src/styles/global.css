@@ -28,6 +28,10 @@
 * {
   box-sizing: border-box;
 }
+body{
+  width: 100%;
+  overflow-x: hidden;
+}
 
 html.has-scroll-smooth,
 .has-scroll-smooth body {

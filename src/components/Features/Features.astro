@@ -1,57 +1,46 @@
 ---
 // FeaturesBasic.astro
 // Using icons from Tabler Icons (you can swap with any SVG/icon set you prefer)
+import {TextAlignJustify,LayoutGrid,User} from "@lucide/astro"
 ---
 
 <section class="pb-48 pt-12 z-20 relative bg-white">
   <div class="w-4/5 mx-auto">
     <!-- Heading -->
     <div class="">
-      <h2 class="text-5xl font-medium tracking-tight text-[#1a1a1a] text-center">Going beyond the basics</h2>
+      <h2 class="text-4xl font-medium tracking-tight text-[#1a1a1a] text-center">Going beyond the basics</h2>
       <p class="text-[#666] text-xl text-center mt-4 mb-20">
         Extraordinary features that elevate your branding experience and deliver lasting results.
       </p>
     </div>
 
     <!-- Features grid -->
-    <div class="grid grid-cols-3 gap-16">
+    <div id="feature-container" class="grid grid-cols-3 gap-16">
       <!-- Feature 1 -->
-      <div class="flex flex-col items-center gap-4">
+      <div class="feature-card flex flex-col items-center gap-4">
         <div class="icon">
           <!-- Menu Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <line x1="3" y1="12" x2="21" y2="12"/>
-            <line x1="3" y1="6" x2="21" y2="6"/>
-            <line x1="3" y1="18" x2="21" y2="18"/>
-          </svg>
+          <TextAlignJustify size="40px"/>
         </div>
         <h3 class="font-medium text-lg">Dedicated Client Portal</h3>
         <p class="text-[#818181] text-center">Track progress and collaborate through our client portal.</p>
       </div>
 
       <!-- Feature 2 -->
-      <div class="flex flex-col items-center gap-4">
+      <div class="feature-card flex flex-col items-center gap-4">
         <div class="icon">
           <!-- Vector Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <rect x="3" y="3" width="6" height="6"/>
-            <rect x="15" y="3" width="6" height="6"/>
-            <rect x="3" y="15" width="6" height="6"/>
-            <rect x="15" y="15" width="6" height="6"/>
-          </svg>
+          <LayoutGrid size="40px"/>
         </div>
         <h3 class="font-medium text-lg">Bespoke Brand Guidelines</h3>
         <p class="text-[#818181] text-center">Get a detailed guide to keep your brand consistent across every platform.</p>
       </div>
 
       <!-- Feature 3 -->
-      <div class="flex flex-col items-center gap-4">
+      <div class="feature-card flex flex-col items-center gap-4">
         <div class="icon">
           <!-- User Icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="7" r="4"/>
-            <path d="M5.5 21a7.5 7.5 0 0 1 13 0"/>
-          </svg>
+          <User size="40px"/>
         </div>
         <h3 class="font-medium text-lg">Post-Launch Support</h3>
         <p class="text-[#818181] text-center">We’re here to help refine and adapt your brand as your business evolves.</p>
@@ -59,56 +48,3 @@
     </div>
   </div>
 </section>
-
-<!-- <style>
-.features-basic {
-  padding: 4rem 1rem;
-  text-align: center;
-}
-
-.container {
-  max-width: 1100px;
-  margin: 0 auto;
-}
-
-.heading h2 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.heading p {
-  font-size: 1.1rem;
-  color: #666;
-  margin-bottom: 3rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 2rem;
-}
-
-.feature {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-}
-
-.icon {
-  margin-bottom: 1rem;
-}
-
-.feature h3 {
-  font-size: 1.1rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-}
-
-.feature p {
-  color: #666;
-  font-size: 0.95rem;
-  max-width: 280px;
-}
-</style> -->

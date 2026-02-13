@@ -24,7 +24,7 @@ import {Star} from "@lucide/astro"
     <p class="text-xl font-light text-center text-[#696765] ">Elevating brands that define luxury and excellence:</p>
     
    <div class="w-fit mx-auto relative flex overflow-x-hidden">
-  <div class="flex gap-4 justify-center animate-marquee py-6 whitespace-nowrap">
+  <div class="flex gap-16 px-8 justify-center animate-marquee py-6 whitespace-nowrap">
 
     <img src="/assets/111Skin.png" alt="111Skin" class="h-[60px]" />
     <img src="/assets/logo_brand.jpg" alt="Brand 2" class="h-[60px]" />
@@ -32,7 +32,7 @@ import {Star} from "@lucide/astro"
      <img src="/assets/2.png" alt="Brand 3" class="h-[60px]" />
       <img src="/assets/3.png" alt="Brand 3" class="h-[60px]" />
 </div>
-  <div class="flex gap-4 justify-center absolute top-0 animate-marquee2 py-6 whitespace-nowrap">
+  <div class="flex gap-16 px-8 justify-center absolute top-0 animate-marquee2 py-6 whitespace-nowrap">
 
     <img src="/assets/111Skin.png" alt="111Skin" class="h-[60px]" />
     <img src="/assets/logo_brand.jpg" alt="Brand 2" class="h-[60px]" />
@@ -45,68 +45,3 @@ import {Star} from "@lucide/astro"
 
   </div>
 </section>
-
-
-<!-- <script>
-  // Optimized counter-parallax effect for testimonial section
-  let ticking = false;
-  let lastScrollY = 0;
-
-  function updateTestimonialParallax() {
-    const scrolled = window.pageYOffset;
-    const testimonial = document.getElementById('testimonial') as HTMLElement;
-    const hero = document.querySelector('#hero') as HTMLElement;
-    
-    // Only update if scroll has changed significantly
-    if (Math.abs(scrolled - lastScrollY) < 1) {
-      ticking = false;
-      return;
-    }
-    
-    if (testimonial && hero) {
-      const heroHeight = hero.offsetHeight;
-      
-      if (scrolled > heroHeight * 0.05) { // Start earlier for smoother transition
-        const testimonialOffset = (scrolled - heroHeight * 0.05) * 0.4; // Further reduced intensity
-        testimonial.style.transform = `translate3d(0, -${testimonialOffset}px, 0)`;
-        testimonial.style.willChange = 'transform';
-      } else {
-        testimonial.style.transform = 'translate3d(0, 0, 0)';
-        testimonial.style.willChange = 'auto';
-      }
-    }
-    
-    lastScrollY = scrolled;
-    ticking = false;
-  }
-
-  function requestTick() {
-    if (!ticking) {
-      requestAnimationFrame(updateTestimonialParallax);
-      ticking = true;
-    }
-  }
-
-  if (typeof window !== 'undefined') {
-    // Throttle scroll events
-    let scrollTimeout: ReturnType<typeof setTimeout> | undefined;
-    window.addEventListener('scroll', () => {
-      clearTimeout(scrollTimeout);
-      requestTick();
-      
-      // Clean up after scroll stops
-      scrollTimeout = setTimeout(() => {
-        const testimonial = document.getElementById('testimonial') as HTMLElement;
-        if (testimonial) {
-          testimonial.style.willChange = 'auto';
-        }
-      }, 150);
-    }, { passive: true });
-    
-    updateTestimonialParallax();
-    
-    window.addEventListener('beforeunload', () => {
-      window.removeEventListener('scroll', requestTick);
-    });
-  }
-</script> -->
