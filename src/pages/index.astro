@@ -55,15 +55,17 @@ import Awards from '../components/Awards/Awards.astro';
   //why potli section animation
   const grid=document.getElementById("whyPotliGrid")
   const hand1=document.getElementById("left-hand")
+  const handdiv=document.getElementById("hand-div")
   const hand2=document.getElementById("right-hand")
   const spinner=document.getElementById("spinner")
+  const spinnerdiv=document.getElementById("spinner-div")
   const imagediv=document.getElementById("whyPotliImageDiv")
   const whyPotliImage=document.getElementById("whyPotliImage")
 
   gsap.from(hand1,{
 	xPercent:-40,
 	scrollTrigger:{
-		trigger:grid,
+		trigger:handdiv,
 		start:"top 100%",
 		end:"80% 100%",
 		scrub:1,
@@ -83,7 +85,7 @@ import Awards from '../components/Awards/Awards.astro';
   gsap.from(spinner,{
 	scale:1.4,
 	scrollTrigger:{
-		trigger:grid,
+		trigger:spinnerdiv,
 		start:"top 100%",
 		end:"80% 100%",
 		scrub:1,

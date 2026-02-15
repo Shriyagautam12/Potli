@@ -33,14 +33,14 @@ const faqs = [
 
 <section class="w-full mx-auto px-4 py-16 text-center z-20 relative bg-white pb-36">
   <h2 class="text-4xl font-medium tracking-tight text-[#1a1a1a] text-center">Frequently asked questions</h2>
-  <p class="text-[#666] text-xl text-center mt-4 mb-16">We’ve answered your top questions to show how we can transform your brand.</p>
+  <p class="text-[#666] text-base md:text-xl text-center mt-2 md:mt-4 mb-16 md:w-auto w-4/5 mx-auto">We’ve answered your top questions to show how we can transform your brand.</p>
 
-  <div class="w-3/5 mx-auto text-left">
+  <div class="w-[90%] md:w-3/5 mx-auto text-left">
     {faqs.map((faq, index) => (
       <details class="border-b border-[#eee] py-4 group">
-        <summary class="cursor-pointer flex justify-between font-medium text-lg outline-0 list-none">
+        <summary class="cursor-pointer flex items-center justify-between font-medium text-lg outline-0 list-none">
           {faq.question}
-          <ChevronDown size="24px" class="group-open:rotate-180 transform transition-all duration-[350ms] ease-in-out"/>
+          <ChevronDown  class="group-open:rotate-180 min-w-6 transform transition-all duration-[350ms] ease-in-out"/>
         </summary>
         <p class="text-[#818181] mt-2 ">{faq.answer}</p>
       </details>

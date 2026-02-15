@@ -3,10 +3,10 @@
 import {ArrowRight} from "@lucide/astro";
 ---
 
-<section class="hero z-20 relative h-screen w-full overflow-hidden text-[#111]">
+<section class="hero z-20 relative h-screen w-full bg-[#BEAB9A] overflow-hidden text-[#111]">
   <div class="absolute top-1/2 left-1/2 -translate-1/2 w-full">
-    <div class="h-[500px] bg-[#BEAB9A]"></div>
-      <video autoplay loop muted playsinline class=" min-w-full min-h-full  object-cover">
+    <div class="h-[500px] "></div>
+      <video autoplay loop muted playsinline class="md:block hidden min-w-full min-h-full  object-cover">
         <source src="/assets/footer.mp4" type="video/mp4" />
           Your browser does not support the video tag.
         </video>
@@ -16,9 +16,9 @@ import {ArrowRight} from "@lucide/astro";
     Your browser does not support the video tag.
   </video> -->
 
-  <div class="relative z-[1]  flex flex-col justify-between h-full p-8">
+  <div class="relative z-20  flex flex-col justify-between h-full p-8">
     <div class="text-center mt-20 items-center flex flex-col">
-      <h2 class="text-6xl font-medium tracking-tight">
+      <h2 class="text-5xl md:text-6xl font-medium tracking-tight">
         Create a brand that <br />
         stands the test of <span class="text-[#574F48]">time.</span>
       </h2>
@@ -29,5 +29,8 @@ import {ArrowRight} from "@lucide/astro";
     <div class="bg-white w-12 h-12 -z-10  group-hover:w-[calc(100%-0.5rem)] group-hover:h-[calc(100%-0.5rem)] transition-[width,height] duration-700 ease-in-out flex absolute rounded-full right-1 top-1/2 -translate-y-1/2 will-change-[width,height]"></div>
   </a>
     </div>
-  </div>
+  </div><video class="block md:hidden absolute z-10 bottom-0 left-1/2 -translate-x-1/2 translate-y-2/5 rotate-90 h-[500px] w-auto max-w-none pointer-events-none" autoplay loop muted playsinline>
+      <source src="/assets/bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
 </section>

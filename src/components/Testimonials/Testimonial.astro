@@ -60,7 +60,7 @@ const testimonials = [
               {testimonials[0].author} from {testimonials[0].company}
             </div>
           </div>
-          <div class="testimonial-navigation absolute bottom-0 right-10">
+          <div class="testimonial-navigation static mt-4 md:absolute  md:bottom-0 md:right-10">
         <button class="nav-button prev" id="prev-btn" aria-label="Previous testimonial">
           <ChevronLeft size="24px"/>
         </button>
@@ -198,6 +198,8 @@ const testimonials = [
   .testimonial-navigation {
 
     display: flex;
+    align-items: center;
+    justify-content: center;
     gap: 16px;
   }
 

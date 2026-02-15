@@ -4,14 +4,14 @@ import {Clock4} from "@lucide/astro"
 ---
 
 <section class="py-24 bg-white z-20 relative">
-  <div class="px-24 py-12 flex flex-col items-center ">
+  <div class=" py-12 flex flex-col items-center ">
     <h2 class="text-4xl font-medium tracking-tight text-[#1a1a1a] text-center">Why Potli?</h2>
-    <p class="text-[#666] text-xl text-center mt-4 mb-16">
+    <p class="text-[#666] text-xl text-center mt-2 md:mt-4 mb-16 md:w-auto w-4/5 mx-auto">
       Discover what sets us apart in the art of luxury branding.
     </p>
-    <div id="whyPotliGrid" class="grid grid-cols-3 items-stretch gap-6">
+    <div id="whyPotliGrid" class="grid grid-cols-1 md:grid-cols-3 items-stretch gap-6 w-[90%] mx-auto">
       <!-- Row 1: Top three cards -->
-      <div class="rounded-3xl overflow-hidden relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee]">
+      <div id="hand-div" class="rounded-3xl overflow-hidden relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee]">
         <h3 class="text-5xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Seamless collaboration</h3>
         <div class="overflow-hidden" id="handsBox">
           <img
@@ -30,7 +30,7 @@ import {Clock4} from "@lucide/astro"
       </div>
 
       <!-- Brand Portfolio -->
-      <div class="rounded-3xl  relative min-h-[600px] flex flex-col items-center justify-between bg-[#f3f0ee] pt-20">
+      <div id="spinner-div" class="rounded-3xl  relative min-h-[600px] flex flex-col items-center justify-between bg-[#f3f0ee] pt-20">
         <div id="spinner" class="relative h-[280px] w-[280px]">
           <div class="absolute inset-0 flex items-center justify-center animate-[spin_40s_linear_infinite] origin-center ">
           <div class="absolute  top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(0deg)_translate(120px)_rotate(0deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18 ">
@@ -63,7 +63,7 @@ import {Clock4} from "@lucide/astro"
       </div>
 
       <!-- Elevated Brand Identity -->
-      <div class="rounded-3xl  relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee] ">
+      <div id="logo-div" class="rounded-3xl  relative min-h-[400px] md:min-h-[600px] flex flex-col justify-between bg-[#f3f0ee] ">
         <h3 class="text-4xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Elevated brand identity</h3>
         <div class="tork-logo">
           <img src="/assets/black_potli.png" alt="Potli Logo"  />
@@ -81,9 +81,9 @@ import {Clock4} from "@lucide/astro"
       </div>
 
       <!-- Strategic storytelling (spans 2 columns) -->
-      <div class="rounded-3xl px-10 py-8 relative h-[400px] flex flex-col justify-between bg-[#f3f0ee] text-card col-span-2">
-        <h3 class="text-5xl   tracking-tight font-medium text-[#1a1a1a]">Strategic storytelling</h3>
-        <p class="font-[Georgia] text-xl text-[#666]">
+      <div class="rounded-3xl px-10 py-8 relative overflow-y-hidden h-[400px] flex flex-col justify-between bg-[#f3f0ee] text-card md:col-span-2">
+        <h3 class="text-5xl pb-8  md:pb-0 tracking-tight font-medium text-[#1a1a1a]">Strategic storytelling</h3>
+        <p class="font-[Georgia] text-base md:text-xl text-[#666]">
           <span class="dropcap">E</span>very great brand begins with a story, but not all stories are created equal. 
           At Potli, we believe storytelling is the bridge between your brand and your 
           audience, a way to resonate deeply and leave a lasting impression. We dive into 
