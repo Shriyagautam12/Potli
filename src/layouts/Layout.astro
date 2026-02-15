@@ -1,7 +1,6 @@
 ---
 import '../styles/global.css'
 import 'locomotive-scroll/dist/locomotive-scroll.css'
-import locoscrollScript from '../scripts/locoscroll.js?url'
 ---
 
 <!doctype html>
@@ -18,7 +17,38 @@ import locoscrollScript from '../scripts/locoscroll.js?url'
 			<slot />
 		</main>
 
-		<script type="module" src={locoscrollScript}></script>
+		<script>
+			// @ts-nocheck
+			import LocomotiveScroll from "locomotive-scroll";
+
+			const initScroll = () => {
+				const container = document.querySelector("[data-scroll-container]");
+				if (!container) return;
+
+				const scroll = new LocomotiveScroll({
+					lenisOptions: {
+						lerp: 0.1,
+						smoothWheel: true,
+						wheelMultiplier: 1,
+						touchMultiplier: 1.2,
+					},
+				});
+
+				window.addEventListener("resize", () => {
+					if (typeof scroll.resize === "function") scroll.resize();
+				});
+			};
+
+			const start = () => requestAnimationFrame(initScroll);
+
+			if (document.readyState === "complete") {
+				start();
+			} else {
+				window.addEventListener("load", start, { once: true });
+			}
+
+			document.addEventListener("astro:page-load", start);
+		</script>
 	</body>
 </html>
 
