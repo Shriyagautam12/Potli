@@ -1,23 +1,27 @@
 import LocomotiveScroll from "locomotive-scroll";
 
 const initScroll = () => {
-  const container = document.querySelector("[data-scroll-container]");
-  if (!container) return;
-
   if (window.__locomotiveScroll) {
     window.__locomotiveScroll.destroy();
   }
 
   const scroll = new LocomotiveScroll({
-    el: container,
-    smooth: true,
-    smoothMobile: true,
-    multiplier: 1,
-    lerp: 0.1,
+    lenisOptions: {
+      lerp: 0.1,
+      smoothWheel: true,
+      smoothTouch: true,
+      wheelMultiplier: 1,
+      touchMultiplier: 1.2,
+    },
   });
 
   window.__locomotiveScroll = scroll;
-  window.addEventListener("resize", () => scroll.update());
+  if (window.__locomotiveResizeHandler) {
+    window.removeEventListener("resize", window.__locomotiveResizeHandler);
+  }
+
+  window.__locomotiveResizeHandler = () => scroll.update();
+  window.addEventListener("resize", window.__locomotiveResizeHandler);
 };
 
 const start = () => {

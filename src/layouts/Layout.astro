@@ -1,6 +1,7 @@
 ---
 import '../styles/global.css'
 import 'locomotive-scroll/dist/locomotive-scroll.css'
+import locoscrollScript from '../scripts/locoscroll.js?url'
 ---
 
 <!doctype html>
@@ -17,7 +18,7 @@ import 'locomotive-scroll/dist/locomotive-scroll.css'
 			<slot />
 		</main>
 
-		<script type="module" src="/src/scripts/locoscroll.js"></script>
+		<script type="module" src={locoscrollScript}></script>
 	</body>
 </html>
 
