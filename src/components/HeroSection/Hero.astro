@@ -3,7 +3,7 @@
 import {ArrowRight} from "@lucide/astro";
 ---
 
-<section data-hero-sticky class="h-screen flex flex-col gap-20 md:gap-0 text-black bg-[#BEAB9A] w-full z-10 overflow-hidden">
+<section data-hero-sticky class="h-screen flex flex-col gap-20 md:gap-0 text-black bg-[#C7A697] md:bg-[#BEAB9A] w-full z-10 overflow-hidden">
   <!-- Logo in top left corner -->
   <img src="/assets/logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pl-8 md:pt-0 pt-4" />
 
@@ -30,9 +30,12 @@ import {ArrowRight} from "@lucide/astro";
       Your browser does not support the video tag.
     </video>
 </div>
-<video class="block bg-[#BEAB9A] md:hidden absolute z-10 bottom-0 left-1/2 -translate-x-1/2 translate-y-2/5 rotate-90 h-[500px] w-auto max-w-none pointer-events-none" autoplay loop muted playsinline>
-      <source src="/assets/bg.mp4" type="video/mp4" />
-      Your browser does not support the video tag.
-    </video>
+<div class="block md:hidden absolute z-10 bottom-0 left-0 right-0 h-[34vh] pointer-events-none overflow-hidden">
+  <div class="absolute -top-8 left-0 right-0 z-20 h-10 bg-gradient-to-b from-[#C7A697]/95 via-[#C7A697]/70 to-transparent backdrop-blur-sm"></div>
+  <video class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[36%] rotate-90 h-[450px] w-auto max-w-none bg-[#C7A697] md:bg-[#BEAB9A]" autoplay loop muted playsinline>
+    <source src="/assets/bg.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
   
 </section>
