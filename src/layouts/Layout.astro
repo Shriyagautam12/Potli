@@ -1,6 +1,5 @@
 ---
 import '../styles/global.css'
-import 'locomotive-scroll/dist/locomotive-scroll.css'
 ---
 
 <!doctype html>
@@ -13,33 +12,55 @@ import 'locomotive-scroll/dist/locomotive-scroll.css'
 		<title>Potli- We fill it with meaning</title>
 	</head>
 	<body>
-		<main data-scroll-container>
-			<slot />
-		</main>
+		<div id="smooth-wrapper">
+			<main id="smooth-content">
+				<slot />
+			</main>
+		</div>
 
 		<script>
 			// @ts-nocheck
-			import LocomotiveScroll from "locomotive-scroll";
+			import { gsap } from "gsap";
+			import { ScrollTrigger } from "gsap/ScrollTrigger";
+			import { ScrollSmoother } from "gsap/ScrollSmoother";
 
-			const initScroll = () => {
-				const container = document.querySelector("[data-scroll-container]");
-				if (!container) return;
+			gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-				const scroll = new LocomotiveScroll({
-					lenisOptions: {
-						lerp: 0.1,
-						smoothWheel: true,
-						wheelMultiplier: 1,
-						touchMultiplier: 1.2,
-					},
+			const initSmoothScroll = () => {
+				if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+				if (typeof ScrollSmoother?.create !== "function") return;
+
+				const existing = ScrollSmoother.get();
+				if (existing) existing.kill();
+
+				ScrollTrigger.getById("hero-sticky-pin")?.kill();
+
+				ScrollSmoother.create({
+					wrapper: "#smooth-wrapper",
+					content: "#smooth-content",
+					smooth: 2,
+					smoothTouch: 0.8,
+					normalizeScroll: true,
+					effects: false,
 				});
 
-				window.addEventListener("resize", () => {
-					if (typeof scroll.resize === "function") scroll.resize();
-				});
+				const hero = document.querySelector("[data-hero-sticky]");
+				if (hero) {
+					ScrollTrigger.create({
+						id: "hero-sticky-pin",
+						trigger: hero,
+						start: "top top",
+						end: "max",
+						pin: true,
+						pinSpacing: false,
+						anticipatePin: 1,
+					});
+				}
+
+				ScrollTrigger.refresh();
 			};
 
-			const start = () => requestAnimationFrame(initScroll);
+			const start = () => requestAnimationFrame(initSmoothScroll);
 
 			if (document.readyState === "complete") {
 				start();
@@ -60,7 +81,12 @@ import 'locomotive-scroll/dist/locomotive-scroll.css'
 		height: 100%;
 	}
 
-	main[data-scroll-container] {
+	#smooth-wrapper {
+		position: relative;
+		overflow: hidden;
+	}
+
+	main#smooth-content {
 		min-height: 100vh;
 		width: 100%;
 		overflow-x: clip;

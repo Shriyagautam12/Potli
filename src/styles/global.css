@@ -28,16 +28,7 @@
 * {
   box-sizing: border-box;
 }
-body{
+body {
   width: 100%;
   overflow-x: hidden;
-}
-
-html.has-scroll-smooth,
-.has-scroll-smooth body {
-  overflow: hidden;
-}
-
-[data-scroll-container] {
-  min-height: 100vh;
 }

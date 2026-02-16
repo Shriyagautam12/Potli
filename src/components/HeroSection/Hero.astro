@@ -3,13 +3,13 @@
 import {ArrowRight} from "@lucide/astro";
 ---
 
-<section class="h-screen flex flex-col gap-28 md:gap-0 text-black bg-[#BEAB9A] sticky top-0 w-full z-10 overflow-hidden">
+<section data-hero-sticky class="h-screen flex flex-col gap-20 md:gap-0 text-black bg-[#BEAB9A] w-full z-10 overflow-hidden">
   <!-- Logo in top left corner -->
-  <img src="/assets/logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pt-0 pt-4" />
+  <img src="/assets/logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pl-8 md:pt-0 pt-4" />
 
   <!-- Text content on the left -->
   <div class="relative z-20 flex flex-col pl-8 md:pl-16 gap-8" id="herodiv">
-    <div class="text-white bg-[#A1806E] text-sm font-semibold tracking-tight rounded-full flex w-fit px-3 pt-0.5 pb-1 items-center justify-center">Accepting new projects</div>
+    <div class="text-white bg-[#A1806E] text-sm font-semibold tracking-tight rounded-full flex w-fit px-3 py-0.5 items-center justify-center">Accepting new projects</div>
     <h1 class="text-5xl md:text-6xl font-medium tracking-tight">
       Creating <br class="md:hidden block"/>
       brands<br  /> that <span class=" text-[#574F48]">inspire.</span>
@@ -30,7 +30,7 @@ import {ArrowRight} from "@lucide/astro";
       Your browser does not support the video tag.
     </video>
 </div>
-<video class="block md:hidden absolute z-10 bottom-0 left-1/2 -translate-x-1/2 translate-y-2/5 rotate-90 h-[500px] w-auto max-w-none pointer-events-none" autoplay loop muted playsinline>
+<video class="block bg-[#BEAB9A] md:hidden absolute z-10 bottom-0 left-1/2 -translate-x-1/2 translate-y-2/5 rotate-90 h-[500px] w-auto max-w-none pointer-events-none" autoplay loop muted playsinline>
       <source src="/assets/bg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
