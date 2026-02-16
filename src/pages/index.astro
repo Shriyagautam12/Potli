@@ -61,26 +61,17 @@ import Awards from '../components/Awards/Awards.astro';
   const imagediv=document.getElementById("whyPotliImageDiv")
   const whyPotliImage=document.getElementById("whyPotliImage")
 
-  gsap.from(hand1,{
-	xPercent:-40,
-	scrollTrigger:{
-		trigger:handdiv,
-		start:"top 100%",
-		end:"80% 100%",
-		scrub:1,
-		// markers:true
-	}
+  const handsTimeline = gsap.timeline({
+  scrollTrigger:{
+    trigger:handdiv,
+    start:"top 100%",
+    end:"90% 100%",
+    scrub:1,
+    markers:true
+  }
   })
-  gsap.from(hand2,{
-	xPercent:50,
-	scrollTrigger:{
-		trigger:grid,
-		start:"top 100%",
-		end:"80% 100%",
-		scrub:1,
-		// markers:true
-	}
-  })
+  handsTimeline.from(hand1, { xPercent:-40 }, 0)
+  handsTimeline.from(hand2, { xPercent:50 }, 0)
   gsap.from(spinner,{
 	scale:1.4,
 	scrollTrigger:{
