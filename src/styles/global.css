@@ -1,24 +1,5 @@
 @import "tailwindcss";
-@theme {
-  --animate-marquee: marquee 15s linear infinite;
-  --animate-marquee2: marquee2 15s linear infinite;
-  @keyframes marquee {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-  @keyframes marquee2 {
-    0% {
-      transform: translateX(0%);
-    }
-    100% {
-      transform: translateX(-100%);
-    }
-  }
-}
+
 @layer components {
   .animate-spin-reverse {
     @apply animate-spin;
@@ -29,7 +10,7 @@
     display: flex;
     width: max-content;
     will-change: transform;
-    animation: brandMarquee 15s linear infinite;
+    animation: brandMarquee 35s linear infinite;
   }
 
   .brand-marquee-group {
