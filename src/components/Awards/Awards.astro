@@ -1,107 +1,16 @@
 ---
 ---
 
-<section class="awards-section">
-  <div class="awards-header">
-    <p class="eyebrow">AWARDS & Recognitions</p>
-    <h2>Only The Best For You</h2>
+<section class="py-24 px-8 text-center z-20 relative bg-white">
+  <div class="mb-16">
+    <p class="text-[#666] text-lg tracking-widest  mb-3">Awards & Recognitions</p>
+    <h2 class="font-medium text-4xl text-black">Only The Best For You</h2>
   </div>
-<a href="/awards" class="award-card">
-  <div class="award-circle">
-    <span>2024</span>
+<a href="/awards" class="cursor-pointer no-underline flex flex-col items-center">
+  <div class="flex items-center justify-center transition-all duration-300 ease-in-out mb-6 hover:scale-105 hover:border-[#b8a890] w-32 h-32 rounded-full border-2 border-dashed border-[#d6c6ae]">
+    <span class="text-base text-[#b8a890] tracking-widest">2024</span>
   </div>
-  <p class="award-title">Branding Partner</p>
+  <p class="text-[#818181] text-center">Branding Partner</p>
 </a>
-
-   
-  
   </div>
 </section>
-
-<style>
-  .awards-section {
-    padding: 6rem 2rem;
-    background: #fff;
-    text-align: center;
-  }
-  .award-card {
-  text-decoration: none;
-  color: inherit;
-  cursor: pointer;
-}
-
-.award-card:hover .award-circle {
-  transform: scale(1.05);
-  border-color: #b8a890;
-}
-
-.award-circle {
-  transition: transform 0.3s ease, border-color 0.3s ease;
-}
-
-
-  /* Header */
-  .awards-header {
-    margin-bottom: 4rem;
-  }
-
-  .eyebrow {
-    font-size: 0.75rem;
-    letter-spacing: 0.2em;
-    color: #999;
-    margin-bottom: 0.75rem;
-  }
-
-  .awards-header h2 {
-    font-size: 2.2rem;
-    font-weight: 500;
-    color: #111;
-  }
-
-  /* Grid */
-  .awards-grid {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    gap: 4rem;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  /* Card */
-  .award-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  /* Dotted Circle */
-  .award-circle {
-    width: 120px;
-    height: 120px;
-    border-radius: 50%;
-    border: 2px dashed #d6c6ae;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 1.5rem;
-  }
-
-  .award-circle span {
-    font-size: 1rem;
-    color: #b8a890;
-    letter-spacing: 0.1em;
-  }
-
-  .award-title {
-    font-size: 1rem;
-    color: #666;
-  }
-
-  /* Responsive */
-  @media (max-width: 900px) {
-    .awards-grid {
-      grid-template-columns: 1fr;
-      gap: 3rem;
-    }
-  }
-</style>

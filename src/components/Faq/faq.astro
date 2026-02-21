@@ -1,6 +1,6 @@
 ---
 // src/components/FAQ.astro
-
+import {ChevronDown} from "@lucide/astro"
 
 const faqs = [
   {
@@ -31,75 +31,20 @@ const faqs = [
 ];
 ---
 
-<section class="faq-section">
-  <h2>Frequently asked questions</h2>
-  <p class="subtitle">We’ve answered your top questions to show how we can transform your brand.</p>
+<section class="w-full mx-auto px-4 py-16 text-center z-20 relative bg-white pb-36">
+  <h2 class="text-4xl font-medium tracking-tight text-[#1a1a1a] text-center">Frequently asked questions</h2>
+  <p class="text-[#666] text-base md:text-xl text-center mt-2 md:mt-4 mb-16 md:w-auto w-4/5 mx-auto">We’ve answered your top questions to show how we can transform your brand.</p>
 
-  <div class="faq-container">
+  <div class="w-[90%] md:w-3/5 mx-auto text-left">
     {faqs.map((faq, index) => (
-      <details class="faq-item">
-        <summary>
+      <details class="border-b border-[#eee] py-4 group">
+        <summary class="cursor-pointer flex items-center justify-between font-medium text-lg outline-0 list-none">
           {faq.question}
-          <span class="icon">⌄</span>
+          <ChevronDown  class="group-open:rotate-180 min-w-6 transform transition-all duration-[350ms] ease-in-out"/>
         </summary>
-        <p>{faq.answer}</p>
+        <p class="text-[#818181] mt-2 ">{faq.answer}</p>
       </details>
     ))}
   </div>
 </section>
 
-<style>
-  .faq-section {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 4rem 1rem;
-    text-align: center;
-  }
-
-  .faq-section h2 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .faq-section .subtitle {
-    color: #666;
-    margin-bottom: 2rem;
-  }
-
-  .faq-container {
-    text-align: left;
-  }
-
-  .faq-item {
-    border-bottom: 1px solid #eee;
-    padding: 1rem 0;
-  }
-
-  .faq-item summary {
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    font-weight: 500;
-    font-size: 1.1rem;
-    outline: none;
-    list-style: none;
-  }
-
-  .faq-item summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .faq-item .icon {
-    transition: transform 0.2s ease;
-  }
-
-  .faq-item[open] .icon {
-    transform: rotate(180deg);
-  }
-
-  .faq-item p {
-    margin-top: 0.5rem;
-    color: #555;
-    line-height: 1.6;
-  }
-</style>

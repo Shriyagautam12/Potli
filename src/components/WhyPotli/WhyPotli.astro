@@ -1,66 +1,70 @@
 ---
 // WhyPotli.astro
+import {Clock4} from "@lucide/astro"
 ---
 
-<section class="why-Potli">
-  <div class="container">
-    <h2 class="title">Why Potli?</h2>
-    <p class="subtitle">
+<section class="py-24 bg-white z-20 relative">
+  <div class=" py-12 flex flex-col items-center ">
+    <h2 class="text-4xl font-medium tracking-tight text-[#1a1a1a] text-center">Why Potli?</h2>
+    <p class="text-[#666] text-xl text-center mt-2 md:mt-4 mb-16 md:w-auto w-4/5 mx-auto">
       Discover what sets us apart in the art of luxury branding.
     </p>
-
-    <div class="content-grid">
+    <div id="whyPotliGrid" class="grid grid-cols-1 md:grid-cols-3 items-stretch gap-6 w-[90%] mx-auto">
       <!-- Row 1: Top three cards -->
-      <div class="feature-card collaboration-card">
-        <h3 class="featTitile">Seamless collaboration</h3>
-        <div class="hands-image" id="handsBox">
+      <div id="hand-div" class="rounded-3xl overflow-hidden relative min-h-[600px] flex flex-col justify-between bg-[#f3f0ee]">
+        <h3 class="text-5xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Seamless collaboration</h3>
+        <div class="overflow-hidden" id="handsBox">
           <img
             src="/assets/leftHand.avif"
             alt="Left hand"
-            class="left-hand"
+            id="left-hand"
+            class="absolute h-36 top-[60%] -translate-y-1/2 -translate-x-16"
           />
           <img
             src="/assets/rightHand.avif"
             alt="Right hand"
-            class="right-hand"
+            id="right-hand"
+            class="absolute h-24 top-[60%] right-0 -translate-y-1/2 "
           />
         </div>
       </div>
 
       <!-- Brand Portfolio -->
-      <div class="feature-card portfolio-card">
-        <div class="brands-showcase">
-          <div class="brand-circle circle-1">
-            <img src="/assets/bag.avif" alt="Brand logo" />
+      <div id="spinner-div" class="rounded-3xl  relative min-h-[600px] flex flex-col items-center justify-between bg-[#f3f0ee] pt-20">
+        <div id="spinner" class="relative h-[280px] w-[280px]">
+          <div class="absolute inset-0 flex items-center justify-center animate-[spin_40s_linear_infinite] origin-center ">
+          <div class="absolute  top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(0deg)_translate(120px)_rotate(0deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18 ">
+            <img src="/assets/bag.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]"/>
           </div>
-          <div class="brand-circle circle-2">
-            <img src=" /assets/boxes.avif" alt="Brand logo" />
+          <div class="absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(45deg)_translate(120px)_rotate(-45deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18">
+            <img src=" /assets/boxes.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]"/>
           </div>
-          <div class="brand-circle circle-3">
-            <img src="/assets/car.avif" alt="Brand logo" />
+          <div class="absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(90deg)_translate(120px)_rotate(-90deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18">
+            <img src="/assets/car.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]"/>
           </div>
-          <div class="brand-circle circle-4">
-            <img src="/assets/foundation.avif" alt="Brand logo" />
+          <div class="absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(135deg)_translate(120px)_rotate(-135deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18">
+            <img src="/assets/foundation.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]" />
           </div>
-          <div class="brand-circle circle-5">
-            <img src="/assets/perfume.avif" alt="Brand logo" />
+          <div class="absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(180deg)_translate(120px)_rotate(-180deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18">
+            <img src="/assets/perfume.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]" />
           </div>
-          <div class="brand-circle circle-6">
-            <img src="/assets/shirt.avif" alt="Brand logo" />
+          <div class="absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(225deg)_translate(120px)_rotate(-225deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18">
+            <img src="/assets/shirt.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]" />
           </div>
-          <div class="brand-circle circle-7">
-            <img src="/assets/skin.avif" alt="Brand logo" />
+          <div class="absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(270deg)_translate(120px)_rotate(-270deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18">
+            <img src="/assets/skin.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]" />
           </div>
-          <div class="brand-circle circle-8">
-            <img src="/assets/watch.avif" alt="Brand logo" />
+          <div class="absolute top-1/2 left-1/2 [transform:translate(-50%,-50%)_rotate(315deg)_translate(120px)_rotate(-315deg)] flex items-center justify-center rounded-full overflow-hidden w-18 h-18">
+            <img src="/assets/watch.avif" alt="Brand logo" class="absolute animate-[spin_40s_linear_infinite] [animation-direction:reverse]" />
+          </div>
           </div>
         </div>
-        <h3>Over 100+ brands transformed</h3>
+        <h3 class="text-4xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Over 45+ brands transformed</h3>
       </div>
 
       <!-- Elevated Brand Identity -->
-      <div class="feature-card identity-card">
-        <h3>Elevated brand identity</h3>
+      <div id="logo-div" class="rounded-3xl  relative min-h-[400px] md:min-h-[600px] flex flex-col justify-between bg-[#f3f0ee] ">
+        <h3 class="text-4xl  px-10 py-8 tracking-tight font-medium text-[#1a1a1a]">Elevated brand identity</h3>
         <div class="tork-logo">
           <img src="/assets/black_potli.png" alt="Potli Logo"  />
         </div>
@@ -68,21 +72,18 @@
 
       <!-- Row 2: Swift turnaround + Strategic storytelling (spans 2 columns) -->
       <!-- Swift Turnaround -->
-      <div class="feature-card image-card">
-        <img src="/assets/work.avif" alt="Swift Turnaround" />
-        <div class="overlay">
-          <svg class="icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10"></circle>
-            <polyline points="12 6 12 12 16 14"></polyline>
-          </svg>
+      <div id="whyPotliImageDiv" class="rounded-3xl  relative h-[400px] flex flex-col justify-between bg-[#f3f0ee] overflow-hidden">
+        <img id="whyPotliImage" src="/assets/work.avif" alt="Swift Turnaround" class=" h-full object-cover brightness-75"/>
+        <div class="absolute bottom-8 left-8 text-white font-semibold text-2xl text-shadow-[0px_2px_8px_rgba(0,0,0,0.5)] items-center justify-center flex gap-3 bg-black/40  px-4 py-6 rounded-2xl backdrop-blur-md border-white/10 border ">
+          <Clock4 size="24px"/>
           Swift turnaround
         </div>
       </div>
 
       <!-- Strategic storytelling (spans 2 columns) -->
-      <div class="feature-card text-card span-2">
-        <h3>Strategic storytelling</h3>
-        <p>
+      <div class="rounded-3xl px-10 py-8 relative overflow-y-hidden h-[400px] flex flex-col justify-between bg-[#f3f0ee] text-card md:col-span-2">
+        <h3 class="text-5xl pb-8  md:pb-0 tracking-tight font-medium text-[#1a1a1a]">Strategic storytelling</h3>
+        <p class="font-[Georgia] text-base md:text-xl text-[#666]">
           <span class="dropcap">E</span>very great brand begins with a story, but not all stories are created equal. 
           At Potli, we believe storytelling is the bridge between your brand and your 
           audience, a way to resonate deeply and leave a lasting impression. We dive into 
@@ -94,568 +95,3 @@
     </div>
   </div>
 </section>
-
-<script>
-  // Run only in the browser
-  if (typeof window !== "undefined") {
-    const handsBox = document.getElementById("handsBox");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            handsBox.classList.add("animate-hands");
-          } else {
-            handsBox.classList.remove("animate-hands");
-          }
-        });
-      },
-      { threshold: 0.4 }
-    );
-
-    if (handsBox) observer.observe(handsBox);
-  }
-</script>
-
-<style>
-  .why-Potli {
-    padding: 100px 0;
-    background-color: #ffffff;
-  }
-
-  .container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-
-  .title {
-    font-size: 3.5rem;
-    font-weight: 500;
-    text-align: center;
-    color: #1a1a1a;
-    margin-bottom: 16px;
-    line-height: 1.2;
-  }
-
-  .subtitle {
-    font-size: 1.125rem;
-    color: #666;
-    text-align: center;
-    margin-bottom: 80px;
-    font-weight: 400;
-  }
-
-  .content-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 24px;
-    align-items: stretch;
-  }
-
-  .span-2 {
-    grid-column: span 2;
-  }
-
-  .feature-card {
-    background: #f8f8f8;
-    border-radius: 24px;
-    text-align: left;
-    position: relative;
-    min-height: 600px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    padding: 50px 40px;
-    transition:
-      transform 0.3s ease,
-      box-shadow 0.3s ease;
-  }
-
-  .feature-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-  }
-
-  .feature-card h3 {
-    font-size: 32px;
-    font-weight: 500;
-    color: #1a1a1a;
-    margin: 0;
-    line-height: 1.3;
-  }
-
-
-  /* Collaboration Card */
-  .collaboration-card {
-    background: #f5f5f5;
-    overflow: hidden;
-  }
-
-  /* Base styles */
-  .hands-image {
-    position: relative;
-    width: 100%;
-    height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: auto;
-    overflow: hidden;
-  }
-
-  .hands-image img {
-    position: absolute;
-    object-fit: contain;
-    transition: transform 1.8s ease; /* smooth animation */
-  }
-
-  /* Initial positions (hands apart) */
-  .left-hand {
-    left: -150px;
-    transform: translateX(0);
-    max-height: 150px;
-  }
-
-  .right-hand {
-    right: -150px;
-    transform: translateX(0);
-    max-height: 95px;
-  }
-
-  /* When visible -> hands move closer */
-  .animate-hands .left-hand {
-    transform: translateX(80px);
-  }
-
-  .animate-hands .right-hand {
-    transform: translateX(-160px);
-  }
-
-  /* Keyframes */
-  @keyframes moveLeftHand {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(140px);
-    }
-  }
-
-  @keyframes moveRightHand {
-    from {
-      transform: translateX(0);
-    }
-    to {
-      transform: translateX(-140px);
-    }
-  }
-
-  /* Portfolio Card */
-  .portfolio-card {
-    background: #f8f8f8;
-    position: relative;
-    overflow: visible;
-  }
-
-  .brands-showcase {
-    flex: 1;
-    position: relative;
-    width: 280px;
-    height: 280px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: rotateCircle 20s linear infinite;
-  }
-
-  .brand-circle {
-    position: absolute;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    overflow: hidden;
-    background: white;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .brand-circle img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  /* Position circles in orbit */
-  .brand-circle:nth-child(1) {
-    transform: rotate(0deg) translate(120px) rotate(0deg);
-  }
-  .brand-circle:nth-child(2) {
-    transform: rotate(45deg) translate(120px) rotate(-45deg);
-  }
-  .brand-circle:nth-child(3) {
-    transform: rotate(90deg) translate(120px) rotate(-90deg);
-  }
-  .brand-circle:nth-child(4) {
-    transform: rotate(135deg) translate(120px) rotate(-135deg);
-  }
-  .brand-circle:nth-child(5) {
-    transform: rotate(180deg) translate(120px) rotate(-180deg);
-  }
-  .brand-circle:nth-child(6) {
-    transform: rotate(225deg) translate(120px) rotate(-225deg);
-  }
-  .brand-circle:nth-child(7) {
-    transform: rotate(270deg) translate(120px) rotate(-270deg);
-  }
-  .brand-circle:nth-child(8) {
-    transform: rotate(315deg) translate(120px) rotate(-315deg);
-  }
-
-  @keyframes rotateCircle {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
-    }
-  }
-
-  /* Identity Card */
-  .identity-card {
-    background: #f5f5f5;
-  }
-
-  .tork-logo {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #1a1a1a;
-  }
-
-  .tork-text {
-    font-size: 4rem;
-    font-weight: 400;
-    color: #1a1a1a;
-    font-style: italic;
-    font-family: "Times New Roman", serif;
-  }
-
-  /* Text card styles */
-  .text-card {
-    padding: 3.5rem;
-    line-height: 1.7;
-    background: #f8f6f3;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    min-height: 300px;
-  }
-
-  .text-card h3 {
-    font-size: 2.8rem;
-    margin-bottom: 2rem;
-    font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.03em;
-    color: #1a1a1a;
-  }
-
-  .text-card p {
-    font-size: 1.1rem;
-    color: #4a4a4a;
-    font-weight: 400;
-    line-height: 1.8;
-    font-family: Georgia, serif;
-  }
-
-  .dropcap {
-    font-size: 4rem;
-    float: left;
-    line-height: 0.8;
-    margin-right: 0.15rem;
-    font-weight: 700;
-    color: #2c2c2c;
-    font-family: Georgia, serif;
-  }
-
-  /* Image card styles */
-  .image-card {
-    position: relative;
-    overflow: hidden;
-    background: #2c2c2c;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .image-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    opacity: 0.85;
-  }
-
-  .overlay {
-    position: absolute;
-    bottom: 2rem;
-    left: 2rem;
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.4rem;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    background: rgba(0,0,0,0.4);
-    padding: 1rem 1.5rem;
-    border-radius: 1rem;
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.1);
-  }
-
-  .icon {
-    flex-shrink: 0;
-    width: 20px;
-    height: 20px;
-  }
-
-  .eye-card .overlay {
-    background: rgba(0,0,0,0.6);
-    backdrop-filter: blur(12px);
-    text-align: center;
-    justify-content: center;
-    width: calc(100% - 4rem);
-    left: 2rem;
-    right: 2rem;
-    bottom: 1.5rem;
-  }
-
-  .eye-card img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    opacity: 0.85;
-    transform: scale(0.8);
-    transform-origin: center;
-  }
-
-  .cursor-icon {
-    margin-left: 0.5rem;
-    width: 16px;
-    height: 16px;
-  }
-
-  /* Stat card styles */
-  .stat-card {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 3.5rem;
-    text-align: center;
-    background: #f8f6f3;
-    min-height: 300px;
-  }
-
-  .stat-card h2 {
-    font-size: 8rem;
-    font-weight: 700;
-    margin: 0;
-    letter-spacing: -0.04em;
-    color: #1a1a1a;
-    line-height: 0.9;
-  }
-
-  .stat-card p {
-    font-size: 1.1rem;
-    color: #4a4a4a;
-    margin-top: 1rem;
-    font-weight: 600;
-    letter-spacing: 0.05em;
-    text-transform: uppercase;
-  }
-
-  /* Responsive Design */
-  @media (max-width: 1024px) {
-    .content-grid {
-      grid-template-columns: 1fr;
-      gap: 30px;
-    }
-
-    .span-2 {
-      grid-column: 1;
-    }
-
-    .title {
-      font-size: 3rem;
-    }
-
-    .feature-card {
-      min-height: 350px;
-      padding: 40px 30px;
-    }
-
-    .brands-showcase {
-      width: 240px;
-      height: 240px;
-    }
-
-    .brand-circle {
-      width: 60px;
-      height: 60px;
-    }
-
-    .brand-circle:nth-child(1) {
-      transform: rotate(0deg) translate(100px) rotate(0deg);
-    }
-    .brand-circle:nth-child(2) {
-      transform: rotate(45deg) translate(100px) rotate(-45deg);
-    }
-    .brand-circle:nth-child(3) {
-      transform: rotate(90deg) translate(100px) rotate(-90deg);
-    }
-    .brand-circle:nth-child(4) {
-      transform: rotate(135deg) translate(100px) rotate(-135deg);
-    }
-    .brand-circle:nth-child(5) {
-      transform: rotate(180deg) translate(100px) rotate(-180deg);
-    }
-    .brand-circle:nth-child(6) {
-      transform: rotate(225deg) translate(100px) rotate(-225deg);
-    }
-    .brand-circle:nth-child(7) {
-      transform: rotate(270deg) translate(100px) rotate(-270deg);
-    }
-    .brand-circle:nth-child(8) {
-      transform: rotate(315deg) translate(100px) rotate(-315deg);
-    }
-
-    .tork-text {
-      font-size: 3rem;
-    }
-
-    .text-card h3 {
-      font-size: 2.2rem;
-    }
-
-    .stat-card h2 {
-      font-size: 6rem;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .why-Potli {
-      padding: 80px 0;
-    }
-
-    .container {
-      padding: 0 16px;
-    }
-
-    .title {
-      font-size: 2.5rem;
-    }
-
-    .subtitle {
-      margin-bottom: 60px;
-    }
-
-    .feature-card {
-      min-height: 300px;
-      padding: 40px 24px;
-    }
-
-    .feature-card h3 {
-      font-size: 1.5rem;
-    }
- 
-    .brands-showcase {
-      width: 200px;
-      height: 200px;
-    }
-
-    .brand-circle {
-      width: 50px;
-      height: 50px;
-    }
-
-    .brand-circle:nth-child(1) {
-      transform: rotate(0deg) translate(80px) rotate(0deg);
-    }
-    .brand-circle:nth-child(2) {
-      transform: rotate(45deg) translate(80px) rotate(-45deg);
-    }
-    .brand-circle:nth-child(3) {
-      transform: rotate(90deg) translate(80px) rotate(-90deg);
-    }
-    .brand-circle:nth-child(4) {
-      transform: rotate(135deg) translate(80px) rotate(-135deg);
-    }
-    .brand-circle:nth-child(5) {
-      transform: rotate(180deg) translate(80px) rotate(-180deg);
-    }
-    .brand-circle:nth-child(6) {
-      transform: rotate(225deg) translate(80px) rotate(-225deg);
-    }
-    .brand-circle:nth-child(7) {
-      transform: rotate(270deg) translate(80px) rotate(-270deg);
-    }
-    .brand-circle:nth-child(8) {
-      transform: rotate(315deg) translate(80px) rotate(-315deg);
-    }
-
-    .tork-text {
-      font-size: 2.5rem;
-    }
-
-    .text-card {
-      padding: 2.5rem;
-    }
-
-    .text-card h3 {
-      font-size: 2rem;
-    }
-
-    .stat-card {
-      padding: 2.5rem;
-    }
-
-    .stat-card h2 {
-      font-size: 5rem;
-    }
-
-    .overlay {
-      font-size: 1.2rem;
-      bottom: 1.5rem;
-      left: 1.5rem;
-      padding: 0.75rem 1.25rem;
-    }
-
-    .eye-card .overlay {
-      width: calc(100% - 3rem);
-      left: 1.5rem;
-      right: 1.5rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .title {
-      font-size: 2rem;
-    }
-
-    .tork-text {
-      font-size: 2rem;
-    }
-
-    .feature-card {
-      padding: 30px 20px;
-    }
-  }
-</style>

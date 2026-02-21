@@ -1,31 +1,34 @@
 @import "tailwindcss";
-
+@theme {
+  --animate-marquee: marquee 15s linear infinite;
+  --animate-marquee2: marquee2 15s linear infinite;
+  @keyframes marquee {
+    0% {
+      transform: translateX(0%);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+  @keyframes marquee2 {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0%);
+    }
+  }
+}
+@layer components {
+  .animate-spin-reverse {
+    @apply animate-spin;
+    animation-direction: reverse;
+  }
+}
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
-
-section {
-  margin: 0;             /* reset margins */
-  padding: 0;            /* reset padding */
-  display: block;        /* ensure block display */
-}
-
-section + section {
-  margin-top: 0;       
-
 body {
-  margin: 0;
-  padding: 0;
-  line-height: 1;
-}
-
-.hero,
-.testimonial-section,
-.what-we-do {
-  margin: 0 !important;
-  border: none;
-  outline: none;
-}
+  width: 100%;
+  overflow-x: hidden;
 }

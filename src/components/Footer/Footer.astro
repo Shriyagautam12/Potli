@@ -1,202 +1,40 @@
 ---
 // Footer.astro
+import {ArrowRight} from "@lucide/astro";
 ---
 
-<section class="hero">
-  <!-- Background Infinity Video -->
-  <video autoplay loop muted playsinline class="hero-video">
+<section class="hero z-20 relative h-screen w-full bg-[#C7A697] md:bg-[#BEAB9A] overflow-hidden text-[#111]">
+  <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full">
+    <div class="h-[500px] "></div>
+      <video autoplay loop muted playsinline class="md:block hidden min-w-full min-h-full  object-cover">
+        <source src="/assets/footer.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+</div>
+    <!-- <video autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-1/2 object-cover">
     <source src="/assets/footer.mp4" type="video/mp4" />
     Your browser does not support the video tag.
-  </video>
+  </video> -->
 
-  <!-- Overlay content -->
-  <div class="hero-content">
-    <!-- <header class="navbar">
-      <h1 class="logo">Potli</h1>
-      <nav>
-        <ul>
-          <li><a href="#">Home</a></li>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Portfolio</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Get In Touch</a></li>
-        </ul>
-      </nav>
-    </header> -->
-
-    <div class="main-text">
-      <h2>
+  <div class="relative z-20  flex flex-col justify-between h-full p-8">
+    <div class="text-center mt-20 items-center flex flex-col">
+      <h2 class="text-5xl md:text-6xl font-medium tracking-tight">
         Create a brand that <br />
-        stands the test of <span class="highlight">time.</span>
+        stands the test of <span class="text-[#574F48]">time.</span>
       </h2>
-      <p>
+      <p class="my-4 text-[#333] text-lg">
         Potli designs. Lasting impressions. Let’s craft a brand that endures and inspires.
       </p>
-      <a href="mailto:gautamshriya5@gmail.com" class="btn">Get in touch →</a>
+      <a href="mailto:gautamshriya5@gmail.com" class=" group rounded-full relative z-50 cursor-pointer bg-[#EFEAE5] transition-all duration-200 ease-in-out hover:bg-[#e7e1db] font-semibold w-fit flex items-center"><p class="px-6 py-3.5 ">Get in touch</p> <span class="rounded-full bg-white p-3 mr-1"><ArrowRight color="#000000" size={"20px"}/></span>
+    <div class="bg-white w-12 h-12 -z-10  group-hover:w-[calc(100%-0.5rem)] group-hover:h-[calc(100%-0.5rem)] transition-[width,height] duration-700 ease-in-out flex absolute rounded-full right-1 top-1/2 -translate-y-1/2 will-change-[width,height]"></div>
+  </a>
     </div>
-
-    <footer class="footer">
-      <div class="footer-left">
-        <!-- <h3>Potli</h3>
-        <p>
-          Potli is a branding agency that creates luxury brand identities that inspire,
-          captivate, and stand the test of time.
-        </p>
-        <small>Created by <strong>Shriya Gautam</strong> © 2025</small> -->
-      </div>
-
-      <div class="footer-right">
-        <div>
-          <!-- <h4>Pages</h4>
-          <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Portfolio</a></li>
-            <li><a href="#">Blog</a></li>
-          </ul> -->
-        </div>
-        <div>
-          <!-- <h4>Information</h4>
-          <ul>
-            <li><a href="#">Contact</a></li>
-            <li><a href="#">Privacy</a></li>
-            <li><a href="#">Terms</a></li>
-            <li><a href="#">404</a></li>
-          </ul> -->
-        </div>
-      </div>
-    </footer>
   </div>
+  <div class="block md:hidden absolute z-10 bottom-0 left-0 right-0 h-[34vh] pointer-events-none overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 z-20 h-10 bg-gradient-to-b from-[#C7A697]/95 via-[#C7A697]/70 to-transparent backdrop-blur-sm"></div>
+  <video class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[18%] rotate-90 h-[450px] w-auto max-w-none bg-[#C7A697] md:bg-[#BEAB9A]" autoplay loop muted playsinline>
+    <source src="/assets/bg.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
 </section>
-
-<style>
-.hero {
-  position: relative;
-  height: 100vh;
-  width: 100%;
-  overflow: hidden;
-  color: #111;
-  font-family: system-ui, sans-serif;
-}
-
-/* Infinity video */
-.hero-video {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  transform: translate(-50%, -50%);
-  object-fit: cover;
-  z-index: 0;
-  opacity: 1;
-}
-
-/* Content overlay */
-.hero-content {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
-  padding: 2rem;
-  background: rgba(245, 235, 225, 0.6); /* light overlay for readability */
-}
-
-/* Navbar */
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.logo {
-  font-style: italic;
-  font-weight: 600;
-}
-
-.navbar ul {
-  display: flex;
-  gap: 1.5rem;
-}
-
-.navbar a {
-  text-decoration: none;
-  color: black;
-  font-weight: 500;
-}
-
-/* Main text */
-.main-text {
-  text-align: center;
-  margin-top: 5rem;
-}
-
-.main-text h2 {
-  font-size: 3rem;
-  font-weight: 700;
-  line-height: 1.2;
-}
-
-.main-text .highlight {
-  color: #555;
-  font-style: italic;
-}
-
-.main-text p {
-  margin: 1rem 0;
-  font-size: 1.1rem;
-  color: #333;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.8rem 1.6rem;
-  border-radius: 30px;
-  background: #fff;
-  color: #000;
-  text-decoration: none;
-  font-weight: 500;
-  border: 1px solid #ddd;
-  transition: 0.3s;
-}
-
-.btn:hover {
-  background: #000;
-  color: #fff;
-}
-
-/* Footer */
-.footer {
-  display: flex;
-  justify-content: space-between;
-  gap: 2rem;
-  margin-top: auto;
-  font-size: 0.9rem;
-}
-
-.footer-left {
-  max-width: 40%;
-}
-
-.footer-right {
-  display: flex;
-  gap: 3rem;
-}
-
-.footer h4 {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-.footer ul {
-  list-style: none;
-  padding: 0;
-}
-
-.footer a {
-  text-decoration: none;
-  color: #333;
-}
-</style>
