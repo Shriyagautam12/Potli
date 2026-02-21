@@ -65,14 +65,15 @@ import Awards from '../components/Awards/Awards.astro';
   const handsTimeline = gsap.timeline({
   scrollTrigger:{
     trigger:handdiv,
-    start:"20% 80%",
-    end:"120% 100%",
+    start:"top 85%",
+    end:"90% 55%",
     scrub:1,
-    // markers:true
+    invalidateOnRefresh:true,
+    markers:true
   }
   })
-  handsTimeline.from(hand1, { xPercent:-40 ,ease: "power3",}, 0)
-  handsTimeline.from(hand2, { xPercent:50,ease: "power3", }, 0)
+  handsTimeline.from(hand1, { xPercent:-40 ,ease: "none",}, 0)
+  handsTimeline.from(hand2, { xPercent:50,ease: "none", }, 0)
   gsap.from(spinner,{
 	scale:1.4,
 	scrollTrigger:{
