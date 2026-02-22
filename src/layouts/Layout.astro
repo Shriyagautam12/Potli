@@ -76,6 +76,8 @@ import '../styles/global.css'
 			const LOADER_DURATION_MS = 3000;
 			const LOADER_FADE_DURATION = 0.45;
 			const LOGO_MOVE_DURATION = 1.6;
+			const LOADER_LOGO_SCALE = 2;
+			const HERO_START_SCALE = 2;
 
 			const runLoaderTransition = () => {
 				const loader = document.getElementById("site-loader");
@@ -83,6 +85,9 @@ import '../styles/global.css'
 				const loaderLogo = document.getElementById("loader-logo");
 
 				document.documentElement.classList.add("is-loading");
+				if (loaderLogo) {
+					gsap.set(loaderLogo, { scale: LOADER_LOGO_SCALE, transformOrigin: "center center" });
+				}
 
 				const cleanup = () => {
 					loader.remove();
@@ -118,7 +123,13 @@ import '../styles/global.css'
 						.to(loader, { opacity: 0, duration: LOADER_FADE_DURATION, ease: "power1.out" }, loaderFadeStart)
 						.from(
 							heroLogo,
-							{ x: fromX, y: fromY, duration: LOGO_MOVE_DURATION, ease: "power3.inOut" },
+							{
+								x: fromX,
+								y: fromY,
+								scale: HERO_START_SCALE,
+								duration: LOGO_MOVE_DURATION,
+								ease: "power3.inOut",
+							},
 							heroMoveStart
 						);
 				};
