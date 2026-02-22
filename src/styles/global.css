@@ -64,3 +64,8 @@ html.is-loading body {
   background: #beab9a;
 }
 
+.loader-logo-scale {
+  transform: scale(2);
+  transform-origin: center center;
+}
+

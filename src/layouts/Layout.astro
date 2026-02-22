@@ -13,7 +13,7 @@ import '../styles/global.css'
 	</head>
 	<body>
 		<div id="site-loader" class="site-loader" aria-hidden="true">
-			<img id="loader-logo" src="/assets/POTLI Logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pl-10 md:pt-0 pt-4" />
+			<img id="loader-logo" src="/assets/POTLI Logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pl-10 md:pt-0 pt-4 loader-logo-scale" />
 		</div>
 		<div id="smooth-wrapper">
 			<main id="smooth-content">
@@ -85,9 +85,6 @@ import '../styles/global.css'
 				const loaderLogo = document.getElementById("loader-logo");
 
 				document.documentElement.classList.add("is-loading");
-				if (loaderLogo) {
-					gsap.set(loaderLogo, { scale: LOADER_LOGO_SCALE, transformOrigin: "center center" });
-				}
 
 				const cleanup = () => {
 					loader.remove();
