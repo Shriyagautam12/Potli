@@ -10,7 +10,7 @@
     display: flex;
     width: max-content;
     will-change: transform;
-    animation: brandMarquee 35s linear infinite;
+    animation: brandMarquee 55s linear infinite;
   }
 
   .brand-marquee-group {
