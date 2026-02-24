@@ -1,39 +1,43 @@
 ---
 // TestimonialCarousel.astro
-import {ChevronRight,ChevronLeft,Star} from "@lucide/astro"
+import { ChevronRight, ChevronLeft, Star } from "@lucide/astro";
 // Sample testimonial data - you can replace this with your actual data
 const testimonials = [
   {
     id: 1,
-    quote: "Potli completely reimagined our brand, creating a visual identity with Rosemin's essence.",
+    quote:
+      "Potli completely reimagined our brand, creating a visual identity with Rosemin's essence.",
     author: "Rosemin",
     company: "Personal Branding",
     image: "/assets/Person1.jpeg",
-    alt: "Rosemin from Personal Branding"
+    alt: "Rosemin from Personal Branding",
   },
   {
     id: 2,
-    quote: "Working with Potli was transformative. They captured our vision perfectly and delivered beyond expectations.",
+    quote:
+      "Working with Potli was transformative. They captured our vision perfectly and delivered beyond expectations.",
     author: "Yannis Alexandrides",
     company: "111Skin",
     image: "/assets/Person2.jpeg",
-    alt: "Yannis Alexandrides from 111Skin"
+    alt: "Yannis Alexandrides from 111Skin",
   },
   {
     id: 3,
-    quote: "The attention to detail and strategic approach from Potli elevated our brand to new heights.",
+    quote:
+      "The attention to detail and strategic approach from Potli elevated our brand to new heights.",
     author: "Karolina Antoniades",
     company: "Personal Branding",
     image: "/assets/Person3.jpeg",
-    alt: "Karolina Antoniades from Personal Branding"
+    alt: "Karolina Antoniades from Personal Branding",
   },
   {
     id: 4,
-    quote: 'Potli, as the Branding Partner for Talimi Mela: The Evighet, played a defining role in ushering the festival into a new era. Their vision went far beyond visual identity. From conceptual narrative to on ground curation, Potli reimagined the entire experience of Talimi Mela, giving it a cohesive, contemporary, and culturally rooted expression. The scale, structure, and storytelling of the event reflected a rare depth of strategic thinking and creative discipline. The Evighet edition stands as a landmark moment in Jamia’s history, setting a new benchmark for how student led cultural festivals can be curated, experienced, and remembered.',
-   author:' ',
+    quote:
+      "Potli, as the Branding Partner for Talimi Mela: The Evighet, played a defining role in ushering the festival into a new era. Their vision went far beyond visual identity. From conceptual narrative to on ground curation, Potli reimagined the entire experience of Talimi Mela, giving it a cohesive, contemporary, and culturally rooted expression. The scale, structure, and storytelling of the event reflected a rare depth of strategic thinking and creative discipline. The Evighet edition stands as a landmark moment in Jamia’s history, setting a new benchmark for how student led cultural festivals can be curated, experienced, and remembered.",
+    author: " ",
     company: "Jamia Milia Islamia",
-    image:"/assets/jamia.png"
-  }
+    image: "/assets/jamia.png",
+  },
 ];
 ---
 
@@ -46,52 +50,308 @@ const testimonials = [
           <blockquote class="testimonial-quote" id="testimonial-quote">
             {testimonials[0].quote}
           </blockquote>
-          
+
           <div class="rating">
             <div class="flex gap-1">
-
-      <Star size={"20px"}  fill="#000"/>
-      <Star size={"20px"} fill="#000"/>
-      <Star size={"20px"} fill="#000"/>
-      <Star size={"20px"} fill="#000"/>
-      <Star size={"20px"} fill="#000"/>
-    </div>
+              <Star size={"20px"} fill="#000" />
+              <Star size={"20px"} fill="#000" />
+              <Star size={"20px"} fill="#000" />
+              <Star size={"20px"} fill="#000" />
+              <Star size={"20px"} fill="#000" />
+            </div>
             <div class="client-info" id="client-info">
               {testimonials[0].author} from {testimonials[0].company}
             </div>
           </div>
-          <div class="testimonial-navigation static mt-4 md:absolute  md:bottom-0 md:right-10">
-        <button class="nav-button prev" id="prev-btn" aria-label="Previous testimonial">
-          <ChevronLeft size="24px"/>
-        </button>
-        <button class="nav-button next" id="next-btn" aria-label="Next testimonial">
-          <ChevronRight size="24px"/>
-        </button>
-      </div>
+          <div
+            class="testimonial-navigation static mt-4 md:absolute md:bottom-0 md:right-10"
+          >
+            <button
+              class="nav-button prev"
+              id="prev-btn"
+              aria-label="Previous testimonial"
+            >
+              <ChevronLeft size="24px" />
+            </button>
+            <button
+              class="nav-button next"
+              id="next-btn"
+              aria-label="Next testimonial"
+            >
+              <ChevronRight size="24px" />
+            </button>
+          </div>
         </div>
-        
+
         <!-- Right Image -->
         <div class="testimonial-image">
-          <img 
-            id="testimonial-image" 
-            src={testimonials[0].image} 
+          <img
+            id="testimonial-image"
+            src={testimonials[0].image}
             alt={testimonials[0].alt}
           />
         </div>
       </div>
-      
+
       <!-- Navigation arrows -->
-      
 
       <!-- Dots indicator -->
       <div class="carousel-indicators">
-        {testimonials.map((_, index) => (
-          <button 
-            class={`indicator-dot ${index === 0 ? 'active' : ''}`}
-            data-index={index}
-            aria-label={`Go to testimonial ${index + 1}`}
-          ></button>
-        ))}
+        {
+          testimonials.map((_, index) => (
+            <button
+              class={`indicator-dot ${index === 0 ? "active" : ""}`}
+              data-index={index}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))
+        }
+      </div>
+      <div class="mt-6 md:mt-14 flex flex-col gap-4 md:gap-0">
+        <p class="text-xl font-light text-center text-[#696765]">
+          Elevating brands that define luxury and excellence:
+        </p>
+
+        <div class="w-[85%] md:w-1/2 max-w-full mx-auto overflow-x-hidden">
+          <div class="brand-marquee-track pt-6 pb-8">
+            <div class="brand-marquee-group">
+              <img
+                src="/assets/111Skin.png"
+                alt="111Skin"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/6.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/logo_brand.jpg"
+                alt="Brand 2"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/12.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/lulu.png"
+                alt="Brand 3"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/TalimiMela.png"
+                alt="Brand 4"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/JamiaLogo.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/11.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/Sukhbir.png"
+                alt="Brand 5"
+                class="w-[70px] md:h-auto md:w-[90px]"
+              />
+
+              <img
+                src="/assets/7.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/RoseminWorld.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/ChaiWaliT.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/4.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/BageryBox.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/ChayCompany.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/Barbeque.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/1.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/2.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/3.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/5.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/8.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/10.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+            </div>
+            <div class="brand-marquee-group">
+              <img
+                src="/assets/111Skin.png"
+                alt="111Skin"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/6.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/logo_brand.jpg"
+                alt="Brand 2"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/12.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/lulu.png"
+                alt="Brand 3"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/TalimiMela.png"
+                alt="Brand 4"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/JamiaLogo.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/11.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/Sukhbir.png"
+                alt="Brand 5"
+                class="w-[70px] md:h-auto md:w-[90px]"
+              />
+
+              <img
+                src="/assets/7.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/RoseminWorld.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/ChaiWaliT.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/4.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+
+              <img
+                src="/assets/BageryBox.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/ChayCompany.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/Barbeque.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/1.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/2.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/3.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/5.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/8.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+              <img
+                src="/assets/10.png"
+                alt="Brand 5"
+                class="h-[40px] md:h-[60px]"
+              />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -100,7 +360,7 @@ const testimonials = [
 <style>
   .testimonial-carousel {
     padding: 120px 0;
-    background-color: #EFEAE5;
+    background-color: #efeae5;
     position: relative;
   }
 
@@ -123,11 +383,10 @@ const testimonials = [
     min-height: 600px;
   }
   .testimonial-quote.small-text {
-  font-size: 20px;
-  line-height: 1.5;
-  font-weight: 400;
-}
-
+    font-size: 20px;
+    line-height: 1.5;
+    font-weight: 400;
+  }
 
   .testimonial-content {
     padding-right: 40px;
@@ -174,7 +433,7 @@ const testimonials = [
 
   .testimonial-image {
     position: relative;
-    height: 600px;
+    height: 500px;
     border-radius: 24px;
     overflow: hidden;
     opacity: 1;
@@ -189,14 +448,13 @@ const testimonials = [
 
   .testimonial-image img {
     width: 100%;
-    height: 100%;
     object-fit: cover;
+    border-radius: 24px;
     object-position: center;
     transition: all 0.5s ease;
   }
 
   .testimonial-navigation {
-
     display: flex;
     align-items: center;
     justify-content: center;
@@ -212,14 +470,13 @@ const testimonials = [
     display: flex;
     align-items: center;
     justify-content: center;
-    cursor: pointer;
     transition: all 0.2s ease;
-    color: #A1806E;
+    color: #a1806e;
     backdrop-filter: blur(10px);
   }
 
   .nav-button:hover {
-    background: #E3DAD2;
+    background: #e3dad2;
     transform: scale(1.05);
   }
 
@@ -244,13 +501,12 @@ const testimonials = [
     height: 12px;
     border-radius: 50%;
     border: none;
-    background: #E3DAD2;
-    cursor: pointer;
+    background: #e3dad2;
     transition: all 0.3s ease;
   }
 
   .indicator-dot.active {
-    background: #A1806E;
+    background: #a1806e;
     transform: scale(1.2);
   }
 
@@ -355,45 +611,43 @@ const testimonials = [
   }
 </style>
 <script define:vars={{ testimonials }}>
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener("DOMContentLoaded", () => {
     let currentIndex = 0;
     const total = testimonials.length;
 
-    const quoteEl = document.getElementById('testimonial-quote');
-    const clientEl = document.getElementById('client-info');
-    const imageEl = document.getElementById('testimonial-image');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
-    const dots = document.querySelectorAll('.indicator-dot');
-    const content = document.querySelector('.testimonial-content');
-    const imageBox = document.querySelector('.testimonial-image');
+    const quoteEl = document.getElementById("testimonial-quote");
+    const clientEl = document.getElementById("client-info");
+    const imageEl = document.getElementById("testimonial-image");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const dots = document.querySelectorAll(".indicator-dot");
+    const content = document.querySelector(".testimonial-content");
+    const imageBox = document.querySelector(".testimonial-image");
 
     function updateTestimonial(index) {
       const t = testimonials[index];
 
-      content.classList.add('fade-out');
-      imageBox.classList.add('fade-out');
+      content.classList.add("fade-out");
+      imageBox.classList.add("fade-out");
 
       setTimeout(() => {
         quoteEl.textContent = t.quote;
 
         // Smaller font only for long testimonial
         if (index === 3) {
-          quoteEl.classList.add('small-text');
+          quoteEl.classList.add("small-text");
         } else {
-          quoteEl.classList.remove('small-text');
+          quoteEl.classList.remove("small-text");
         }
 
         clientEl.textContent = `${t.author} from ${t.company}`;
         imageEl.src = t.image;
-        imageEl.alt = t.alt || '';
+        imageEl.alt = t.alt || "";
 
-        dots.forEach((dot, i) =>
-          dot.classList.toggle('active', i === index)
-        );
+        dots.forEach((dot, i) => dot.classList.toggle("active", i === index));
 
-        content.classList.remove('fade-out');
-        imageBox.classList.remove('fade-out');
+        content.classList.remove("fade-out");
+        imageBox.classList.remove("fade-out");
       }, 400);
     }
 
@@ -407,11 +661,11 @@ const testimonials = [
       updateTestimonial(currentIndex);
     }
 
-    nextBtn?.addEventListener('click', next);
-    prevBtn?.addEventListener('click', prev);
+    nextBtn?.addEventListener("click", next);
+    prevBtn?.addEventListener("click", prev);
 
     dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
+      dot.addEventListener("click", () => {
         if (i !== currentIndex) {
           currentIndex = i;
           updateTestimonial(i);
@@ -419,9 +673,9 @@ const testimonials = [
       });
     });
 
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'ArrowRight') next();
-      if (e.key === 'ArrowLeft') prev();
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowRight") next();
+      if (e.key === "ArrowLeft") prev();
     });
   });
 </script>

@@ -1,41 +1,80 @@
 ---
 // Hero.astro
-import {ArrowRight} from "@lucide/astro";
+import { ArrowRight } from "@lucide/astro";
 ---
 
-<section data-hero-sticky class="h-screen flex flex-col gap-20 md:gap-0 text-black bg-[#C7A697] md:bg-[#BEAB9A] w-full z-10 overflow-hidden">
+<section
+  data-hero-sticky
+  class="h-screen flex flex-col gap-20 md:gap-0 text-black bg-[#C7A697] md:bg-[#BEAB9A] w-full z-10 overflow-hidden"
+>
   <!-- Logo in top left corner -->
-  <img src="/assets/logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pl-8 md:pt-0 pt-4" />
+  <img
+    id="hero-logo"
+    src="/assets/POTLI Logo.png"
+    alt="Potli Logo"
+    class="h-28 md:h-44 w-fit pl-5 md:pl-10 md:pt-0 pt-4"
+  />
 
   <!-- Text content on the left -->
-  <div class=" relative z-20 flex flex-col pl-8 md:pl-16 gap-8" id="herodiv">
-    <div class="text-white bg-[#A1806E] text-sm font-semibold tracking-tight rounded-full flex w-fit px-3 py-0.5 items-center justify-center">Accepting new projects</div>
+  <div class="relative z-20 flex flex-col pl-8 md:pl-16 gap-8" id="herodiv">
+    <div
+      class="text-white bg-[#A1806E] text-sm font-semibold tracking-tight rounded-full flex w-fit px-3 py-0.5 items-center justify-center"
+    >
+      Accepting new projects
+    </div>
     <h1 class="text-5xl md:text-6xl font-medium tracking-tight">
-      Creating <br class="md:hidden block"/>
-      brands<br  /> that <span class=" text-[#574F48]">inspire.</span>
+      Creating <br class="md:hidden block" />
+      brands<br /> that <span class="text-[#574F48]">inspire.</span>
     </h1>
     <p class="text-[#574F48] text-xl font-semibold">
-      Expertly crafted brand experiences that captivate, connect <br>
+      Expertly crafted brand experiences that captivate, connect <br />
       with discerning audiences, and leave a lasting impression.
     </p>
-    <a href="mailto:gautamshriya5@gmail.com" class=" group rounded-full relative z-50 cursor-pointer bg-[#EFEAE5] transition-all duration-200 ease-in-out hover:bg-[#e7e1db] font-semibold w-fit flex items-center"><p class="px-6 py-3.5 ">Get in touch</p> <span class="rounded-full bg-white p-3 mr-1"><ArrowRight color="#000000" size={"20px"}/></span>
-    <div class="bg-white w-12 h-12 -z-10  group-hover:w-[calc(100%-0.5rem)] group-hover:h-[calc(100%-0.5rem)] transition-[width,height] duration-700 ease-in-out flex absolute rounded-full right-1 top-1/2 -translate-y-1/2 will-change-[width,height]"></div>
-  </a>
+    <a
+      href="mailto:business@potli.world"
+      class="group rounded-full relative z-50 bg-[#EFEAE5] transition-all duration-200 ease-in-out hover:bg-[#e7e1db] font-semibold w-fit flex items-center"
+      ><p class="px-6 py-3.5">Get in touch</p>
+      <span class="rounded-full bg-white p-3 mr-1"
+        ><ArrowRight color="#000000" size={"20px"} /></span
+      >
+      <div
+        class="bg-white w-12 h-12 -z-10 group-hover:w-[calc(100%-0.5rem)] group-hover:h-[calc(100%-0.5rem)] transition-[width,height] duration-700 ease-in-out flex absolute rounded-full right-1 top-1/2 -translate-y-1/2 will-change-[width,height]"
+      >
+      </div>
+    </a>
   </div>
 
   <!-- Video container on the right -->
-   <div class="hidden md:block static md:absolute w-full md:w-auto  -z-10 bg-[#BEAB9A] overflow-hidden">
-    <video class="md:translate-x-1/4 h-full md:h-auto rotate-90 md:rotate-0" autoplay loop muted playsinline>
+  <div
+    class="hidden md:block static md:absolute w-full md:w-auto -z-10 bg-[#BEAB9A] overflow-hidden"
+  >
+    <video
+      class="md:translate-x-1/4 h-full md:h-auto rotate-90 md:rotate-0"
+      autoplay
+      loop
+      muted
+      playsinline
+    >
       <source src="/assets/bg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
     </video>
-</div>
-<div class="block md:hidden absolute z-10 bottom-0 left-0 right-0 h-[34vh] pointer-events-none overflow-hidden">
-  <div class="absolute top-0 left-0 right-0 z-20 h-10 bg-gradient-to-b from-[#C7A697]/95 via-[#C7A697]/70 to-transparent backdrop-blur-sm"></div>
-  <video class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[18%] rotate-90 h-[450px] w-auto max-w-none bg-[#C7A697] md:bg-[#BEAB9A]" autoplay loop muted playsinline>
-    <source src="/assets/bg.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-</div>
-  
+  </div>
+  <div
+    class="block md:hidden absolute z-10 bottom-0 left-0 right-0 h-[34vh] pointer-events-none overflow-hidden"
+  >
+    <div
+      class="absolute top-0 left-0 right-0 z-20 h-10 bg-gradient-to-b from-[#C7A697]/95 via-[#C7A697]/70 to-transparent backdrop-blur-sm"
+    >
+    </div>
+    <video
+      class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[18%] rotate-90 h-[450px] w-auto max-w-none bg-[#C7A697] md:bg-[#BEAB9A]"
+      autoplay
+      loop
+      muted
+      playsinline
+    >
+      <source src="/assets/bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+  </div>
 </section>

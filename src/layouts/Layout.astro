@@ -12,6 +12,9 @@ import '../styles/global.css'
 		<title>Potli- We fill it with meaning</title>
 	</head>
 	<body>
+		<div id="site-loader" class="site-loader" aria-hidden="true">
+			<img id="loader-logo" src="/assets/POTLI Logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pl-10 md:pt-0 pt-4 loader-logo-scale" />
+		</div>
 		<div id="smooth-wrapper">
 			<main id="smooth-content">
 				<slot />
@@ -69,6 +72,79 @@ import '../styles/global.css'
 			}
 
 			document.addEventListener("astro:page-load", start);
+
+			const LOADER_DURATION_MS = 3000;
+			const LOADER_FADE_DURATION = 0.45;
+			const LOGO_MOVE_DURATION = 1.6;
+			const LOADER_LOGO_SCALE = 2;
+			const HERO_START_SCALE = 2;
+
+			const runLoaderTransition = () => {
+				const loader = document.getElementById("site-loader");
+				if (!loader) return;
+				const loaderLogo = document.getElementById("loader-logo");
+
+				document.documentElement.classList.add("is-loading");
+
+				const cleanup = () => {
+					loader.remove();
+					document.documentElement.classList.remove("is-loading");
+				};
+
+				const startTransition = () => {
+					const heroLogo = document.getElementById("hero-logo");
+					if (!heroLogo) {
+						gsap.to(loader, { opacity: 0, duration: LOADER_FADE_DURATION, onComplete: cleanup });
+						return;
+					}
+
+					const heroRect = heroLogo.getBoundingClientRect();
+					const heroCenterX = heroRect.left + heroRect.width / 2;
+					const heroCenterY = heroRect.top + heroRect.height / 2;
+					const viewportCenterX = window.innerWidth / 2;
+					const viewportCenterY = window.innerHeight / 2;
+					const fromX = viewportCenterX - heroCenterX;
+					const fromY = viewportCenterY - heroCenterY;
+
+					heroLogo.style.willChange = "transform";
+					const loaderFadeStart = 0;
+					const heroMoveStart = LOADER_FADE_DURATION;
+					const timeline = gsap.timeline({
+						onComplete: () => {
+							heroLogo.style.willChange = "";
+							cleanup();
+						},
+					});
+
+					timeline
+						.to(loader, { opacity: 0, duration: LOADER_FADE_DURATION, ease: "power1.out" }, loaderFadeStart)
+						.from(
+							heroLogo,
+							{
+								x: fromX,
+								y: fromY,
+								scale: HERO_START_SCALE,
+								duration: LOGO_MOVE_DURATION,
+								ease: "power3.inOut",
+							},
+							heroMoveStart
+						);
+				};
+
+				window.setTimeout(() => {
+					try {
+						startTransition();
+					} catch (error) {
+						gsap.to(loader, { opacity: 0, duration: LOADER_FADE_DURATION, onComplete: cleanup });
+					}
+				}, LOADER_DURATION_MS);
+			};
+
+			if (document.readyState === "complete") {
+				runLoaderTransition();
+			} else {
+				window.addEventListener("load", runLoaderTransition, { once: true });
+			}
 		</script>
 	</body>
 </html>
