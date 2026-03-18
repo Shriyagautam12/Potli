@@ -6,6 +6,10 @@
     animation-direction: reverse;
   }
 
+  .intro-logo {
+    @apply fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 p-0;
+  }
+
   .brand-marquee-track {
     display: flex;
     width: max-content;
@@ -50,22 +54,11 @@ body {
   overflow-x: hidden;
 }
 
-html.is-loading body {
-  overflow: hidden;
+html.is-intro,
+html.is-intro body {
+  @apply overflow-hidden touch-none;
 }
 
-.site-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #beab9a;
+html.is-intro body {
+  @apply pointer-events-none;
 }
-
-.loader-logo-scale {
-  transform: scale(2);
-  transform-origin: center center;
-}
-
