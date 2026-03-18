@@ -8,25 +8,29 @@ import { ArrowRight } from "@lucide/astro";
   class="h-screen flex flex-col gap-20 md:gap-0 text-black bg-[#C7A697] md:bg-[#BEAB9A] w-full z-10 overflow-hidden"
 >
   <!-- Logo in top left corner -->
-  <img
-    id="hero-logo-placeholder"
-    src="/assets/POTLI Logo.png"
-    alt=""
-    aria-hidden="true"
-    class="h-28 md:h-44 w-fit pl-5 md:pl-10 md:pt-0 pt-4 opacity-0 pointer-events-none"
-  />
+  <div
+    id="hero-logo-wrapper"
+    class="inline-flex w-fit hero-logo-padding"
+  >
+    <img
+      id="hero-logo-ghost"
+      src="/assets/POTLI Logo.png"
+      alt=""
+      aria-hidden="true"
+      class="h-28 md:h-44 w-fit opacity-0 pointer-events-none"
+    />
+  </div>
   <img
     id="hero-logo"
     src="/assets/POTLI Logo.png"
     alt="Potli Logo"
-    class="intro-logo h-28 md:h-44 w-fit pl-5 md:pl-10 md:pt-0 pt-4"
+    class="h-28 md:h-44 w-fit intro-logo"
   />
   <div
     id="hero-intro-screen"
     class="fixed inset-0 z-40 bg-[#BEAB9A]"
     aria-hidden="true"
-  >
-  </div>
+  ></div>
 
   <!-- Text content on the left -->
   <div class="relative z-20 flex flex-col pl-8 md:pl-16 gap-8" id="herodiv">

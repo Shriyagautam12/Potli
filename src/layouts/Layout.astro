@@ -116,18 +116,80 @@ import "../styles/global.css";
         window.scrollTo(0, introScrollY);
       };
 
-      const runIntroTransition = () => {
+      const getVisibleCenterOffset = async (img) => {
+        if (!img?.naturalWidth || !img?.naturalHeight) return { x: 0, y: 0 };
+        if (typeof img.decode === "function") {
+          try {
+            await img.decode();
+          } catch {
+            return { x: 0, y: 0 };
+          }
+        }
+
+        const canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        if (!ctx) return { x: 0, y: 0 };
+        ctx.drawImage(img, 0, 0);
+
+        const { data, width, height } = ctx.getImageData(
+          0,
+          0,
+          canvas.width,
+          canvas.height
+        );
+
+        let minX = width;
+        let minY = height;
+        let maxX = 0;
+        let maxY = 0;
+        let found = false;
+
+        for (let y = 0; y < height; y += 1) {
+          for (let x = 0; x < width; x += 1) {
+            const alpha = data[(y * width + x) * 4 + 3];
+            if (alpha > 10) {
+              found = true;
+              if (x < minX) minX = x;
+              if (y < minY) minY = y;
+              if (x > maxX) maxX = x;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
+
+        if (!found) return { x: 0, y: 0 };
+
+        const visibleCenterX = (minX + maxX) / 2;
+        const visibleCenterY = (minY + maxY) / 2;
+        const imageCenterX = width / 2;
+        const imageCenterY = height / 2;
+
+        return {
+          x: visibleCenterX - imageCenterX,
+          y: visibleCenterY - imageCenterY,
+        };
+      };
+
+      const runIntroTransition = async () => {
         const overlay = document.getElementById("hero-intro-screen");
         const heroLogo = document.getElementById("hero-logo");
-        const placeholder = document.getElementById("hero-logo-placeholder");
-        if (!overlay || !heroLogo || !placeholder) return;
+        const wrapper = document.getElementById("hero-logo-wrapper");
+        const ghost = document.getElementById("hero-logo-ghost");
+        if (!overlay || !heroLogo || !wrapper || !ghost) return;
         if (overlay.dataset.introDone === "true") return;
         overlay.dataset.introDone = "true";
 
+        const finalizeLogo = () => {
+          wrapper.appendChild(heroLogo);
+          heroLogo.classList.remove("intro-logo");
+          ghost.remove();
+        };
+
         if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
           overlay.remove();
-          heroLogo.classList.remove("intro-logo");
-          placeholder.remove();
+          finalizeLogo();
           document.documentElement.classList.remove("is-intro");
           unlockIntroScroll();
           return;
@@ -136,17 +198,32 @@ import "../styles/global.css";
         document.documentElement.classList.add("is-intro");
         lockIntroScroll();
 
-        const placeholderRect = placeholder.getBoundingClientRect();
-        const placeholderCenterX =
-          placeholderRect.left + placeholderRect.width / 2;
-        const placeholderCenterY =
-          placeholderRect.top + placeholderRect.height / 2;
+        const visibleOffset = await getVisibleCenterOffset(heroLogo);
+        const logoRect = heroLogo.getBoundingClientRect();
+        const scaleX = heroLogo.naturalWidth
+          ? logoRect.width / heroLogo.naturalWidth
+          : 1;
+        const scaleY = heroLogo.naturalHeight
+          ? logoRect.height / heroLogo.naturalHeight
+          : 1;
+        const scaledOffset = {
+          x: visibleOffset.x * scaleX,
+          y: visibleOffset.y * scaleY,
+        };
+
+        const ghostRect = ghost.getBoundingClientRect();
+        const ghostCenterX = ghostRect.left + ghostRect.width / 2;
+        const ghostCenterY = ghostRect.top + ghostRect.height / 2;
         const viewportCenterX = window.innerWidth / 2;
         const viewportCenterY = window.innerHeight / 2;
-        const toX = placeholderCenterX - viewportCenterX;
-        const toY = placeholderCenterY - viewportCenterY;
+        const toX = ghostCenterX - viewportCenterX - scaledOffset.x;
+        const toY = ghostCenterY - viewportCenterY - scaledOffset.y;
 
-        gsap.set(heroLogo, { x: 0, y: 0, willChange: "transform" });
+        gsap.set(heroLogo, {
+          x: -scaledOffset.x,
+          y: -scaledOffset.y,
+          willChange: "transform",
+        });
         gsap.set(overlay, { opacity: 1, willChange: "opacity" });
 
         window.setTimeout(() => {
@@ -155,6 +232,8 @@ import "../styles/global.css";
               onComplete: () => {
                 overlay.remove();
                 heroLogo.style.willChange = "";
+                gsap.set(heroLogo, { clearProps: "transform" });
+                finalizeLogo();
                 document.documentElement.classList.remove("is-intro");
                 unlockIntroScroll();
               },
