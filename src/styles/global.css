@@ -7,7 +7,7 @@
   }
 
   .intro-logo {
-    @apply fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2;
+    @apply fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 scale-180;
   }
 
   .hero-logo-padding {
@@ -52,6 +52,14 @@
 * {
   box-sizing: border-box;
   cursor: none;
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Internet Explorer and Edge */
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
 }
 body {
   width: 100%;

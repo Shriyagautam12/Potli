@@ -71,9 +71,13 @@ import "../styles/global.css";
 
       document.addEventListener("astro:page-load", start);
 
-      const INTRO_HOLD_MS = 2500;
-      const INTRO_FADE_DURATION = 1.5;
+      const INTRO_HOLD_MS = 700;
+      const INTRO_FADE_DURATION = 1.1;
       const INTRO_LOGO_DURATION = 1.5;
+      const INTRO_FADE_OFFSET = 0.6;
+      const INTRO_LOGO_OFFSET = 0;
+      const INTRO_LOGO_START_SCALE = 1.8;
+      const INTRO_LOGO_END_SCALE = 1;
 
       let introScrollY = 0;
       const preventScroll = (event) => event.preventDefault();
@@ -137,7 +141,7 @@ import "../styles/global.css";
           0,
           0,
           canvas.width,
-          canvas.height
+          canvas.height,
         );
 
         let minX = width;
@@ -222,6 +226,7 @@ import "../styles/global.css";
         gsap.set(heroLogo, {
           x: -scaledOffset.x,
           y: -scaledOffset.y,
+          scale: INTRO_LOGO_START_SCALE,
           willChange: "transform",
         });
         gsap.set(overlay, { opacity: 1, willChange: "opacity" });
@@ -232,7 +237,10 @@ import "../styles/global.css";
               onComplete: () => {
                 overlay.remove();
                 heroLogo.style.willChange = "";
-                gsap.set(heroLogo, { clearProps: "transform" });
+                gsap.set(heroLogo, {
+                  clearProps: "transform",
+                  scale: INTRO_LOGO_END_SCALE,
+                });
                 finalizeLogo();
                 document.documentElement.classList.remove("is-intro");
                 unlockIntroScroll();
@@ -241,17 +249,18 @@ import "../styles/global.css";
             .to(
               overlay,
               { opacity: 0, duration: INTRO_FADE_DURATION, ease: "power1.out" },
-              0,
+              INTRO_FADE_OFFSET,
             )
             .to(
               heroLogo,
               {
                 x: toX,
                 y: toY,
+                scale: 1,
                 duration: INTRO_LOGO_DURATION,
                 ease: "power3.inOut",
               },
-              0,
+              INTRO_LOGO_OFFSET,
             );
         }, INTRO_HOLD_MS);
       };
