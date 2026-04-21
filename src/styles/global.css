@@ -6,6 +6,14 @@
     animation-direction: reverse;
   }
 
+  .intro-logo {
+    @apply fixed left-1/2 top-1/2 z-50 -translate-x-1/2 -translate-y-1/2 scale-180;
+  }
+
+  .hero-logo-padding {
+    @apply pl-5 md:pl-10 md:pt-0 pt-4;
+  }
+
   .brand-marquee-track {
     display: flex;
     width: max-content;
@@ -44,28 +52,25 @@
 * {
   box-sizing: border-box;
   cursor: none;
+  /* Firefox */
+  scrollbar-width: none;
+
+  /* Internet Explorer and Edge */
+  -ms-overflow-style: none;
+}
+*::-webkit-scrollbar {
+  display: none;
 }
 body {
   width: 100%;
   overflow-x: hidden;
 }
 
-html.is-loading body {
-  overflow: hidden;
+html.is-intro,
+html.is-intro body {
+  @apply overflow-hidden touch-none;
 }
 
-.site-loader {
-  position: fixed;
-  inset: 0;
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #beab9a;
+html.is-intro body {
+  @apply pointer-events-none;
 }
-
-.loader-logo-scale {
-  transform: scale(2);
-  transform-origin: center center;
-}
-

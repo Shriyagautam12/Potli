@@ -1,170 +1,297 @@
 ---
-import '../styles/global.css'
+import "../styles/global.css";
 ---
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/assets/9.png" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Potli- We fill it with meaning</title>
-	</head>
-	<body>
-		<div id="site-loader" class="site-loader" aria-hidden="true">
-			<img id="loader-logo" src="/assets/POTLI Logo.png" alt="Potli Logo" class="h-28 md:h-44 w-fit pl-5 md:pl-10 md:pt-0 pt-4 loader-logo-scale" />
-		</div>
-		<div id="smooth-wrapper">
-			<main id="smooth-content">
-				<slot />
-			</main>
-		</div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/assets/9.png" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Potli- We fill it with meaning</title>
+  </head>
+  <body>
+    <div id="smooth-wrapper">
+      <main id="smooth-content">
+        <slot />
+      </main>
+    </div>
 
-		<script>
-			// @ts-nocheck
-			import { gsap } from "gsap";
-			import { ScrollTrigger } from "gsap/ScrollTrigger";
-			import { ScrollSmoother } from "gsap/ScrollSmoother";
+    <script>
+      // @ts-nocheck
+      import { gsap } from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+      import { ScrollSmoother } from "gsap/ScrollSmoother";
 
-			gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+      gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-			const initSmoothScroll = () => {
-				if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-				if (typeof ScrollSmoother?.create !== "function") return;
+      const initSmoothScroll = () => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches)
+          return;
+        if (typeof ScrollSmoother?.create !== "function") return;
 
-				const existing = ScrollSmoother.get();
-				if (existing) existing.kill();
+        const existing = ScrollSmoother.get();
+        if (existing) existing.kill();
 
-				ScrollTrigger.getById("hero-sticky-pin")?.kill();
+        ScrollTrigger.getById("hero-sticky-pin")?.kill();
 
-				ScrollSmoother.create({
-					wrapper: "#smooth-wrapper",
-					content: "#smooth-content",
-					smooth: 2,
-					smoothTouch: 0.8,
-					normalizeScroll: true,
-					effects: false,
-				});
+        ScrollSmoother.create({
+          wrapper: "#smooth-wrapper",
+          content: "#smooth-content",
+          smooth: 2,
+          smoothTouch: 0.8,
+          normalizeScroll: true,
+          effects: false,
+        });
 
-				const hero = document.querySelector("[data-hero-sticky]");
-				if (hero) {
-					ScrollTrigger.create({
-						id: "hero-sticky-pin",
-						trigger: hero,
-						start: "top top",
-						end: "max",
-						pin: true,
-						pinSpacing: false,
-						anticipatePin: 1,
-					});
-				}
+        const hero = document.querySelector("[data-hero-sticky]");
+        if (hero) {
+          ScrollTrigger.create({
+            id: "hero-sticky-pin",
+            trigger: hero,
+            start: "top top",
+            end: "max",
+            pin: true,
+            pinSpacing: false,
+            anticipatePin: 1,
+          });
+        }
 
-				ScrollTrigger.refresh();
-			};
+        ScrollTrigger.refresh();
+      };
 
-			const start = () => requestAnimationFrame(initSmoothScroll);
+      const start = () => requestAnimationFrame(initSmoothScroll);
 
-			if (document.readyState === "complete") {
-				start();
-			} else {
-				window.addEventListener("load", start, { once: true });
-			}
+      if (document.readyState === "complete") {
+        start();
+      } else {
+        window.addEventListener("load", start, { once: true });
+      }
 
-			document.addEventListener("astro:page-load", start);
+      document.addEventListener("astro:page-load", start);
 
-			const LOADER_DURATION_MS = 3000;
-			const LOADER_FADE_DURATION = 0.45;
-			const LOGO_MOVE_DURATION = 1.6;
-			const LOADER_LOGO_SCALE = 2;
-			const HERO_START_SCALE = 2;
+      const INTRO_HOLD_MS = 700;
+      const INTRO_FADE_DURATION = 1.1;
+      const INTRO_LOGO_DURATION = 1.5;
+      const INTRO_FADE_OFFSET = 0.6;
+      const INTRO_LOGO_OFFSET = 0;
+      const INTRO_LOGO_START_SCALE = 1.8;
+      const INTRO_LOGO_END_SCALE = 1;
 
-			const runLoaderTransition = () => {
-				const loader = document.getElementById("site-loader");
-				if (!loader) return;
-				const loaderLogo = document.getElementById("loader-logo");
+      let introScrollY = 0;
+      const preventScroll = (event) => event.preventDefault();
+      const preventKeys = (event) => {
+        const keys = [
+          "ArrowUp",
+          "ArrowDown",
+          "PageUp",
+          "PageDown",
+          "Home",
+          "End",
+          " ",
+        ];
+        if (keys.includes(event.key)) event.preventDefault();
+      };
 
-				document.documentElement.classList.add("is-loading");
+      const lockIntroScroll = () => {
+        introScrollY = window.scrollY || window.pageYOffset;
+        document.body.style.position = "fixed";
+        document.body.style.top = `-${introScrollY}px`;
+        document.body.style.left = "0";
+        document.body.style.right = "0";
+        document.body.style.width = "100%";
+        document.body.style.overflow = "hidden";
+        window.addEventListener("wheel", preventScroll, { passive: false });
+        window.addEventListener("touchmove", preventScroll, { passive: false });
+        window.addEventListener("keydown", preventKeys);
+      };
 
-				const cleanup = () => {
-					loader.remove();
-					document.documentElement.classList.remove("is-loading");
-				};
+      const unlockIntroScroll = () => {
+        document.body.style.position = "";
+        document.body.style.top = "";
+        document.body.style.left = "";
+        document.body.style.right = "";
+        document.body.style.width = "";
+        document.body.style.overflow = "";
+        window.removeEventListener("wheel", preventScroll);
+        window.removeEventListener("touchmove", preventScroll);
+        window.removeEventListener("keydown", preventKeys);
+        window.scrollTo(0, introScrollY);
+      };
 
-				const startTransition = () => {
-					const heroLogo = document.getElementById("hero-logo");
-					if (!heroLogo) {
-						gsap.to(loader, { opacity: 0, duration: LOADER_FADE_DURATION, onComplete: cleanup });
-						return;
-					}
+      const getVisibleCenterOffset = async (img) => {
+        if (!img?.naturalWidth || !img?.naturalHeight) return { x: 0, y: 0 };
+        if (typeof img.decode === "function") {
+          try {
+            await img.decode();
+          } catch {
+            return { x: 0, y: 0 };
+          }
+        }
 
-					const heroRect = heroLogo.getBoundingClientRect();
-					const heroCenterX = heroRect.left + heroRect.width / 2;
-					const heroCenterY = heroRect.top + heroRect.height / 2;
-					const viewportCenterX = window.innerWidth / 2;
-					const viewportCenterY = window.innerHeight / 2;
-					const fromX = viewportCenterX - heroCenterX;
-					const fromY = viewportCenterY - heroCenterY;
+        const canvas = document.createElement("canvas");
+        canvas.width = img.naturalWidth;
+        canvas.height = img.naturalHeight;
+        const ctx = canvas.getContext("2d", { willReadFrequently: true });
+        if (!ctx) return { x: 0, y: 0 };
+        ctx.drawImage(img, 0, 0);
 
-					heroLogo.style.willChange = "transform";
-					const loaderFadeStart = 0;
-					const heroMoveStart = LOADER_FADE_DURATION;
-					const timeline = gsap.timeline({
-						onComplete: () => {
-							heroLogo.style.willChange = "";
-							cleanup();
-						},
-					});
+        const { data, width, height } = ctx.getImageData(
+          0,
+          0,
+          canvas.width,
+          canvas.height,
+        );
 
-					timeline
-						.to(loader, { opacity: 0, duration: LOADER_FADE_DURATION, ease: "power1.out" }, loaderFadeStart)
-						.from(
-							heroLogo,
-							{
-								x: fromX,
-								y: fromY,
-								scale: HERO_START_SCALE,
-								duration: LOGO_MOVE_DURATION,
-								ease: "power3.inOut",
-							},
-							heroMoveStart
-						);
-				};
+        let minX = width;
+        let minY = height;
+        let maxX = 0;
+        let maxY = 0;
+        let found = false;
 
-				window.setTimeout(() => {
-					try {
-						startTransition();
-					} catch (error) {
-						gsap.to(loader, { opacity: 0, duration: LOADER_FADE_DURATION, onComplete: cleanup });
-					}
-				}, LOADER_DURATION_MS);
-			};
+        for (let y = 0; y < height; y += 1) {
+          for (let x = 0; x < width; x += 1) {
+            const alpha = data[(y * width + x) * 4 + 3];
+            if (alpha > 10) {
+              found = true;
+              if (x < minX) minX = x;
+              if (y < minY) minY = y;
+              if (x > maxX) maxX = x;
+              if (y > maxY) maxY = y;
+            }
+          }
+        }
 
-			if (document.readyState === "complete") {
-				runLoaderTransition();
-			} else {
-				window.addEventListener("load", runLoaderTransition, { once: true });
-			}
-		</script>
-	</body>
+        if (!found) return { x: 0, y: 0 };
+
+        const visibleCenterX = (minX + maxX) / 2;
+        const visibleCenterY = (minY + maxY) / 2;
+        const imageCenterX = width / 2;
+        const imageCenterY = height / 2;
+
+        return {
+          x: visibleCenterX - imageCenterX,
+          y: visibleCenterY - imageCenterY,
+        };
+      };
+
+      const runIntroTransition = async () => {
+        const overlay = document.getElementById("hero-intro-screen");
+        const heroLogo = document.getElementById("hero-logo");
+        const wrapper = document.getElementById("hero-logo-wrapper");
+        const ghost = document.getElementById("hero-logo-ghost");
+        if (!overlay || !heroLogo || !wrapper || !ghost) return;
+        if (overlay.dataset.introDone === "true") return;
+        overlay.dataset.introDone = "true";
+
+        const finalizeLogo = () => {
+          wrapper.appendChild(heroLogo);
+          heroLogo.classList.remove("intro-logo");
+          ghost.remove();
+        };
+
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+          overlay.remove();
+          finalizeLogo();
+          document.documentElement.classList.remove("is-intro");
+          unlockIntroScroll();
+          return;
+        }
+
+        document.documentElement.classList.add("is-intro");
+        lockIntroScroll();
+
+        const visibleOffset = await getVisibleCenterOffset(heroLogo);
+        const logoRect = heroLogo.getBoundingClientRect();
+        const scaleX = heroLogo.naturalWidth
+          ? logoRect.width / heroLogo.naturalWidth
+          : 1;
+        const scaleY = heroLogo.naturalHeight
+          ? logoRect.height / heroLogo.naturalHeight
+          : 1;
+        const scaledOffset = {
+          x: visibleOffset.x * scaleX,
+          y: visibleOffset.y * scaleY,
+        };
+
+        const ghostRect = ghost.getBoundingClientRect();
+        const ghostCenterX = ghostRect.left + ghostRect.width / 2;
+        const ghostCenterY = ghostRect.top + ghostRect.height / 2;
+        const viewportCenterX = window.innerWidth / 2;
+        const viewportCenterY = window.innerHeight / 2;
+        const toX = ghostCenterX - viewportCenterX - scaledOffset.x;
+        const toY = ghostCenterY - viewportCenterY - scaledOffset.y;
+
+        gsap.set(heroLogo, {
+          x: -scaledOffset.x,
+          y: -scaledOffset.y,
+          scale: INTRO_LOGO_START_SCALE,
+          willChange: "transform",
+        });
+        gsap.set(overlay, { opacity: 1, willChange: "opacity" });
+
+        window.setTimeout(() => {
+          gsap
+            .timeline({
+              onComplete: () => {
+                overlay.remove();
+                heroLogo.style.willChange = "";
+                gsap.set(heroLogo, {
+                  clearProps: "transform",
+                  scale: INTRO_LOGO_END_SCALE,
+                });
+                finalizeLogo();
+                document.documentElement.classList.remove("is-intro");
+                unlockIntroScroll();
+              },
+            })
+            .to(
+              overlay,
+              { opacity: 0, duration: INTRO_FADE_DURATION, ease: "power1.out" },
+              INTRO_FADE_OFFSET,
+            )
+            .to(
+              heroLogo,
+              {
+                x: toX,
+                y: toY,
+                scale: 1,
+                duration: INTRO_LOGO_DURATION,
+                ease: "power3.inOut",
+              },
+              INTRO_LOGO_OFFSET,
+            );
+        }, INTRO_HOLD_MS);
+      };
+
+      if (document.readyState === "complete") {
+        runIntroTransition();
+      } else {
+        window.addEventListener("load", runIntroTransition, { once: true });
+      }
+
+      document.addEventListener("astro:page-load", runIntroTransition);
+    </script>
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-	#smooth-wrapper {
-		position: relative;
-		overflow: hidden;
-	}
+  #smooth-wrapper {
+    position: relative;
+    overflow: hidden;
+  }
 
-	main#smooth-content {
-		min-height: 100vh;
-		width: 100%;
-		overflow-x: clip;
-	}
+  main#smooth-content {
+    min-height: 100vh;
+    width: 100%;
+    overflow-x: clip;
+  }
 </style>
