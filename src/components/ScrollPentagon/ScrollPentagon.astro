@@ -5,17 +5,17 @@ const labels = ["1", "2", "3", "4", "5"];
 
 <section
   data-pentagon-scroll
-  class="relative min-h-[100vh] bg-white"
+  class="relative min-h-[100vh] bg-[#EFEAE5]"
   aria-label="Scroll animated pentagon circles"
 >
-  <div class="sticky top-0 h-screen overflow-hidden bg-white">
+  <div class="sticky top-0 h-screen overflow-hidden ">
     <div class="relative h-full w-full">
       {
         circles.map((index) => (
           <div
             data-pentagon-circle
             data-circle-index={index}
-            class="absolute left-1/2 top-1/2 -translate-1/2 rounded-full border-2 border-black bg-transparent"
+            class="absolute left-1/2 top-1/2 -translate-1/2 rounded-full border-4 border-black bg-transparent"
             style="width: 4px; height: 4px;"
           >
             <span
@@ -90,7 +90,7 @@ const labels = ["1", "2", "3", "4", "5"];
         trigger: section,
         start: "top top",
         end: () => `+=${window.innerHeight * 1}`,
-        scrub: 1,
+        scrub: 2,
         invalidateOnRefresh: true,
         pin: true,
       },
@@ -101,6 +101,7 @@ const labels = ["1", "2", "3", "4", "5"];
       x: (index) => getPentagonPoints()[index].x,
       y: (index) => getPentagonPoints()[index].y,
       duration: 1,
+      borderWidth: 2,
     });
 
     timeline.to(circles, {

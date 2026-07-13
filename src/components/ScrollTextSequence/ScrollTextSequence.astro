@@ -8,10 +8,22 @@ const messages = [
 
 <section
   data-spin-scroll
-  class="relative min-h-screen bg-white"
+  class="relative min-h-screen bg-[#EFEAE5]"
   aria-label="Scroll animated centered text section"
 >
-  <div class="sticky top-0 h-screen overflow-hidden bg-white">
+  <div
+    id="hero-logo-wrapper"
+    class="inline-flex w-fit hero-logo-padding absolute"
+  >
+    <img
+      id="hero-logo-ghost"
+      src="/assets/POTLI Logo.png"
+      alt=""
+      aria-hidden="true"
+      class="h-28 md:h-44 w-fit  pointer-events-none"
+    />
+  </div>
+  <div class="sticky top-0 h-screen overflow-hidden ">
     <div class="relative flex h-full w-full items-center justify-center">
       {
         messages.map((message, index) => (
