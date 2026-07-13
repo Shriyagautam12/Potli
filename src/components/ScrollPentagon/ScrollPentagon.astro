@@ -1,0 +1,134 @@
+---
+const circles = Array.from({ length: 5 }, (_, index) => index);
+const labels = ["1", "2", "3", "4", "5"];
+---
+
+<section
+  data-pentagon-scroll
+  class="relative min-h-[100vh] bg-white"
+  aria-label="Scroll animated pentagon circles"
+>
+  <div class="sticky top-0 h-screen overflow-hidden bg-white">
+    <div class="relative h-full w-full">
+      {
+        circles.map((index) => (
+          <div
+            data-pentagon-circle
+            data-circle-index={index}
+            class="absolute left-1/2 top-1/2 -translate-1/2 rounded-full border-2 border-black bg-transparent"
+            style="width: 4px; height: 4px;"
+          >
+            <span
+              data-pentagon-label
+              class="flex h-full w-full items-center justify-center font-medium text-black"
+              style="font-size: 0px; opacity: 0; line-height: 1;"
+            >
+              {labels[index]}
+            </span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerId = "pentagon-scroll-trigger";
+
+  const getPentagonPoints = () => {
+    const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
+    const xRadius = radius * 1.05;
+    const yRadius = radius * 0.9;
+    const startAngle = -Math.PI / 2;
+
+    return Array.from({ length: 5 }, (_, index) => {
+      const angle = startAngle + (Math.PI * 2 * index) / 5;
+
+      return {
+        x: Math.cos(angle) * xRadius,
+        y: Math.sin(angle) * yRadius,
+      };
+    });
+  };
+
+  const setupPentagonScroll = () => {
+    const section = document.querySelector("[data-pentagon-scroll]");
+    const circles = Array.from(
+      document.querySelectorAll("[data-pentagon-circle]"),
+    );
+    const labels = Array.from(
+      document.querySelectorAll("[data-pentagon-label]"),
+    );
+
+    if (!section || circles.length !== 5 || labels.length !== 5) return;
+
+    ScrollTrigger.getById(triggerId)?.kill();
+
+    gsap.set(circles, {
+      x: 0,
+      y: 0,
+      xPercent: -50,
+      yPercent: -50,
+      willChange: "transform",
+      transformOrigin: "50% 50%",
+    });
+
+    gsap.set(labels, {
+      opacity: 0,
+      fontSize: 0,
+      transformOrigin: "50% 50%",
+    });
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        id: triggerId,
+        trigger: section,
+        start: "top top",
+        end: () => `+=${window.innerHeight * 1}`,
+        scrub: 1,
+        invalidateOnRefresh: true,
+        pin: true,
+      },
+      defaults: { ease: "none" },
+    });
+
+    timeline.to(circles, {
+      x: (index) => getPentagonPoints()[index].x,
+      y: (index) => getPentagonPoints()[index].y,
+      duration: 1,
+    });
+
+    timeline.to(circles, {
+      width: 200,
+      height: 200,
+      duration: 1,
+    });
+
+    timeline.to(
+      labels,
+      {
+        opacity: 1,
+        fontSize: 20,
+        duration: 1,
+      },
+      1,
+    );
+
+    ScrollTrigger.refresh();
+  };
+
+  const start = () => requestAnimationFrame(setupPentagonScroll);
+
+  if (document.readyState === "complete") {
+    start();
+  } else {
+    window.addEventListener("load", start, { once: true });
+  }
+
+  document.addEventListener("astro:page-load", start);
+</script>

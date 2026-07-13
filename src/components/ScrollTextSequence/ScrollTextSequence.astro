@@ -1,0 +1,133 @@
+---
+const messages = [
+  "Packed with meaning",
+  "Carried with stories",
+  "Made for what matters",
+];
+---
+
+<section
+  data-spin-scroll
+  class="relative min-h-screen bg-white"
+  aria-label="Scroll animated centered text section"
+>
+  <div class="sticky top-0 h-screen overflow-hidden bg-white">
+    <div class="relative flex h-full w-full items-center justify-center">
+      {
+        messages.map((message, index) => (
+          <div
+            data-spin-text
+            data-spin-index={index}
+            class="absolute left-1/2 top-1/2  text-center text-xl font-semibold tracking-tight text-black"
+            style="opacity: 0; transform: translate(-50%, -50%) "
+          >
+            {message}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerId = "spin-text-scroll-trigger";
+
+  const setupSpinTextScroll = () => {
+    const section = document.querySelector("[data-spin-scroll]");
+    const texts = Array.from(document.querySelectorAll("[data-spin-text]"));
+
+    if (!section || texts.length < 3) return;
+
+    ScrollTrigger.getById(triggerId)?.kill();
+
+    gsap.set(texts, {
+      opacity: 0,
+      scale: 1,
+      transformOrigin: "50% 50%",
+    });
+
+    gsap.set(texts[0], { opacity: 1, scale: 1 });
+
+    const timeline = gsap.timeline({
+      scrollTrigger: {
+        id: triggerId,
+        trigger: section,
+        start: "top top",
+        end: () => `+=${window.innerHeight * 1}`,
+        scrub: 1,
+        pin: true,
+        invalidateOnRefresh: true,
+      },
+      defaults: { ease: "none" },
+    });
+
+    timeline.to(
+      texts[0],
+      {
+        scale: 1.02,
+        opacity: 0,
+        duration: 0.5,
+      },
+      0.7,
+    );
+
+    timeline.fromTo(
+      texts[1],
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.9,
+      },
+      1.0,
+    );
+
+    timeline.to(
+      texts[1],
+      {
+        scale: 1.08,
+        opacity: 0,
+        duration: 0.8,
+      },
+      1.95,
+    );
+
+    timeline.fromTo(
+      texts[2],
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.9,
+      },
+      2.25,
+    );
+
+    // timeline.to(
+    //   texts[2],
+    //   {
+    //     scale: 1.08,
+    //     opacity: 0,
+    //     duration: 0.8,
+    //   },
+    //   3.0,
+    // );
+
+    ScrollTrigger.refresh();
+  };
+
+  const start = () => requestAnimationFrame(setupSpinTextScroll);
+
+  if (document.readyState === "complete") {
+    start();
+  } else {
+    window.addEventListener("load", start, { once: true });
+  }
+
+  document.addEventListener("astro:page-load", start);
+</script>
