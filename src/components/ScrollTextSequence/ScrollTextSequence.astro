@@ -1,9 +1,5 @@
 ---
-const messages = [
-  "Packed with meaning",
-  "Carried with stories",
-  "Made for what matters",
-];
+const messages = ["Clarity", "Strategy", "Identity", "Culture", "Legacy"];
 ---
 
 <section
@@ -20,10 +16,10 @@ const messages = [
       src="/assets/POTLI Logo.png"
       alt=""
       aria-hidden="true"
-      class="h-28 md:h-44 w-fit  pointer-events-none"
+      class="h-28 md:h-44 w-fit pointer-events-none"
     />
   </div>
-  <div class="sticky top-0 h-screen overflow-hidden ">
+  <div class="sticky top-0 h-screen overflow-hidden">
     <div class="relative flex h-full w-full items-center justify-center">
       {
         messages.map((message, index) => (
@@ -106,9 +102,8 @@ const messages = [
         opacity: 0,
         duration: 0.8,
       },
-      1.95,
+      2.5,
     );
-
     timeline.fromTo(
       texts[2],
       { scale: 0.8, opacity: 0 },
@@ -117,7 +112,48 @@ const messages = [
         opacity: 1,
         duration: 0.9,
       },
-      2.25,
+      2.8,
+    );
+
+    timeline.to(
+      texts[2],
+      {
+        scale: 1.08,
+        opacity: 0,
+        duration: 0.8,
+      },
+      4.3,
+    );
+    timeline.fromTo(
+      texts[3],
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.9,
+      },
+      4.6,
+    );
+
+    timeline.to(
+      texts[3],
+      {
+        scale: 1.08,
+        opacity: 0,
+        duration: 0.8,
+      },
+      6.1,
+    );
+
+    timeline.fromTo(
+      texts[4],
+      { scale: 0.8, opacity: 0 },
+      {
+        scale: 1,
+        opacity: 1,
+        duration: 0.9,
+      },
+      6.4,
     );
 
     // timeline.to(

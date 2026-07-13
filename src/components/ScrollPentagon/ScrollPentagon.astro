@@ -1,6 +1,12 @@
 ---
 const circles = Array.from({ length: 5 }, (_, index) => index);
-const labels = ["1", "2", "3", "4", "5"];
+const labels = [
+  ["Clarity through", "strategy"],
+  ["People at", " the center"],
+  ["Make complex", "simple"],
+  ["Build brands", " that people love"],
+  ["Create across ", "disciplines"],
+];
 ---
 
 <section
@@ -8,7 +14,7 @@ const labels = ["1", "2", "3", "4", "5"];
   class="relative min-h-[100vh] bg-[#EFEAE5]"
   aria-label="Scroll animated pentagon circles"
 >
-  <div class="sticky top-0 h-screen overflow-hidden ">
+  <div class="sticky top-0 h-screen overflow-hidden">
     <div class="relative h-full w-full">
       {
         circles.map((index) => (
@@ -20,10 +26,12 @@ const labels = ["1", "2", "3", "4", "5"];
           >
             <span
               data-pentagon-label
-              class="flex h-full w-full items-center justify-center font-medium text-black"
-              style="font-size: 0px; opacity: 0; line-height: 1;"
+              class="absolute left-1/2 top-1/2 flex w-max -translate-1/2 flex-col items-center justify-center gap-1 text-center font-medium leading-tight text-black"
+              style="opacity: 0; scale: 0; transform-origin: 50% 50%;"
             >
-              {labels[index]}
+              {labels[index].map((line) => (
+                <span class="block whitespace-nowrap">{line}</span>
+              ))}
             </span>
           </div>
         ))
@@ -80,7 +88,7 @@ const labels = ["1", "2", "3", "4", "5"];
 
     gsap.set(labels, {
       opacity: 0,
-      fontSize: 0,
+      scale: 0,
       transformOrigin: "50% 50%",
     });
 
@@ -114,7 +122,7 @@ const labels = ["1", "2", "3", "4", "5"];
       labels,
       {
         opacity: 1,
-        fontSize: 20,
+        scale: 1,
         duration: 1,
       },
       1,
