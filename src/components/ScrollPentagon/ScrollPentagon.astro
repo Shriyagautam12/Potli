@@ -27,7 +27,7 @@ const labels = [
             <span
               data-pentagon-label
               class="absolute left-1/2 top-1/2 flex w-max -translate-1/2 flex-col items-center justify-center gap-1 text-center font-medium leading-tight text-black"
-              style="opacity: 0; scale: 0; transform-origin: 50% 50%;"
+              style=" scale: 0; transform-origin: 50% 50%;"
             >
               {labels[index].map((line) => (
                 <span class="block whitespace-nowrap">{line}</span>
@@ -47,6 +47,10 @@ const labels = [
   gsap.registerPlugin(ScrollTrigger);
 
   const triggerId = "pentagon-scroll-trigger";
+  const animation = {
+    scrollMultiplier: 1,
+    pinHoldDuration: 0.8,
+  };
 
   const getPentagonPoints = () => {
     const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
@@ -87,23 +91,12 @@ const labels = [
     });
 
     gsap.set(labels, {
-      opacity: 0,
+      // opacity: 0,
       scale: 0,
       transformOrigin: "50% 50%",
     });
 
-    const timeline = gsap.timeline({
-      scrollTrigger: {
-        id: triggerId,
-        trigger: section,
-        start: "top top",
-        end: () => `+=${window.innerHeight * 1}`,
-        scrub: 2,
-        invalidateOnRefresh: true,
-        pin: true,
-      },
-      defaults: { ease: "none" },
-    });
+    const timeline = gsap.timeline({ defaults: { ease: "none" } });
 
     timeline.to(circles, {
       x: (index) => getPentagonPoints()[index].x,
@@ -127,6 +120,24 @@ const labels = [
       },
       1,
     );
+
+    const visibleDuration = timeline.duration();
+
+    timeline.to({}, { duration: animation.pinHoldDuration });
+
+    const totalDuration = timeline.duration();
+
+    ScrollTrigger.create({
+      id: triggerId,
+      trigger: section,
+      start: "top top",
+      end: () =>
+        `+=${window.innerHeight * animation.scrollMultiplier * (totalDuration / visibleDuration)}`,
+      scrub: 2,
+      invalidateOnRefresh: true,
+      pin: true,
+      animation: timeline,
+    });
 
     ScrollTrigger.refresh();
   };
