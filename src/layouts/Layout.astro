@@ -10,6 +10,23 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/assets/9.png" />
     <meta name="generator" content={Astro.generator} />
     <title>Potli- We fill it with meaning</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZQ36RNKQCL"></script>
+    <script>
+      const analyticsWindow = window as any;
+      const dataLayer =
+        analyticsWindow.dataLayer || (analyticsWindow.dataLayer = []);
+
+      function gtag(...args: any[]) {
+        dataLayer.push(args);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ZQ36RNKQCL");
+    </script>
   </head>
   <body>
     <slot name="menu" />
