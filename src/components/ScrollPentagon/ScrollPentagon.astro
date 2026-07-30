@@ -26,7 +26,7 @@ const labels = [
           >
             <span
               data-pentagon-label
-              class="absolute left-1/2 top-1/2 flex w-max -translate-1/2 flex-col items-center justify-center gap-1 text-center font-medium leading-tight text-black"
+              class="absolute left-1/2 top-1/2 flex w-max -translate-1/2 flex-col items-center justify-center gap-0.5 text-center text-sm font-medium leading-tight text-black md:gap-1 md:text-base"
               style=" scale: 0; transform-origin: 50% 50%;"
             >
               {labels[index].map((line) => (
@@ -47,13 +47,16 @@ const labels = [
   gsap.registerPlugin(ScrollTrigger);
 
   const triggerId = "pentagon-scroll-trigger";
+  const mobileMediaQuery = "(max-width: 767px)";
+  const isMobileViewport = () => window.matchMedia(mobileMediaQuery).matches;
   const animation = {
     scrollMultiplier: 1,
     pinHoldDuration: 0.8,
   };
 
   const getPentagonPoints = () => {
-    const radius = Math.min(window.innerWidth, window.innerHeight) * 0.25;
+    const radius = Math.min(window.innerWidth, window.innerHeight) *
+      (isMobileViewport() ? 0.26 : 0.25);
     const xRadius = radius * 1.05;
     const yRadius = radius * 0.9;
     const startAngle = -Math.PI / 2;
@@ -97,6 +100,8 @@ const labels = [
     });
 
     const timeline = gsap.timeline({ defaults: { ease: "none" } });
+    const finalCircleSize = isMobileViewport() ? 145 : 200;
+    const finalLabelScale = isMobileViewport() ? 0.8 : 1;
 
     timeline.to(circles, {
       x: (index) => getPentagonPoints()[index].x,
@@ -106,8 +111,8 @@ const labels = [
     });
 
     timeline.to(circles, {
-      width: 200,
-      height: 200,
+      width: finalCircleSize,
+      height: finalCircleSize,
       duration: 1,
     });
 
@@ -115,7 +120,7 @@ const labels = [
       labels,
       {
         opacity: 1,
-        scale: 1,
+        scale: finalLabelScale,
         duration: 1,
       },
       1,
