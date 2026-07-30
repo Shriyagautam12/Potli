@@ -4,6 +4,66 @@ import HomeMenu from "../../components/HomeMenu.astro";
 import ScrollTextSequence from "../../components/ScrollTextSequence/ScrollTextSequence.astro";
 import ScrollPentagon from "../../components/ScrollPentagon/ScrollPentagon.astro";
 import Footer from "../../components/Footer/Footer.astro";
+import TeamCard from "../../components/TeamCard/TeamCard.astro";
+
+const team = [
+  {
+    name: "Rushan Ahmad",
+    role: "Founder & Managing Consultant",
+    about:
+      "I work with businesses at defining moments, helping them make sense of where they are, where they're headed, and what it will take to get there.",
+    image: "/assets/Rushan.jpeg",
+    padding: "pt-20",
+  },
+  {
+    name: "Qazi Ali Imran",
+    role: "Chief Operations Officer",
+    about:
+      "Behind every great piece of work is a system that makes it possible. I focus on building those systems with clarity and discipline.",
+    image: "/assets/QaziAli.jpeg",
+    padding: "pt-28",
+  },
+  {
+    name: "Saify Khan",
+    role: "Chief Branding Officer",
+    about:
+      "The strongest brands don't try to be everything. They know exactly who they are, and that's the kind of clarity I help businesses find.",
+    image: "/assets/Saify.jpeg",
+    padding: "pt-32",
+  },
+  {
+    name: "Shriya Gautam",
+    role: "Chief Technology Officer",
+    about:
+      "The best technology doesn't compete for attention, it quietly enables everything else to work better. That's the standard I build towards.",
+    image: "/assets/Shriya.jpeg",
+    padding: "pt-28",
+  },
+  {
+    name: "Roshni Mishra",
+    role: "Creative Director",
+    about:
+      "I believe great design should feel inevitable, simple enough to understand instantly, yet distinctive enough to be remembered.",
+    image: "/assets/Roshni.jpeg",
+    padding: "pt-36",
+  },
+  {
+    name: "Ahmad Khan",
+    role: "Business Associate",
+    about:
+      "The best opportunities begin with genuine relationships. I enjoy bringing people together and building partnerships that create value for everyone involved.",
+    image: "/assets/ahmad.jpeg",
+    padding: "pt-24",
+  },
+  {
+    name: "Mohammad Aarish",
+    role: "Director of Technology",
+    about:
+      "The most powerful technology is the kind people never have to think about. I focus on building products that feel intuitive, dependable, and built to last.",
+    image: "/assets/Aarish.jpeg",
+    padding: "pt-24",
+  },
+];
 ---
 
 <Layout class="">
@@ -19,273 +79,33 @@ import Footer from "../../components/Footer/Footer.astro";
     >
       Our Team at Potli
     </p>
-    <div class="columns-1 md:columns-5 w-full h-fit gap-2 px-8 pt-14">
-      <div class="flex w-full h-[680px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4">
-        <div
-          class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
-        >
-          <div
-            class="w-full h-full bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight pt-20 pb-2 gap-y-1"
-          >
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Name:</p>
-            <p class="w-full flex col-span-2">Rushan Ahmad</p>
-            <!-- </div> -->
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Role:</p>
-            <p class="w-full flex col-span-2">
-              Founder & <br /> Managing Consultant
-            </p>
-            <!-- </div>
-          <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">About:</p>
-            <p class="w-full flex col-span-2">
-              I work with businesses at defining moments, helping them make
-              sense of where they are, where they're headed, and what it will
-              take to get there.
-            </p>
-            <!-- </div> -->
-          </div>
-          <img
-            src="/assets/Rushan.jpeg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-2 h-fit">
-          <h3 class="text-xl">Rushan Ahmad</h3>
-          <p class="text-base leading-tight text-[#666]">
-            Founder & <br /> Managing Consultant
-          </p>
-        </div>
-      </div>
+    <div class="columns-1 md:columns-5 w-full h-fit gap-4 px-8 pt-14 block md:hidden">
+      <TeamCard {...team[0]} />
+      <TeamCard {...team[3]} />
 
-      <div class="flex w-full h-[680px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4">
-        <div
-          class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
-        >
-          <div
-            class="w-full h-full bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight pt-28 pb-2 gap-y-1"
-          >
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Name:</p>
-            <p class="w-full flex col-span-2">Qazi Ali Imran</p>
-            <!-- </div> -->
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Role:</p>
-            <p class="w-full flex col-span-2">Chief Operations Officer</p>
-            <!-- </div>
-          <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">About:</p>
-            <p class="w-full flex col-span-2">
-              Behind every great piece of work is a system that makes it
-              possible. I focus on building those systems with clarity and
-              discipline.
-            </p>
-            <!-- </div> -->
-          </div>
-          <img
-            src="/assets/QaziAli.jpeg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-2 h-fit">
-          <h3 class="text-xl">Qazi Ali Imran</h3>
-          <p class="text-base leading-tight text-[#666]">
-            Chief Operations Officer
-          </p>
-        </div>
-      </div>
 
-      <div class=" w-full hidden md:flex md:h-44"></div>
+      <TeamCard {...team[2]} />
+      <TeamCard {...team[6]} />
+      <TeamCard {...team[1]} />
 
-      <div class="flex w-full h-[680px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4">
-        <div
-          class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
-        >
-          <div
-            class="w-full h-full bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight pt-32 pb-2 gap-y-1"
-          >
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Name:</p>
-            <p class="w-full flex col-span-2">Saify Khan</p>
-            <!-- </div> -->
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Role:</p>
-            <p class="w-full flex col-span-2">Chief Branding Officer</p>
-            <!-- </div>
-          <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">About:</p>
-            <p class="w-full flex col-span-2">
-              The strongest brands don't try to be everything. They know exactly
-              who they are, and that's the kind of clarity I help businesses
-              find.
-            </p>
-            <!-- </div> -->
-          </div>
-          <img
-            src="/assets/Saify.jpeg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-2 h-fit">
-          <h3 class="text-xl">Saify Khan</h3>
-          <p class="text-base leading-tight text-[#666]">
-            Chief Branding Officer
-          </p>
-        </div>
-      </div>
 
-      <div class="flex w-full h-[680px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4">
-        <div
-          class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
-        >
-          <div
-            class="w-full h-full bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight pt-28 pb-2 gap-y-1"
-          >
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Name:</p>
-            <p class="w-full flex col-span-2">Shriya Gautam</p>
-            <!-- </div> -->
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Role:</p>
-            <p class="w-full flex col-span-2">Chief Technology Officer</p>
-            <!-- </div>
-          <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">About:</p>
-            <p class="w-full flex col-span-2">
-              The best technology doesn't compete for attention, it quietly
-              enables everything else to work better. That's the standard I
-              build towards.
-            </p>
-            <!-- </div> -->
-          </div>
-          <img
-            src="/assets/Shriya.jpeg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-2 h-fit">
-          <h3 class="text-xl">Shriya Gautam</h3>
-          <p class="text-base leading-tight text-[#666]">
-            Chief Technology Officer
-          </p>
-        </div>
-      </div>
+      <TeamCard {...team[4]} />
+      <TeamCard {...team[5]} />
+    </div>
+    <div class="columns-1 md:columns-5 w-full h-fit gap-2 px-8 pt-14 hidden md:block">
+      <TeamCard {...team[0]} />
+      <TeamCard {...team[1]} />
 
-      <div class="flex w-full h-[680px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4">
-        <div
-          class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
-        >
-          <div
-            class="w-full h-full bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight pt-36 pb-2 gap-y-1"
-          >
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Name:</p>
-            <p class="w-full flex col-span-2">Roshni Mishra</p>
-            <!-- </div> -->
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Role:</p>
-            <p class="w-full flex col-span-2">Creative Director</p>
-            <!-- </div>
-          <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">About:</p>
-            <p class="w-full flex col-span-2">
-              I believe great design should feel inevitable, simple enough to
-              understand instantly, yet distinctive enough to be remembered.
-            </p>
-            <!-- </div> -->
-          </div>
-          <img
-            src="/assets/Roshni.jpeg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-2 h-fit">
-          <h3 class="text-xl">Roshni Mishra</h3>
-          <p class="text-base leading-tight text-[#666]">Creative Director</p>
-        </div>
-      </div>
+      <div class="hidden md:flex h-44 break-inside-avoid"></div>
 
-      <div class=" w-full hidden md:flex md:h-44"></div>
+      <TeamCard {...team[2]} />
+      <TeamCard {...team[3]} />
+      <TeamCard {...team[4]} />
 
-      <div class="flex w-full h-[680px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4">
-        <div
-          class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
-        >
-          <div
-            class="w-full h-full bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight pt-24 pb-2 gap-y-1"
-          >
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Name:</p>
-            <p class="w-full flex col-span-2">Ahmad Khan</p>
-            <!-- </div> -->
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Role:</p>
-            <p class="w-full flex col-span-2">Business Associate</p>
-            <!-- </div>
-          <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">About:</p>
-            <p class="w-full flex col-span-2">
-              The best opportunities begin with genuine relationships. I enjoy
-              bringing people together and building partnerships that create
-              value for everyone involved.
-            </p>
-            <!-- </div> -->
-          </div>
-          <img
-            src="/assets/ahmad.jpeg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-        </div>
-        <div class="p-2 h-fit">
-          <h3 class="text-xl">Ahmad Khan</h3>
-          <p class="text-base leading-tight text-[#666]">Business Associate</p>
-        </div>
-      </div>
+      <div class="hidden md:flex h-44 break-inside-avoid"></div>
 
-      <div class="flex w-full h-[680px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4">
-        <div
-          class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
-        >
-          <img
-            src="/assets/Aarish.jpeg"
-            alt=""
-            class="w-full h-full object-cover"
-          />
-          <div
-            class="w-full h-full bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight pt-24 pb-2 gap-y-1"
-          >
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Name:</p>
-            <p class="w-full flex col-span-2">Mohammad Aarish</p>
-            <!-- </div> -->
-            <!-- <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">Role:</p>
-            <p class="w-full flex col-span-2">Director of Technology</p>
-            <!-- </div>
-          <div class="flex gap-2"> -->
-            <p class="text-[#666] flex w-fit">About:</p>
-            <p class="w-full flex col-span-2">
-              The most powerful technology is the kind people never have to
-              think about. I focus on building products that feel intuitive,
-              dependable, and built to last.
-            </p>
-            <!-- </div> -->
-          </div>
-        </div>
-        <div class="p-2 h-fit">
-          <h3 class="text-xl">Mohammad Aarish</h3>
-          <p class="text-base leading-tight text-[#666]">
-            Director of Technology
-          </p>
-        </div>
-      </div>
+      <TeamCard {...team[5]} />
+      <TeamCard {...team[6]} />
     </div>
   </section>
   <Footer />
