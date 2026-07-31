@@ -1,5 +1,7 @@
 ---
 // Standalone contact page — self-contained styles, nav and footer.
+import "../../styles/global.css";
+import HomeMenu from "../../components/HomeMenu.astro";
 ---
 
 <!doctype html>
@@ -257,19 +259,14 @@
 </head>
 <body>
 
-<nav class="floater">
-  <div class="nav-pill">
-    <a href="/" class="nav-logo">Potli</a>
-    <div class="nav-links">
-      <a href="/">Home</a>
-      <a href="/about-us">About</a>
-      <a href="/awards">Awards</a>
-      <a href="/career">Career</a>
-      <a href="/contact" class="current">Contact</a>
-    </div>
-    <a href="mailto:careers@potli.world" class="nav-cta">Get in touch</a>
-  </div>
-</nav>
+<img
+  id="mouse-follower"
+  src="/assets/logo-mouse-follower.png"
+  alt="Potli Logo"
+  class="z-[999] w-5 h-5 fixed top-0 left-0 pointer-events-none md:block hidden"
+/>
+
+<HomeMenu />
 
 <header class="hero">
   <div class="hero-noise"></div>
@@ -432,13 +429,6 @@
   }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
   els.forEach(el=>io.observe(el));
 
-  // nav shadow on scroll
-  const pill = document.querySelector('.nav-pill');
-  window.addEventListener('scroll', ()=>{
-    pill.style.boxShadow = window.scrollY > 40
-      ? '0 14px 34px -12px rgba(34,30,26,0.28)'
-      : '0 10px 30px -12px rgba(34,30,26,0.18)';
-  });
 
   // logo draw animation
   const logoFigure = document.getElementById('logoFigure');
@@ -511,6 +501,23 @@
         submitLabel.textContent = 'Send it our way';
       });
   });
+</script>
+
+<script>
+  import { gsap } from "gsap";
+
+  const mouseFollower = document.getElementById("mouse-follower");
+  if (mouseFollower) {
+    gsap.set(mouseFollower, { xPercent: -50, yPercent: -50 });
+
+    const xTo = gsap.quickTo(mouseFollower, "x", { duration: 0.6, ease: "power3" });
+    const yTo = gsap.quickTo(mouseFollower, "y", { duration: 0.6, ease: "power3" });
+
+    window.addEventListener("mousemove", (e) => {
+      xTo(e.clientX);
+      yTo(e.clientY);
+    });
+  }
 </script>
 
 </body>
