@@ -1,0 +1,162 @@
+---
+const messages = [
+  "Clarity",
+  "Strategy",
+  "Identity",
+  "Culture",
+  "Legacy",
+  "Building brands the future will remember",
+];
+---
+
+<section
+  data-spin-scroll
+  class="relative min-h-screen bg-[#EFEAE5]"
+  aria-label="Scroll animated centered text section"
+>
+  <div
+    id="hero-logo-wrapper"
+    class="inline-flex w-fit hero-logo-padding absolute"
+  >
+    <img
+      id="hero-logo-ghost"
+      src="/assets/POTLI Logo.png"
+      alt=""
+      aria-hidden="true"
+      class="h-28 md:h-44 w-fit pointer-events-none"
+    />
+  </div>
+  <div class="sticky top-0 h-screen overflow-hidden">
+    <div class="relative flex h-full w-full items-center justify-center">
+      {
+        messages.map((message, index) => (
+          <div
+            data-spin-text
+            data-spin-index={index}
+            class="absolute left-1/2 top-1/2 w-3/4 md:w-full text-center text-2xl md:text-3xl font-semibold tracking-tight text-black"
+            style="opacity: 0; transform: translate(-50%, -50%) "
+          >
+            {message}
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  const triggerId = "spin-text-scroll-trigger";
+  const animation = {
+    visibleDuration: 2.1,
+    fadeDuration: 1.8,
+    transitionGap: 0.15,
+    introScale: 0.8,
+    exitScale: 1.08,
+    firstExitScale: 1.02,
+    scrollMultiplier: 1.4,
+    pinHoldDuration: 2.2,
+  };
+
+  const setupSpinTextScroll = () => {
+    const section = document.querySelector("[data-spin-scroll]");
+    const texts = Array.from(document.querySelectorAll("[data-spin-text]"));
+
+    if (!section || texts.length < 3) return;
+
+    ScrollTrigger.getById(triggerId)?.kill();
+
+    gsap.set(texts, {
+      opacity: 0,
+      scale: 1,
+      transformOrigin: "50% 50%",
+    });
+
+    gsap.set(texts[0], { opacity: 1, scale: 1 });
+
+    const timeline = gsap.timeline({ defaults: { ease: "none" } });
+
+    let cursor = 0;
+
+    texts.forEach((text, index) => {
+      if (index === 0) {
+        const exitStart = animation.visibleDuration;
+
+        timeline.to(
+          text,
+          {
+            scale: animation.firstExitScale,
+            opacity: 0,
+            duration: animation.fadeDuration,
+          },
+          exitStart,
+        );
+
+        cursor = exitStart + animation.fadeDuration + animation.transitionGap;
+        return;
+      }
+
+      timeline.fromTo(
+        text,
+        { scale: animation.introScale, opacity: 0 },
+        {
+          scale: 1,
+          opacity: 1,
+          duration: animation.fadeDuration,
+        },
+        cursor,
+      );
+
+      const exitStart =
+        cursor + animation.fadeDuration + animation.visibleDuration;
+
+      if (index < texts.length - 1) {
+        timeline.to(
+          text,
+          {
+            scale: animation.exitScale,
+            opacity: 0,
+            duration: animation.fadeDuration,
+          },
+          exitStart,
+        );
+
+        cursor = exitStart + animation.fadeDuration + animation.transitionGap;
+      }
+    });
+
+    const visibleDuration = timeline.duration();
+
+    timeline.to({}, { duration: animation.pinHoldDuration });
+
+    const totalDuration = timeline.duration();
+
+    ScrollTrigger.create({
+      id: triggerId,
+      trigger: section,
+      start: "top top",
+      end: () =>
+        `+=${window.innerHeight * animation.scrollMultiplier * (totalDuration / visibleDuration)}`,
+      scrub: 1,
+      pin: true,
+      invalidateOnRefresh: true,
+      animation: timeline,
+    });
+
+    ScrollTrigger.refresh();
+  };
+
+  const start = () => requestAnimationFrame(setupSpinTextScroll);
+
+  if (document.readyState === "complete") {
+    start();
+  } else {
+    window.addEventListener("load", start, { once: true });
+  }
+
+  document.addEventListener("astro:page-load", start);
+</script>

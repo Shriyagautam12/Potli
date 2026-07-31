@@ -1,0 +1,386 @@
+---
+import { Menu } from "@lucide/astro";
+---
+
+<div>
+  <button
+    id="home-menu-toggle"
+    type="button"
+    aria-label="Open menu"
+    aria-expanded="false"
+    class="fixed right-4 top-4 z-[2] inline-flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white/70 shadow-[0_12px_32px_rgba(0,0,0,0.12)] backdrop-blur-[18px] md:right-5 md:top-5 md:h-[3.25rem] md:w-[3.25rem]"
+  >
+    <Menu />
+  </button>
+
+  <div
+    id="home-menu-overlay"
+    aria-hidden="true"
+    class="fixed inset-0 z-[46] opacity-0 transition-opacity duration-200"
+  >
+    <div class="absolute bg-black/40 w-full h-screen"></div>
+    <div class="absolute hidden md:flex w-full h-screen z-[1]">
+      <div
+        data-menu-orbit="0"
+        class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
+      >
+        <a href="/">
+          <img
+            src="/assets/logo-mouse-follower.png"
+            alt="Potli logo"
+            class="h-[260px] w-auto brightness-80 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)] select-none"
+            draggable="false"
+          />
+          <h2
+            class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
+          >
+            Home
+          </h2>
+        </a>
+      </div>
+      <div
+        data-menu-orbit="2"
+        class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
+      >
+        <a href="/contact">
+          <img
+            src="/assets/logo-mouse-follower.png"
+            alt="Potli logo"
+            class="h-[260px] w-auto brightness-80 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)] select-none"
+            draggable="false"
+          />
+          <h2
+            class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
+          >
+            Contact
+          </h2>
+        </a>
+      </div>
+      <div
+        data-menu-orbit="4"
+        class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
+      >
+        <a href="/about-us">
+          <img
+            src="/assets/logo-mouse-follower.png"
+            alt="Potli logo"
+            class="h-[260px] w-auto brightness-80 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)] select-none"
+            draggable="false"
+          />
+          <h2
+            class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
+          >
+            About
+          </h2>
+        </a>
+      </div>
+      <div
+        data-menu-orbit="1"
+        class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
+      >
+        <a href="/awards">
+          <img
+            src="/assets/logo-mouse-follower.png"
+            alt="Potli logo"
+            class="h-[260px] w-auto brightness-80 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)] select-none"
+            draggable="false"
+          />
+          <h2
+            class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
+          >
+            Awards
+          </h2>
+        </a>
+      </div>
+      <div
+        data-menu-orbit="3"
+        class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
+      >
+        <a href="/career">
+          <img
+            src="/assets/logo-mouse-follower.png"
+            alt="Potli logo"
+            class="h-[260px] w-auto brightness-80 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)] select-none"
+            draggable="false"
+          />
+          <h2
+            class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
+          >
+            Career
+          </h2>
+        </a>
+      </div>
+    </div>
+    <div class="md:hidden absolute inset-0 bg-[#EFEAE5] flex flex-col">
+      <div
+        class="flex items-center justify-between px-6 py-6 border-b border-black/10"
+      >
+        <img src="/assets/logo.png" alt="Potli" class="h-8 w-auto" />
+
+        <button
+          id="mobile-menu-close"
+          class="text-3xl leading-none"
+          aria-label="Close menu"
+        >
+          ✕
+        </button>
+      </div>
+
+      <nav class="flex-1 flex flex-col justify-center px-8">
+        <a href="/" class="py-5 text-4xl font-medium border-b border-black/10">
+          Home
+        </a>
+
+        <a
+          href="/about-us"
+          class="py-5 text-4xl font-medium border-b border-black/10"
+        >
+          About
+        </a>
+
+        <a
+          href="/awards"
+          class="py-5 text-4xl font-medium border-b border-black/10"
+        >
+          Awards
+        </a>
+
+        <a
+          href="/career"
+          class="py-5 text-4xl font-medium border-b border-black/10"
+        >
+          Career
+        </a>
+
+        <a href="/contact" class="py-5 text-4xl font-medium"> Contact </a>
+      </nav>
+    </div>
+  </div>
+</div>
+
+<script>
+  // @ts-nocheck
+  import { gsap } from "gsap";
+
+  const setupHomeMenu = () => {
+    const menuToggle = document.getElementById("home-menu-toggle");
+    const menuOverlay = document.getElementById("home-menu-overlay");
+    const menuItems = menuOverlay
+      ? Array.from(menuOverlay.querySelectorAll("[data-menu-orbit]"))
+      : [];
+
+    if (!menuToggle || !menuOverlay || menuItems.length !== 5) return;
+    if (menuToggle.dataset.homeMenuBound === "true") return;
+    menuToggle.dataset.homeMenuBound = "true";
+
+    const menuPositions = [
+      {
+        open: { x: -300, y: -60 },
+        closed: { x: -176, y: -172 },
+      },
+      {
+        open: { x: -150, y: 60 },
+        closed: { x: -88, y: -178 },
+      },
+      {
+        open: { x: 0, y: -60 },
+        closed: { x: 58, y: 12 },
+      },
+      {
+        open: { x: 150, y: 60 },
+        closed: { x: -56, y: 16 },
+      },
+      {
+        open: { x: 300, y: -60 },
+        closed: { x: 0, y: 54 },
+      },
+    ];
+
+    const getClosedPositions = () =>
+      menuPositions.map((position) => ({
+        x: window.innerWidth * (position.closed.x / 100),
+        y: window.innerHeight * (position.closed.y / 100),
+      }));
+
+    const getOpenPositions = () =>
+      menuPositions.map((position) => position.open);
+
+    let closedPositions = getClosedPositions();
+    let openPositions = getOpenPositions();
+
+    const syncPositions = () => {
+      closedPositions = getClosedPositions();
+      openPositions = getOpenPositions();
+    };
+
+    const setItemsToClosedPositions = () => {
+      gsap.set(menuItems, {
+        x: (index) => closedPositions[index].x,
+        y: (index) => closedPositions[index].y,
+      });
+    };
+
+    const setClosedState = () => {
+      menuOverlay.classList.add("pointer-events-none");
+      menuOverlay.setAttribute("aria-hidden", "true");
+      menuToggle.setAttribute("aria-expanded", "false");
+
+      gsap.set(menuOverlay, { opacity: 0 });
+
+      if (window.innerWidth >= 768) {
+        gsap.set(menuItems, {
+          opacity: 0,
+          scale: 0.3,
+          x: (index) => closedPositions[index].x,
+          y: (index) => closedPositions[index].y,
+        });
+      }
+    };
+
+    const openMenu = () => {
+      menuOverlay.classList.remove("pointer-events-none");
+      menuOverlay.setAttribute("aria-hidden", "false");
+      menuToggle.setAttribute("aria-expanded", "true");
+
+      // Mobile Menu
+      if (window.innerWidth < 768) {
+        gsap.fromTo(
+          menuOverlay,
+          {
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+            duration: 0.25,
+            ease: "power2.out",
+          },
+        );
+
+        return;
+      }
+
+      // Desktop Menu
+      syncPositions();
+
+      gsap.set(menuOverlay, { opacity: 0 });
+
+      gsap.set(menuItems, {
+        opacity: 0,
+        scale: 0.3,
+        x: (index) => closedPositions[index].x,
+        y: (index) => closedPositions[index].y,
+      });
+
+      gsap
+        .timeline()
+        .to(menuOverlay, {
+          opacity: 1,
+          duration: 0.2,
+          ease: "power1.out",
+        })
+        .to(
+          menuItems,
+          {
+            opacity: 1,
+            x: (index) => openPositions[index].x,
+            y: (index) => openPositions[index].y,
+            scale: 1,
+            duration: 1,
+            ease: "power4.out",
+            stagger: 0.06,
+          },
+          0.05,
+        );
+    };
+
+    const closeMenu = () => {
+      // Mobile
+      if (window.innerWidth < 768) {
+        menuToggle.setAttribute("aria-expanded", "false");
+
+        gsap.to(menuOverlay, {
+          opacity: 0,
+          duration: 0.25,
+          ease: "power2.inOut",
+          onComplete: () => {
+            menuOverlay.classList.add("pointer-events-none");
+            menuOverlay.setAttribute("aria-hidden", "true");
+          },
+        });
+
+        return;
+      }
+
+      // Desktop
+      syncPositions();
+
+      gsap
+        .timeline({
+          onComplete: () => {
+            menuOverlay.classList.add("pointer-events-none");
+            menuOverlay.setAttribute("aria-hidden", "true");
+          },
+        })
+        .to(
+          menuItems,
+          {
+            opacity: 0,
+            scale: 0.3,
+            x: (index) => closedPositions[index].x,
+            y: (index) => closedPositions[index].y,
+            duration: 0.75,
+            ease: "power3.inOut",
+            stagger: 0.045,
+          },
+          0,
+        )
+        .to(
+          menuOverlay,
+          {
+            opacity: 0,
+            duration: 0.22,
+            ease: "power1.out",
+          },
+          0.1,
+        );
+
+      menuToggle.setAttribute("aria-expanded", "false");
+    };
+
+    const toggleMenu = () => {
+      if (menuToggle.getAttribute("aria-expanded") === "true") {
+        closeMenu();
+        return;
+      }
+      openMenu();
+    };
+
+    syncPositions();
+    setClosedState();
+
+    menuToggle.addEventListener("click", toggleMenu);
+    menuOverlay.addEventListener("click", (event) => {
+      const orbitItem = event.target.closest("[data-menu-orbit]");
+
+      // On desktop, close if the click wasn't on a menu item
+      if (window.innerWidth >= 768 && !orbitItem) {
+        closeMenu();
+      }
+    });
+    window.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") closeMenu();
+    });
+    window.addEventListener("resize", syncPositions);
+    document
+      .getElementById("mobile-menu-close")
+      ?.addEventListener("click", closeMenu);
+  };
+
+  if (document.readyState === "complete") {
+    setupHomeMenu();
+  } else {
+    window.addEventListener("load", setupHomeMenu, { once: true });
+  }
+
+  document.addEventListener("astro:page-load", setupHomeMenu);
+</script>

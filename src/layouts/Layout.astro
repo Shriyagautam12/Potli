@@ -10,10 +10,35 @@ import "../styles/global.css";
     <link rel="icon" type="image/svg+xml" href="/assets/9.png" />
     <meta name="generator" content={Astro.generator} />
     <title>Potli- We fill it with meaning</title>
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-ZQ36RNKQCL"></script>
+    <script>
+      const analyticsWindow = window as any;
+      const dataLayer =
+        analyticsWindow.dataLayer || (analyticsWindow.dataLayer = []);
+
+      function gtag(...args: any[]) {
+        dataLayer.push(args);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-ZQ36RNKQCL");
+    </script>
   </head>
   <body>
+    <slot name="menu" />
     <div id="smooth-wrapper">
       <main id="smooth-content">
+        <img
+          id="mouse-follower"
+          src="/assets/logo-mouse-follower.png"
+          alt="Potli Logo"
+          class="z-[999] w-5 h-5 fixed top-0 left-0 pointer-events-none md:block hidden"
+        />
+
         <slot />
       </main>
     </div>
@@ -272,6 +297,25 @@ import "../styles/global.css";
       }
 
       document.addEventListener("astro:page-load", runIntroTransition);
+      const mouseFollower = document.getElementById("mouse-follower");
+      if (mouseFollower) {
+        document.body.appendChild(mouseFollower);
+        gsap.set(mouseFollower, { xPercent: -50, yPercent: -50 });
+
+        let xTo = gsap.quickTo(mouseFollower, "x", {
+            duration: 0.6,
+            ease: "power3",
+          }),
+          yTo = gsap.quickTo(mouseFollower, "y", {
+            duration: 0.6,
+            ease: "power3",
+          });
+
+        window.addEventListener("mousemove", (e) => {
+          xTo(e.clientX);
+          yTo(e.clientY);
+        });
+      }
     </script>
   </body>
 </html>

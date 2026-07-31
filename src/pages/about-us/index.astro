@@ -1,0 +1,112 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import HomeMenu from "../../components/HomeMenu.astro";
+import ScrollTextSequence from "../../components/ScrollTextSequence/ScrollTextSequence.astro";
+import ScrollPentagon from "../../components/ScrollPentagon/ScrollPentagon.astro";
+import Footer from "../../components/Footer/Footer.astro";
+import TeamCard from "../../components/TeamCard/TeamCard.astro";
+
+const team = [
+  {
+    name: "Rushan Ahmad",
+    role: "Founder & Managing Consultant",
+    about:
+      "I work with businesses at defining moments, helping them make sense of where they are, where they're headed, and what it will take to get there.",
+    image: "/assets/Rushan.jpeg",
+    padding: "pt-20",
+  },
+  {
+    name: "Qazi Ali Imran",
+    role: "Chief Operations Officer",
+    about:
+      "Behind every great piece of work is a system that makes it possible. I focus on building those systems with clarity and discipline.",
+    image: "/assets/QaziAli.jpeg",
+    padding: "pt-28",
+  },
+  {
+    name: "Saify Khan",
+    role: "Chief Branding Officer",
+    about:
+      "The strongest brands don't try to be everything. They know exactly who they are, and that's the kind of clarity I help businesses find.",
+    image: "/assets/Saify.jpeg",
+    padding: "pt-32",
+  },
+  {
+    name: "Shriya Gautam",
+    role: "Chief Technology Officer",
+    about:
+      "The best technology doesn't compete for attention, it quietly enables everything else to work better. That's the standard I build towards.",
+    image: "/assets/Shriya.jpeg",
+    padding: "pt-28",
+  },
+  {
+    name: "Roshni Mishra",
+    role: "Creative Director",
+    about:
+      "I believe great design should feel inevitable, simple enough to understand instantly, yet distinctive enough to be remembered.",
+    image: "/assets/Roshni.jpeg",
+    padding: "pt-36",
+  },
+  {
+    name: "Ahmad Khan",
+    role: "Business Associate",
+    about:
+      "The best opportunities begin with genuine relationships. I enjoy bringing people together and building partnerships that create value for everyone involved.",
+    image: "/assets/ahmad.jpeg",
+    padding: "pt-24",
+  },
+  {
+    name: "Mohammad Aarish",
+    role: "Director of Technology",
+    about:
+      "The most powerful technology is the kind people never have to think about. I focus on building products that feel intuitive, dependable, and built to last.",
+    image: "/assets/Aarish.jpeg",
+    padding: "pt-24",
+  },
+];
+---
+
+<Layout class="">
+  <HomeMenu slot="menu" />
+  <ScrollTextSequence />
+  <ScrollPentagon />
+  <section class="w-full py-36 bg-[#EFEAE5] items-center flex flex-col">
+    <h2 class="text-4xl font-medium tracking-tight text-[#1a1a1a] text-center">
+      Team
+    </h2>
+    <p
+      class="text-[#666] text-xl text-center mt-2 md:mt-4 mb-16 md:w-auto w-4/5 mx-auto"
+    >
+      Our Team at Potli
+    </p>
+    <div class="columns-1 md:columns-5 w-full h-fit gap-4 px-8 pt-14 block md:hidden">
+      <TeamCard {...team[0]} />
+      <TeamCard {...team[3]} />
+
+
+      <TeamCard {...team[2]} />
+      <TeamCard {...team[6]} />
+      <TeamCard {...team[1]} />
+
+
+      <TeamCard {...team[4]} />
+      <TeamCard {...team[5]} />
+    </div>
+    <div class="columns-1 md:columns-5 w-full h-fit gap-2 px-8 pt-14 hidden md:block">
+      <TeamCard {...team[0]} />
+      <TeamCard {...team[1]} />
+
+      <div class="hidden md:flex h-44 break-inside-avoid"></div>
+
+      <TeamCard {...team[2]} />
+      <TeamCard {...team[3]} />
+      <TeamCard {...team[4]} />
+
+      <div class="hidden md:flex h-44 break-inside-avoid"></div>
+
+      <TeamCard {...team[5]} />
+      <TeamCard {...team[6]} />
+    </div>
+  </section>
+  <Footer />
+</Layout>

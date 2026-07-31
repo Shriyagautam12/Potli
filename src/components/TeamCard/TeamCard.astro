@@ -1,0 +1,41 @@
+---
+interface Props {
+  name: string;
+  role: string;
+  about: string;
+  image: string;
+  padding?: string;
+}
+
+const { name, role, about, image, padding = "pt-28" } = Astro.props;
+---
+
+<div
+  class="flex w-full h-[500px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4"
+>
+  <div
+    class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
+  >
+    <img src={image} alt={name} class="w-full h-full object-cover" />
+
+    <div
+      class={`absolute inset-0 bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight ${padding} pb-2 gap-y-1`}
+    >
+      <p class="text-[#666]">Name:</p>
+      <p class="col-span-2">{name}</p>
+
+      <p class="text-[#666]">Role:</p>
+      <p class="col-span-2">{role}</p>
+
+      <p class="text-[#666]">About:</p>
+      <p class="col-span-2">{about}</p>
+    </div>
+  </div>
+
+  <div class="p-2">
+    <h3 class="text-xl">{name}</h3>
+    <p class="text-base leading-tight text-[#666]">
+      {role}
+    </p>
+  </div>
+</div>
