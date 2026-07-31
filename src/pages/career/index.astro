@@ -1,0 +1,565 @@
+---
+// Standalone career page — self-contained styles, nav and footer.
+---
+
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career — Potli</title>
+<meta name="description" content="Join Potli. We're a small firm building brand experiences for the world's most discerning clients.">
+<link rel="icon" type="image/svg+xml" href="/assets/9.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style is:global>
+  :root{
+    --cream:#F7F2EA;
+    --cream-deep:#F1E9DB;
+    --taupe:#E7DBC7;
+    --ink:#221E1A;
+    --ink-soft:#5C544B;
+    --ink-faint:#8A8074;
+    --accent:#9C6B4F;
+    --accent-deep:#7A4F39;
+    --line: rgba(34,30,26,0.12);
+    --line-soft: rgba(34,30,26,0.07);
+    --ease: cubic-bezier(.16,.84,.32,1);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Instrument Sans', sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  ::selection{background:var(--accent);color:var(--cream);}
+
+  .display{font-family:'Fraunces', serif; font-optical-sizing:auto;}
+  .eyebrow{
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--accent-deep); font-weight:600; display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--accent-deep); display:inline-block;}
+
+  a{color:inherit; text-decoration:none;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+  @media(max-width:720px){ .wrap{padding:0 22px;} }
+
+  /* NAV */
+  nav.floater{
+    position:fixed; top:22px; left:0; right:0; z-index:100;
+    display:flex; justify-content:center; pointer-events:none;
+  }
+  .nav-pill{
+    pointer-events:all;
+    display:flex; align-items:center; gap:38px;
+    background:rgba(247,242,234,0.78);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:11px 14px 11px 22px;
+    box-shadow: 0 10px 30px -12px rgba(34,30,26,0.18);
+    transition: box-shadow .5s var(--ease);
+  }
+  .nav-logo{font-family:'Fraunces', serif; font-size:16px; font-weight:600; letter-spacing:.01em;}
+  .nav-links{display:flex; gap:30px; font-size:13px; color:var(--ink-soft);}
+  .nav-links a{position:relative; padding:2px 0; transition:color .3s var(--ease);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a.current{color:var(--ink); font-weight:500;}
+  .nav-links a.current::after{
+    content:''; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:var(--accent-deep);
+  }
+  .nav-cta{
+    font-size:12.5px; font-weight:500; background:var(--ink); color:var(--cream);
+    padding:9px 18px; border-radius:100px; white-space:nowrap;
+    transition: transform .45s var(--ease), background .3s var(--ease);
+  }
+  .nav-cta:hover{background:var(--accent-deep); transform:translateY(-1px);}
+  @media(max-width:820px){ .nav-links{display:none;} .nav-pill{gap:18px;} }
+
+  /* HERO */
+  header.hero{
+    position:relative;
+    min-height:100vh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:140px 0 90px;
+    overflow:hidden;
+  }
+  .hero-noise{
+    position:absolute; inset:0; z-index:0; opacity:.35; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
+  }
+  .hero-orb{
+    position:absolute; z-index:0; border-radius:50%;
+    background: radial-gradient(circle at 35% 35%, rgba(156,107,79,0.28), rgba(156,107,79,0) 70%);
+    width:640px; height:640px; top:-220px; right:-180px;
+    filter:blur(10px);
+  }
+  .hero-inner{position:relative; z-index:1;}
+  .hero-tags{
+    display:flex; gap:10px; flex-wrap:wrap; margin-bottom:34px;
+  }
+  .hero-tag{
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft);
+    border:1px solid var(--line); padding:6px 14px; border-radius:100px;
+  }
+  h1.hero-title{
+    font-size:clamp(42px, 7.2vw, 96px);
+    font-weight:400; line-height:1.02; letter-spacing:-0.015em;
+    max-width:960px;
+  }
+  h1.hero-title em{
+    font-style:italic; font-weight:400; color:var(--accent-deep);
+  }
+  .hero-sub{
+    margin-top:30px; max-width:520px; font-size:17px; line-height:1.65; color:var(--ink-soft);
+  }
+  .hero-actions{margin-top:44px; display:flex; align-items:center; gap:26px; flex-wrap:wrap;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px;
+    background:var(--ink); color:var(--cream); font-size:14px; font-weight:500;
+    padding:15px 15px 15px 26px; border-radius:100px;
+    transition: transform .5s var(--ease), background .35s var(--ease);
+  }
+  .btn-primary .ico{
+    width:32px; height:32px; border-radius:50%; background:rgba(247,242,234,0.16);
+    display:flex; align-items:center; justify-content:center; font-size:14px;
+    transition: transform .5s var(--ease);
+  }
+  .btn-primary:hover{background:var(--accent-deep); transform:translateY(-2px);}
+  .btn-primary:hover .ico{transform:translate(3px,-3px);}
+  .link-underline{
+    font-size:14px; font-weight:500; color:var(--ink); border-bottom:1px solid var(--ink);
+    padding-bottom:2px; transition: color .3s, border-color .3s;
+  }
+  .link-underline:hover{color:var(--accent-deep); border-color:var(--accent-deep);}
+
+  .hero-stats{
+    margin-top:100px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;
+  }
+  .stat{background:var(--cream); padding:26px 24px;}
+  .stat .num{font-family:'Fraunces',serif; font-size:30px;}
+  .stat .lbl{font-size:12px; color:var(--ink-soft); margin-top:6px; line-height:1.4;}
+  @media(max-width:760px){ .hero-stats{grid-template-columns:repeat(2,1fr);} }
+
+  /* SECTION SHARED */
+  section{padding:110px 0; position:relative;}
+  .sec-head{max-width:640px; margin-bottom:64px;}
+  .sec-head h2{font-size:clamp(30px,4vw,46px); font-weight:400; line-height:1.12; margin-top:18px; letter-spacing:-.01em;}
+  .sec-head p{margin-top:18px; color:var(--ink-soft); font-size:16px; line-height:1.65; max-width:520px;}
+  .rule{border-top:1px solid var(--line);}
+
+  /* MODEL / HOW WE WORK */
+  .model-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:22px; overflow:hidden;}
+  .model-card{background:var(--cream); padding:38px 30px; transition:background .4s var(--ease);}
+  .model-card:hover{background:var(--cream-deep);}
+  .model-card .mk{font-family:'Fraunces',serif; font-style:italic; font-size:13px; color:var(--accent-deep); margin-bottom:26px; display:block;}
+  .model-card h3{font-family:'Fraunces',serif; font-size:21px; font-weight:500; margin-bottom:12px;}
+  .model-card p{font-size:14px; line-height:1.6; color:var(--ink-soft);}
+  @media(max-width:900px){ .model-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:560px){ .model-grid{grid-template-columns:1fr;} }
+
+  /* VALUES */
+  .values-list{display:flex; flex-direction:column;}
+  .value-row{
+    display:grid; grid-template-columns:90px 1fr 1.3fr; gap:40px; align-items:start;
+    padding:38px 0; border-top:1px solid var(--line);
+  }
+  .value-row:last-child{border-bottom:1px solid var(--line);}
+  .value-row .vi{font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--ink-faint);}
+  .value-row h3{font-family:'Fraunces',serif; font-size:24px; font-weight:500;}
+  .value-row p{font-size:15px; line-height:1.65; color:var(--ink-soft);}
+  @media(max-width:720px){
+    .value-row{grid-template-columns:1fr; gap:10px; padding:26px 0;}
+  }
+
+  /* ROLES */
+  .roles-list{display:flex; flex-direction:column; border-top:1px solid var(--line);}
+  .role{
+    display:grid; grid-template-columns:1.1fr 1.6fr auto; gap:30px; align-items:center;
+    padding:32px 6px; border-bottom:1px solid var(--line);
+    transition: padding-left .5s var(--ease), background .4s var(--ease);
+  }
+  .role:hover{padding-left:20px; background:var(--cream-deep);}
+  .role h3{font-family:'Fraunces',serif; font-weight:500; font-size:22px;}
+  .role .meta{display:flex; gap:10px; margin-top:10px; flex-wrap:wrap;}
+  .role .tag{font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--ink-soft); border:1px solid var(--line); padding:5px 11px; border-radius:100px;}
+  .role p{font-size:14.5px; color:var(--ink-soft); line-height:1.6;}
+  .role-apply{
+    justify-self:end; font-size:13px; font-weight:500; color:var(--ink);
+    display:flex; align-items:center; gap:8px; white-space:nowrap;
+  }
+  .role-apply .arrow{transition:transform .4s var(--ease);}
+  .role:hover .role-apply .arrow{transform:translateX(4px);}
+  @media(max-width:820px){
+    .role{grid-template-columns:1fr; gap:14px;}
+    .role-apply{justify-self:start;}
+  }
+
+  /* PERKS */
+  .perks-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:22px; overflow:hidden;}
+  .perk{background:var(--cream); padding:34px 28px 40px;}
+  .perk .pnum{font-size:11px; color:var(--ink-faint); letter-spacing:.1em;}
+  .perk h3{font-family:'Fraunces',serif; font-weight:500; font-size:19px; margin:16px 0 10px;}
+  .perk p{font-size:14px; color:var(--ink-soft); line-height:1.6;}
+  @media(max-width:820px){ .perks-grid{grid-template-columns:1fr;} }
+
+  /* FAQ */
+  .faq-item{border-top:1px solid var(--line); padding:26px 0;}
+  .faq-item:last-child{border-bottom:1px solid var(--line);}
+  .faq-q{
+    display:flex; justify-content:space-between; align-items:center; cursor:pointer; gap:20px;
+  }
+  .faq-q h4{font-family:'Fraunces',serif; font-weight:500; font-size:18px; font-weight:400;}
+  .faq-plus{font-size:20px; color:var(--accent-deep); transition:transform .4s var(--ease); flex-shrink:0;}
+  .faq-item.open .faq-plus{transform:rotate(45deg);}
+  .faq-a{
+    max-height:0; overflow:hidden; transition:max-height .5s var(--ease), padding-top .5s var(--ease);
+  }
+  .faq-item.open .faq-a{max-height:200px; padding-top:16px;}
+  .faq-a p{font-size:14.5px; line-height:1.7; color:var(--ink-soft); max-width:640px;}
+
+  /* CTA FOOTER */
+  .cta-band{
+    background:var(--ink); color:var(--cream); border-radius:32px; margin:0 auto;
+    padding:90px 60px; text-align:center; position:relative; overflow:hidden;
+  }
+  .cta-band .eyebrow{color:#C9A98C;}
+  .cta-band .eyebrow::before{background:#C9A98C;}
+  .cta-band h2{font-family:'Fraunces',serif; font-size:clamp(32px,5vw,58px); font-weight:400; margin:22px auto 34px; max-width:720px; line-height:1.1;}
+  .cta-band .btn-primary{background:var(--cream); color:var(--ink);}
+  .cta-band .btn-primary .ico{background:rgba(34,30,26,0.08); color:var(--ink);}
+  .cta-band .btn-primary:hover{background:#C9A98C;}
+  @media(max-width:720px){ .cta-band{padding:60px 26px; border-radius:22px;} }
+
+  footer{padding:60px 0 40px;}
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; font-size:13px; color:var(--ink-soft);}
+  .foot-links{display:flex; gap:26px;}
+  .foot-links a:hover{color:var(--ink);}
+
+  /* reveal */
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+    .reveal{opacity:1; transform:none;}
+  }
+
+  a:focus-visible, .faq-q:focus-visible{outline:2px solid var(--accent-deep); outline-offset:3px; border-radius:4px;}
+</style>
+</head>
+<body>
+
+<nav class="floater">
+  <div class="nav-pill">
+    <a href="/" class="nav-logo">Potli</a>
+    <div class="nav-links">
+      <a href="/">Home</a>
+      <a href="/about-us">About</a>
+      <a href="/awards">Awards</a>
+      <a href="/career" class="current">Career</a>
+      <a href="/contact">Contact</a>
+    </div>
+    <a href="#roles" class="nav-cta">Open roles</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-orb"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-tags reveal">
+      <span class="hero-tag">New Delhi · Hybrid</span>
+      <span class="hero-tag">Project-based collaborations</span>
+      <span class="hero-tag">Currently accepting applications</span>
+    </div>
+    <h1 class="display hero-title reveal">Build brands<br>the future <em>will remember.</em></h1>
+    <p class="hero-sub reveal">Potli is a small firm of five, working across strategy, design, technology and business — each project chosen deliberately, each collaborator trusted completely. We're looking for people who'd rather do fewer things exceptionally well.</p>
+    <div class="hero-actions reveal">
+      <a href="#roles" class="btn-primary">See open roles <span class="ico">↓</span></a>
+      <a href="mailto:careers@potli.world" class="link-underline">Or write to us directly</a>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div class="stat"><div class="num display">45+</div><div class="lbl">Brands transformed</div></div>
+      <div class="stat"><div class="num display">5</div><div class="lbl">Collaborators on the core team</div></div>
+      <div class="stat"><div class="num display">4</div><div class="lbl">Disciplines under one roof</div></div>
+      <div class="stat"><div class="num display">2025</div><div class="lbl">Branding Partner of the Year</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="model">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How we work</span>
+      <h2 class="display">A firm, not a headcount.</h2>
+      <p>We don't hire to fill seats. Potli runs as a tight, project-based collaborative — every person owns a discipline outright, and every engagement is chosen because it's worth doing properly.</p>
+    </div>
+    <div class="model-grid reveal">
+      <div class="model-card">
+        <span class="mk">01 — Consulting</span>
+        <h3>Strategy &amp; Brand</h3>
+        <p>Positioning, narrative and the thinking that sits underneath every decision a brand makes.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">02 — Technical</span>
+        <h3>Design &amp; Build</h3>
+        <p>Visual identity, digital experiences and the craft that gives strategy a shape people can see.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">03 — Business</span>
+        <h3>Growth &amp; Client Partnership</h3>
+        <p>Bringing in the right clients and building relationships that outlast a single project.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">04 — Operations</span>
+        <h3>Delivery &amp; Coordination</h3>
+        <p>Keeping every engagement precise, on time, and worthy of the Potli name.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="values" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Life inside Potli</span>
+      <h2 class="display">What it actually feels like to work here.</h2>
+    </div>
+    <div class="values-list reveal">
+      <div class="value-row">
+        <span class="vi">i.</span>
+        <h3>Ownership over instruction</h3>
+        <p>There's no bench. Every collaborator leads their discipline end-to-end — you'll be trusted with real client relationships, not tucked behind a senior's sign-off.</p>
+      </div>
+      <div class="value-row">
+        <span class="vi">ii.</span>
+        <h3>Craft over volume</h3>
+        <p>We take on fewer clients than we could, so the ones we do take on get our full attention. If a detail isn't right, we redo it — even past deadline.</p>
+      </div>
+      <div class="value-row">
+        <span class="vi">iii.</span>
+        <h3>Discerning clients only</h3>
+        <p>You'll work on brands in beauty, hospitality, lifestyle and premium services — the kind of work that ends up in a portfolio you're proud to show.</p>
+      </div>
+      <div class="value-row">
+        <span class="vi">iv.</span>
+        <h3>Built around the work, not the clock</h3>
+        <p>This is a project-based model, not a 9-to-6. You're paid for outcomes and ownership, and you shape your schedule around the deliverable.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="roles">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Open collaborations</span>
+      <h2 class="display">Where we need you right now.</h2>
+      <p>Don't see an exact fit? We still want to hear from you — write in and tell us what you'd bring.</p>
+    </div>
+    <div class="roles-list reveal">
+      <div class="role">
+        <div>
+          <h3>Brand Strategist</h3>
+          <div class="meta"><span class="tag">Consulting</span><span class="tag">Project-based</span></div>
+        </div>
+        <p>Shape positioning and narrative for luxury clients across beauty, hospitality and lifestyle — from discovery through to brand guidelines.</p>
+        <a href="mailto:careers@potli.world?subject=Application%3A%20Brand%20Strategist" class="role-apply">Apply <span class="arrow">↗</span></a>
+      </div>
+      <div class="role">
+        <div>
+          <h3>Visual / Brand Designer</h3>
+          <div class="meta"><span class="tag">Technical</span><span class="tag">Project-based</span></div>
+        </div>
+        <p>Design identity systems, logos and brand guidelines that hold up against the best in the industry — precision matters more than speed here.</p>
+        <a href="mailto:careers@potli.world?subject=Application%3A%20Visual%20Designer" class="role-apply">Apply <span class="arrow">↗</span></a>
+      </div>
+      <div class="role">
+        <div>
+          <h3>Front-End / Web Developer</h3>
+          <div class="meta"><span class="tag">Technical</span><span class="tag">Project-based</span></div>
+        </div>
+        <p>Build acquisition-ready websites for our clients — editorial layouts, considered motion, no templated defaults.</p>
+        <a href="mailto:careers@potli.world?subject=Application%3A%20Web%20Developer" class="role-apply">Apply <span class="arrow">↗</span></a>
+      </div>
+      <div class="role">
+        <div>
+          <h3>Business Development Associate</h3>
+          <div class="meta"><span class="tag">Business</span><span class="tag">Project-based</span></div>
+        </div>
+        <p>Open doors with prospective clients and help grow Potli's roster of discerning, long-term partnerships.</p>
+        <a href="mailto:careers@potli.world?subject=Application%3A%20Business%20Development" class="role-apply">Apply <span class="arrow">↗</span></a>
+      </div>
+      <div class="role">
+        <div>
+          <h3>Operations Coordinator</h3>
+          <div class="meta"><span class="tag">Operations</span><span class="tag">Project-based</span></div>
+        </div>
+        <p>Keep every engagement on rails — timelines, deliverables, and the quiet coordination that makes the work look effortless.</p>
+        <a href="mailto:careers@potli.world?subject=Application%3A%20Operations%20Coordinator" class="role-apply">Apply <span class="arrow">↗</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">How you'd join us</span>
+      <h2 class="display">Three steps. No black box.</h2>
+      <p>No lengthy panel rounds or take-home busywork you'll never hear back on. We keep it short, honest, and mutual.</p>
+    </div>
+    <div class="model-grid reveal" style="grid-template-columns:repeat(3,1fr);">
+      <div class="model-card">
+        <span class="mk">01 — Write in</span>
+        <h3>Send your work</h3>
+        <p>Email your portfolio and a line on what you'd want to own here. No cover letter template needed — just show us the work.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">02 — Talk it through</span>
+        <h3>A short call</h3>
+        <p>30 minutes with Rushan or the relevant lead, to understand how you think and whether the fit is real on both sides.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">03 — Trial project</span>
+        <h3>Work together, paid</h3>
+        <p>A small, compensated project close to real client work. If it clicks, you're on the roster for what comes next.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="perks">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Why Potli</span>
+      <h2 class="display">Beyond the project itself.</h2>
+    </div>
+    <div class="perks-grid reveal">
+      <div class="perk">
+        <span class="pnum">01</span>
+        <h3>Direct client exposure</h3>
+        <p>No layers between you and the client. You present the work, you own the relationship.</p>
+      </div>
+      <div class="perk">
+        <span class="pnum">02</span>
+        <h3>Portfolio-grade work</h3>
+        <p>Every engagement is chosen for craft. What you ship here is what you'll want to show next.</p>
+      </div>
+      <div class="perk">
+        <span class="pnum">03</span>
+        <h3>Full creative latitude</h3>
+        <p>Bring your point of view. We hire for taste and judgment, then get out of the way.</p>
+      </div>
+      <div class="perk">
+        <span class="pnum">04</span>
+        <h3>Flexible, remote-friendly</h3>
+        <p>Work from wherever you do your best thinking. We care about the outcome, not the seat.</p>
+      </div>
+      <div class="perk">
+        <span class="pnum">05</span>
+        <h3>A tight, opinionated team</h3>
+        <p>Five people, no bureaucracy. Decisions happen in a conversation, not a committee.</p>
+      </div>
+      <div class="perk">
+        <span class="pnum">06</span>
+        <h3>Room to grow with us</h3>
+        <p>As Potli takes on more clients, collaborators who prove themselves take on more ownership.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Before you write in</span>
+      <h2 class="display">Frequently asked questions.</h2>
+    </div>
+    <div class="reveal" style="max-width:760px;">
+      <div class="faq-item open">
+        <div class="faq-q"><h4>Is this a salaried role?</h4><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>No — Potli runs on a project-based collaborative model. You're compensated per engagement rather than on a fixed salary, with the potential for ongoing, repeat collaboration as trust builds.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>Do I need to be based in New Delhi?</h4><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>It helps for the strategy and client-facing roles, but most technical and design work happens remotely. We'll be upfront about what each role needs.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>What's the interview process like?</h4><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>A short call to understand your work and how you think, followed by a small paid trial project so we both know it's a fit before committing further.</p></div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><h4>I don't see a role that fits — should I still apply?</h4><span class="faq-plus">+</span></div>
+        <div class="faq-a"><p>Yes. Write to us with examples of your work and where you think you'd add value. We'd rather meet good people early than miss them because a title didn't line up.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="eyebrow" style="justify-content:center;">Let's talk</span>
+      <h2 class="display">Come build brands that stand the test of time.</h2>
+      <a href="mailto:careers@potli.world?subject=Application%20—%20Potli" class="btn-primary">Send your portfolio <span class="ico">↗</span></a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Potli. We fill it with meaning.</span>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/about-us">About</a>
+      <a href="/awards">Awards</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+  // scroll reveal
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  els.forEach(el=>io.observe(el));
+
+  // faq accordion
+  document.querySelectorAll('.faq-item').forEach(item=>{
+    const q = item.querySelector('.faq-q');
+    q.setAttribute('tabindex','0');
+    q.setAttribute('role','button');
+    const toggle = ()=>{
+      const willOpen = !item.classList.contains('open');
+      item.parentElement.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+      if(willOpen) item.classList.add('open');
+    };
+    q.addEventListener('click', toggle);
+    q.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
+  });
+
+  // nav shadow on scroll
+  const pill = document.querySelector('.nav-pill');
+  window.addEventListener('scroll', ()=>{
+    pill.style.boxShadow = window.scrollY > 40
+      ? '0 14px 34px -12px rgba(34,30,26,0.28)'
+      : '0 10px 30px -12px rgba(34,30,26,0.18)';
+  });
+</script>
+
+</body>
+</html>
