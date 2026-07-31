@@ -16,7 +16,7 @@ const { name, role, about, image, padding = "pt-28" } = Astro.props;
   <div
     class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
   >
-    <img src={image} alt={name} class="w-full h-full object-cover" />
+    <img src={image} alt={name} class="w-full h-full object-fill" />
 
     <div
       class={`absolute inset-0 bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight ${padding} pb-2 gap-y-1`}
