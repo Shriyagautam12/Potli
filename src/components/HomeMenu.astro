@@ -42,24 +42,6 @@ import { Menu } from "@lucide/astro";
         data-menu-orbit="2"
         class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
       >
-        <a href="/contact">
-          <img
-            src="/assets/logo-mouse-follower.png"
-            alt="Potli logo"
-            class="h-[260px] w-auto brightness-80 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)] select-none"
-            draggable="false"
-          />
-          <h2
-            class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
-          >
-            Contact
-          </h2>
-        </a>
-      </div>
-      <div
-        data-menu-orbit="4"
-        class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
-      >
         <a href="/about-us">
           <img
             src="/assets/logo-mouse-follower.png"
@@ -75,7 +57,7 @@ import { Menu } from "@lucide/astro";
         </a>
       </div>
       <div
-        data-menu-orbit="1"
+        data-menu-orbit="4"
         class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
       >
         <a href="/awards">
@@ -93,7 +75,7 @@ import { Menu } from "@lucide/astro";
         </a>
       </div>
       <div
-        data-menu-orbit="3"
+        data-menu-orbit="1"
         class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
       >
         <a href="/career">
@@ -107,6 +89,24 @@ import { Menu } from "@lucide/astro";
             class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
           >
             Career
+          </h2>
+        </a>
+      </div>
+      <div
+        data-menu-orbit="3"
+        class="w-fit -translate-1/2 h-fit absolute left-1/2 z-2 top-1/2"
+      >
+        <a href="/contact">
+          <img
+            src="/assets/logo-mouse-follower.png"
+            alt="Potli logo"
+            class="h-[260px] w-auto brightness-80 object-contain drop-shadow-[0_14px_24px_rgba(0,0,0,0.18)] select-none"
+            draggable="false"
+          />
+          <h2
+            class="absolute left-1/2 top-1/2 text-center flex text-5xl font-semibold -translate-1/2"
+          >
+            Contact
           </h2>
         </a>
       </div>
@@ -139,20 +139,20 @@ import { Menu } from "@lucide/astro";
         </a>
 
         <a
-          href="/awards"
-          class="py-5 text-4xl font-medium border-b border-black/10"
-        >
-          Awards
-        </a>
-
-        <a
           href="/career"
           class="py-5 text-4xl font-medium border-b border-black/10"
         >
           Career
         </a>
 
-        <a href="/contact" class="py-5 text-4xl font-medium"> Contact </a>
+        <a
+          href="/Contact"
+          class="py-5 text-4xl font-medium border-b border-black/10"
+        >
+          Contact
+        </a>
+
+        <a href="/about-us" class="py-5 text-4xl font-medium"> About </a>
       </nav>
     </div>
   </div>

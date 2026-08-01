@@ -303,9 +303,10 @@ import HomeMenu from "../../components/HomeMenu.astro";
   .cta-band .btn-primary:hover{background:#C9A98C;}
   @media(max-width:720px){ .cta-band{padding:60px 26px; border-radius:22px;} }
 
-  footer{padding:56px 0 40px;}
+   footer{padding:60px 0 40px;}
   .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; font-size:13px; color:var(--ink-soft);}
-  .foot-row a:hover{color:var(--ink);}
+  .foot-links{display:flex; gap:26px;}
+  .foot-links a:hover{color:var(--ink);}
 
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
   .reveal.in{opacity:1; transform:translateY(0);}
@@ -471,7 +472,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
       <span class="eyebrow">Let's talk</span>
       <h2 class="display">Create a brand that <em>stands the test</em> of time.</h2>
       <p class="sub">Potli designs. Lasting impressions.</p>
-      <a href="mailto:careers@potli.world" class="btn-primary">Get in touch <span class="ico">↗</span></a>
+      <a href="#reach" class="btn-primary">Get in touch <span class="ico">↗</span></a>
     </div>
   </div>
 </section>
@@ -480,10 +481,10 @@ import HomeMenu from "../../components/HomeMenu.astro";
     <span>© 2026 Potli. We fill it with meaning.</span>
     <div class="foot-links">
      <a href="/">Home</a>
-      <a href="/about-us">About</a>
-      <a href="/awards">Awards</a>
-      <a href="/career">Career</a>
-      <a href="/contact">Contact</a>
+     <a href="/about-us">About</a>
+     <a href="/awards">Awards</a>
+     <a href="/career">Career</a>
+     <a href="/contact">Contact</a>
     </div>
   </div>
 </footer>
