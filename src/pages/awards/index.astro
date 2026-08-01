@@ -1,620 +1,386 @@
 ---
-import Layout from "../../layouts/Layout.astro";
+// Standalone career page — self-contained styles, nav and footer.
+import "../../styles/global.css";
 import HomeMenu from "../../components/HomeMenu.astro";
 ---
 
-<Layout class="awards-page">
-  <HomeMenu slot="menu" />
-  <!-- HERO -->
-  <section class="hero">
-    <!-- Corner labels -->
-    <span class="corner left">
-      <span class="corner-line horizontal"></span>
-      <span class="corner-line vertical"></span>
-      <img src="/assets/logo.png" alt="Potli Logo" class="logo" />
-    </span>
-
-    <span class="corner right">
-      <small>THE EVIGHET</small>
-      <span class="corner-line horizontal"></span>
-      <span class="corner-line vertical"></span>
-    </span>
-
-    <!-- Decorative stars -->
-    <span class="star s1"> &#10209</span>
-    <span class="star s2"> &#10209 </span>
-    <span class="star s3"> &#10209 </span>
-    <span class="star s4"> &#10209</span>
-    <span class="star s5"> &#10209</span>
-    <span class="diamond d1">&#9670;</span>
-    <span class="diamond d2">&#9670;</span>
-    <span class="diamond d3"> &#9670;</span>
-
-    <h1>
-      <span>RECOGNITION</span>
-    </h1>
-
-    <p class="subtitle">Celebrating Excellence in Partnership</p>
-
-    <span class="badge">OFFICIAL BRANDING PARTNER</span>
-  </section>
-
-  <!-- EVENT INFO -->
-  <section class="event-section">
-    <h2 class="event-title">
-      TALIMI MELA <br />
-      <span class="event-subtitle-gold">THE EVIGHET</span>
-    </h2>
-
-    <p class="event-subtitle">
-      98th Edition | Jamia Millia Islamia's 105th Foundation Day
-    </p>
-
-    <div class="info-grid">
-      <!-- Left -->
-      <div class="info-card light">
-        <h3>EVIGHET</h3>
-        <p class="eternity">(Eternity)</p>
-        <p class="role">Potli's Defining Role</p>
-
-        <ul>
-          <li>Central theme development & narrative curation</li>
-          <li>Unified festival experience design</li>
-          <li>Spatial architecture & stage environments</li>
-          <li>Comprehensive visual language system</li>
-          <li>Heritage-contemporary balance</li>
-          <li>Cultural sensitivity & immersive storytelling</li>
-        </ul>
-      </div>
-
-      <!-- Right -->
-      <div class="info-card dark">
-        <h3>UNPRECEDENTED IMPACT</h3>
-
-        <div class="stat">
-          <span class="value">2.5M+</span>
-          <span class="label">Digital Interactions</span>
-        </div>
-
-        <div class="stat">
-          <span class="value">300K+</span>
-        </div>
-
-        <p class="note">
-          Nationally Acclaimed Artists, Scholars, Government Officials &
-          Community Leaders.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- OFFICIAL RECOGNITION -->
-  <section class="recognition">
-    <h2>OFFICIAL RECOGNITION</h2>
-
-    <div class="certificate">
-      <div class="cert-image-frame">
-        <img
-          src="/assets/award.jpg"
-          alt="Official Recognition Ceremony"
-          class="cert-image"
-        />
-      </div>
-
-      <div class="cert-content">
-        <p class="cert-name">Shriya Gautam</p>
-        <p class="cert-role">Chief Technology Officer, Potli</p>
-        <p class="cert-receiving">Receiving Recognition from</p>
-        <p class="cert-officials">
-          Vice Chancellor | Registrar | Dean Students' Welfare
-        </p>
-      </div>
-
-      <p class="cert-org">JAMIA MILLIA ISLAMIA</p>
-    </div>
-  </section>
-
-  <!-- FOOT NOTE -->
-  <p class="closing">A Landmark Chapter</p>
-</Layout>
-
-<style>
-  /* ===== PAGE ===== */
-  .awards-page {
-    font-family: system-ui, sans-serif;
-    color: #111;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awards — Potli</title>
+<meta name="description" content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day.">
+<link rel="icon" type="image/svg+xml" href="/assets/9.png" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="Awards — Potli">
+<meta property="og:description" content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day.">
+<meta property="og:image" content="https://potli.world/assets/award.jpg">
+<meta property="og:url" content="https://potli-sage.vercel.app/awards">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Awards — Potli">
+<meta name="twitter:description" content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day.">
+<meta name="twitter:image" content="https://potli.world/assets/award.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style is:global>
+  :root{
+    --cream:#F7F2EA;
+    --cream-deep:#F1E9DB;
+    --taupe:#E7DBC7;
+    --ink:#221E1A;
+    --ink-soft:#5C544B;
+    --ink-faint:#8A8074;
+    --accent:#9C6B4F;
+    --accent-deep:#7A4F39;
+    --line: rgba(34,30,26,0.12);
+    --line-soft: rgba(34,30,26,0.07);
+    --ease: cubic-bezier(.16,.84,.32,1);
   }
-
-  /* ===== HERO ===== */
-  .hero {
-    position: relative;
-    min-height: 70vh;
-    padding: 8rem 2rem;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    color: #fff;
-    background:
-      radial-gradient(
-        circle at 50% 45%,
-        rgba(201, 162, 77, 0.35),
-        transparent 55%
-      ),
-      linear-gradient(180deg, #0a0a0a 0%, #000 100%);
-    overflow: hidden;
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Instrument Sans', sans-serif;
+    font-weight:400;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
   }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    background-image:
-      linear-gradient(45deg, rgba(201, 162, 77, 0.05) 1px, transparent 1px),
-      linear-gradient(-45deg, rgba(201, 162, 77, 0.05) 1px, transparent 1px);
-    background-size: 40px 40px;
-    pointer-events: none;
-    z-index: 0;
+  ::selection{background:var(--accent);color:var(--cream);}
+  .display{font-family:'Fraunces', serif; font-optical-sizing:auto;}
+  .eyebrow{
+    font-size:11px; letter-spacing:.22em; text-transform:uppercase;
+    color:var(--accent-deep); font-weight:600; display:flex; align-items:center; gap:10px;
   }
+  .eyebrow::before{content:''; width:16px; height:1px; background:var(--accent-deep); display:inline-block;}
+  a{color:inherit; text-decoration:none;}
+  img,svg{display:block; max-width:100%;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
+  @media(max-width:720px){ .wrap{padding:0 22px;} }
+  a:focus-visible, button:focus-visible{outline:2px solid var(--accent-deep); outline-offset:3px; border-radius:4px;}
 
-  .corner {
-    position: absolute;
-    top: 1.5rem;
-    color: #c9a24d;
-    font-size: 0.7rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    z-index: 3;
+  /* NAV */
+  nav.floater{
+    position:fixed; top:22px; left:0; right:0; z-index:100;
+    display:flex; justify-content:center; pointer-events:none;
   }
-
-  .corner.left {
-    left: 1.5rem;
-    padding-left: 1.5rem;
-    padding-top: 1.5rem;
+  .nav-pill{
+    pointer-events:all;
+    display:flex; align-items:center; gap:38px;
+    background:rgba(247,242,234,0.78);
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    border:1px solid var(--line);
+    border-radius:100px;
+    padding:11px 14px 11px 22px;
+    box-shadow: 0 10px 30px -12px rgba(34,30,26,0.18);
+    transition: box-shadow .5s var(--ease);
   }
-
-  .corner.right {
-    right: 1.5rem;
-    text-align: right;
-    padding-right: 1.5rem;
-    padding-top: 1.5rem;
+  .nav-logo{font-family:'Fraunces', serif; font-size:16px; font-weight:600; letter-spacing:.01em;}
+  .nav-links{display:flex; gap:30px; font-size:13px; color:var(--ink-soft);}
+  .nav-links a{position:relative; padding:2px 0; transition:color .3s var(--ease);}
+  .nav-links a:hover{color:var(--ink);}
+  .nav-links a.current{color:var(--ink); font-weight:500;}
+  .nav-links a.current::after{content:''; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:var(--accent-deep);}
+  .nav-cta{
+    font-size:12.5px; font-weight:500; background:var(--ink); color:var(--cream);
+    padding:9px 18px; border-radius:100px; white-space:nowrap;
+    transition: transform .45s var(--ease), background .3s var(--ease);
   }
+  .nav-cta:hover{background:var(--accent-deep); transform:translateY(-1px);}
+  @media(max-width:820px){ .nav-links{display:none;} .nav-pill{gap:18px;} }
 
-  .corner-line {
-    position: absolute;
-    background: rgba(201, 162, 77, 0.7);
+  /* HERO */
+  header.hero{
+    position:relative; min-height:88vh; display:flex; flex-direction:column; justify-content:center;
+    padding:150px 0 70px; overflow:hidden;
   }
-
-  .corner.left .horizontal {
-    top: 0;
-    left: 0;
-    width: 18px;
-    height: 1px;
+  .hero-noise{
+    position:absolute; inset:0; z-index:0; opacity:.35; pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+    mix-blend-mode:multiply;
   }
-
-  .corner.left .vertical {
-    top: 0;
-    left: 0;
-    width: 1px;
-    height: 18px;
+  .hero-orb{
+    position:absolute; z-index:0; border-radius:50%;
+    background: radial-gradient(circle at 35% 35%, rgba(156,107,79,0.28), rgba(156,107,79,0) 70%);
+    width:640px; height:640px; top:-220px; right:-180px; filter:blur(10px);
   }
-
-  .corner.right .horizontal {
-    top: 0;
-    right: 0;
-    width: 18px;
-    height: 1px;
+  .hero-inner{position:relative; z-index:1;}
+  .hero-tags{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:34px;}
+  .hero-tag{
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft);
+    border:1px solid var(--line); padding:6px 14px; border-radius:100px;
   }
-
-  .corner.right .vertical {
-    top: 0;
-    right: 0;
-    width: 1px;
-    height: 18px;
+  h1.hero-title{
+    font-size:clamp(44px, 8vw, 108px); font-weight:400; line-height:0.98; letter-spacing:-0.015em; max-width:960px;
   }
+  h1.hero-title em{font-style:italic; font-weight:400; color:var(--accent-deep);}
+  .hero-sub{margin-top:30px; max-width:560px; font-size:17px; line-height:1.65; color:var(--ink-soft);}
 
-  /* STARS & DIAMONDS */
-  .star,
-  .diamond {
-    position: absolute;
-    color: #c9a24d;
-    opacity: 0.6;
-    font-size: 0.65rem;
-    z-index: 1;
+  .hero-stats{
+    margin-top:100px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;
   }
+  .stat{background:var(--cream); padding:26px 24px;}
+  .stat .num{font-family:'Fraunces',serif; font-size:30px;}
+  .stat .lbl{font-size:12px; color:var(--ink-soft); margin-top:6px; line-height:1.4;}
+  @media(max-width:760px){ .hero-stats{grid-template-columns:repeat(2,1fr);} }
 
-  .diamond {
-    font-size: 0.5rem;
-    opacity: 0.5;
+  /* SECTION SHARED */
+  section{padding:110px 0; position:relative;}
+  .sec-head{max-width:680px; margin-bottom:64px;}
+  .sec-head h2{font-size:clamp(30px,4vw,46px); font-weight:400; line-height:1.12; margin-top:18px; letter-spacing:-.01em;}
+  .sec-head p{margin-top:18px; color:var(--ink-soft); font-size:16px; line-height:1.65; max-width:560px;}
+
+  /* EVENT FEATURE */
+  .event-feature{
+    display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;
   }
-
-  .s1 {
-    top: 32%;
-    left: 22%;
+  @media(max-width:900px){ .event-feature{grid-template-columns:1fr; gap:40px;} }
+  .event-meaning{
+    font-family:'Fraunces',serif; font-style:italic; font-size:20px; color:var(--accent-deep);
+    margin-top:6px;
   }
-  .s2 {
-    top: 55%;
-    right: 30%;
+  .event-name{font-family:'Fraunces',serif; font-size:clamp(30px,3.6vw,44px); font-weight:500; margin-top:16px; line-height:1.1;}
+  .event-detail{margin-top:22px; font-size:15px; color:var(--ink-soft); line-height:1.7;}
+  .event-body p{font-size:16px; line-height:1.75; color:var(--ink-soft);}
+  .event-body p + p{margin-top:18px;}
+
+  /* VALUES-STYLE LIST (role list) */
+  .values-list{display:flex; flex-direction:column;}
+  .value-row{
+    display:grid; grid-template-columns:90px 1fr; gap:26px; align-items:start;
+    padding:26px 0; border-top:1px solid var(--line);
   }
-  .s3 {
-    top: 25%;
-    right: 20%;
+  .value-row:last-child{border-bottom:1px solid var(--line);}
+  .value-row .vi{font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--ink-faint);}
+  .value-row p{font-size:16px; line-height:1.6; color:var(--ink);}
+  @media(max-width:600px){ .value-row{grid-template-columns:1fr; gap:8px;} }
+
+  /* IMPACT GRID */
+  .impact-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:22px; overflow:hidden;}
+  .impact-card{background:var(--cream); padding:48px 40px;}
+  .impact-card .num{font-family:'Fraunces',serif; font-size:clamp(40px,5vw,64px); line-height:1;}
+  .impact-card .lbl{margin-top:14px; font-size:14.5px; color:var(--ink-soft); line-height:1.6; max-width:340px;}
+  @media(max-width:720px){ .impact-grid{grid-template-columns:1fr;} }
+
+  /* RECOGNITION PHOTO */
+  .recognition{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
   }
-  .s4 {
-    top: 45%;
-    left: 15%;
+  @media(max-width:900px){ .recognition{grid-template-columns:1fr; gap:36px;} }
+  .recog-photo{border-radius:22px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3;}
+  .recog-photo img{width:100%; height:100%; object-fit:cover;}
+  .recog-quote-mark{font-family:'Fraunces',serif; font-style:italic; font-size:52px; color:var(--accent-deep); line-height:1;}
+  .recognition h3{font-family:'Fraunces',serif; font-size:clamp(24px,2.8vw,32px); font-weight:500; margin-top:8px; line-height:1.25;}
+  .recognition .role{margin-top:14px; font-size:14px; color:var(--ink-soft); letter-spacing:.02em;}
+  .recognition .from{margin-top:26px; font-size:14px; color:var(--ink-soft); line-height:1.7; border-left:2px solid var(--line); padding-left:18px;}
+  .recognition .tag-final{margin-top:26px; font-family:'Fraunces',serif; font-style:italic; font-size:16px; color:var(--accent-deep);}
+
+  /* CTA FOOTER */
+  .cta-band{
+    background:var(--ink); color:var(--cream); border-radius:32px; margin:0 auto;
+    padding:90px 60px; text-align:center; position:relative; overflow:hidden;
   }
-  .s5 {
-    top: 60%;
-    left: 25%;
+  .cta-band .eyebrow{color:#C9A98C; justify-content:center;}
+  .cta-band .eyebrow::before{background:#C9A98C;}
+  .cta-band h2{font-family:'Fraunces',serif; font-size:clamp(32px,5vw,58px); font-weight:400; margin:22px auto 34px; max-width:720px; line-height:1.1;}
+  .cta-band h2 em{font-style:italic; color:#C9A98C;}
+  .btn-primary{
+    display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--cream);
+    font-size:14px; font-weight:500; padding:15px 15px 15px 26px; border-radius:100px;
+    transition: transform .5s var(--ease), background .35s var(--ease);
   }
-  .d1 {
-    top: 20%;
-    left: 30%;
+  .btn-primary .ico{
+    width:32px; height:32px; border-radius:50%; background:rgba(247,242,234,0.16);
+    display:flex; align-items:center; justify-content:center; font-size:14px; transition: transform .5s var(--ease);
   }
-  .d2 {
-    top: 50%;
-    right: 25%;
+  .btn-primary:hover{background:var(--accent-deep); transform:translateY(-2px);}
+  .btn-primary:active{transform:scale(0.97);}
+  .btn-primary:hover .ico{transform:translate(3px,-3px);}
+  .cta-band .btn-primary{background:var(--cream); color:var(--ink);}
+  .cta-band .btn-primary .ico{background:rgba(34,30,26,0.08); color:var(--ink);}
+  .cta-band .btn-primary:hover{background:#C9A98C;}
+  @media(max-width:720px){ .cta-band{padding:60px 26px; border-radius:22px;} }
+
+  footer{padding:60px 0 40px;}
+  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; font-size:13px; color:var(--ink-soft);}
+  .foot-links{display:flex; gap:26px;}
+  .foot-links a:hover{color:var(--ink);}
+
+  .reveal{opacity:0; transform:translateY(26px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; animation:none !important; scroll-behavior:auto !important;}
+    .reveal{opacity:1; transform:none;}
   }
-  .d3 {
-    top: 35%;
-    left: 50%;
-  }
-
-  .logo {
-    width: 100px;
-    height: auto;
-  }
-
-  /* TITLE */
-  .hero h1 {
-    font-family: "Times New Roman", serif;
-    font-size: clamp(2.4rem, 5vw, 3.2rem);
-    letter-spacing: 0.35em;
-    font-weight: 400;
-    line-height: 1.2;
-    margin-bottom: 1.2rem;
-    position: relative;
-    z-index: 1;
-  }
-
-  .hero h1 span {
-    display: block;
-    font-weight: 300;
-  }
-
-  /* SUBTITLE */
-  .subtitle {
-    font-size: 0.85rem;
-    letter-spacing: 0.25em;
-    opacity: 0.85;
-    margin-bottom: 2.2rem;
-    position: relative;
-    z-index: 1;
-    font-family: system-ui, sans-serif;
-    font-weight: 300;
-  }
-
-  /* BADGE */
-  .badge {
-    padding: 0.6rem 1.6rem;
-    font-size: 0.7rem;
-    letter-spacing: 0.2em;
-    border-radius: 999px;
-    color: #c9a24d;
-    border: 1px solid rgba(201, 162, 77, 0.6);
-    background: linear-gradient(
-      180deg,
-      rgba(201, 162, 77, 0.15),
-      rgba(201, 162, 77, 0.05)
-    );
-    box-shadow:
-      inset 0 0 12px rgba(201, 162, 77, 0.2),
-      0 0 20px rgba(201, 162, 77, 0.15);
-    position: relative;
-    z-index: 1;
-    display: inline-block;
-  }
-
-  /* ===== EVENT ===== */
-  .event-section {
-    background: #fff;
-    padding: 4rem 1.5rem;
-    text-align: center;
-  }
-
-  .event-title {
-    font-size: 1.8rem;
-    margin-bottom: 0.5rem;
-    font-family: "Times New Roman", serif;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .event-title .event-subtitle-gold {
-    font-weight: 300;
-    color: #c9a24d;
-    font-family: system-ui, sans-serif;
-    font-size: 0.9em;
-    letter-spacing: 0.15em;
-  }
-
-  .event-subtitle {
-    color: #777;
-    font-size: 0.9rem;
-    margin-bottom: 3rem;
-    letter-spacing: 0.05em;
-  }
-
-  /* GRID */
-  .info-grid {
-    display: grid;
-    gap: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  /* CARDS */
-  .info-card {
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: left;
-  }
-
-  .info-card h3 {
-    margin-bottom: 0.5rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-  }
-
-  .eternity {
-    color: #c9a24d;
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
-    font-style: italic;
-  }
-
-  .light {
-    background: #fafafa;
-    border: 1px solid rgba(201, 162, 77, 0.3);
-  }
-
-  .dark {
-    background: #111;
-    color: #fff;
-    border: 1px solid rgba(201, 162, 77, 0.3);
-  }
-
-  .dark .info-card li::before {
-    color: #c9a24d;
-  }
-
-  .role {
-    color: #888;
-    margin-bottom: 1rem;
-  }
-
-  .info-card ul {
-    padding-left: 1.2rem;
-    list-style: none;
-  }
-
-  .info-card li {
-    margin-bottom: 0.75rem;
-    font-size: 0.9rem;
-    position: relative;
-    padding-left: 1rem;
-  }
-
-  .info-card li::before {
-    content: "•";
-    position: absolute;
-    left: 0;
-    color: #c9a24d;
-  }
-
-  /* STATS */
-  .stat {
-    margin-bottom: 1.5rem;
-  }
-
-  .value {
-    display: block;
-    font-size: 1.8rem;
-    font-weight: 600;
-    color: #c9a24d;
-    margin-bottom: 0.25rem;
-  }
-
-  .dark .value {
-    color: #c9a24d;
-  }
-
-  .label {
-    font-size: 0.8rem;
-    opacity: 0.85;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .note {
-    font-size: 0.8rem;
-    opacity: 0.75;
-    margin-top: 1.5rem;
-    line-height: 1.5;
-    font-style: italic;
-  }
-
-  /* ===== RECOGNITION ===== */
-  /* ===== RECOGNITION ===== */
-  .recognition {
-    background: #0b0b0b;
-    color: #fff;
-    padding: 5rem 1.5rem;
-    text-align: center;
-  }
-
-  .recognition h2 {
-    font-family: "Times New Roman", serif;
-    letter-spacing: 0.25em;
-    font-size: clamp(2rem, 4vw, 2.6rem);
-    margin-bottom: 3.5rem;
-    color: #c9a24d;
-    text-transform: uppercase;
-  }
-
-  /* CERTIFICATE CARD */
-  .certificate {
-    max-width: 520px;
-    margin: 0 auto;
-    border: 1px solid rgba(201, 162, 77, 0.6);
-    background: #0d0d0d;
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
-  }
-
-  /* IMAGE FRAME */
-  .cert-image-frame {
-    position: relative;
-    padding: 12px;
-    background: linear-gradient(
-      180deg,
-      rgba(201, 162, 77, 0.35),
-      rgba(201, 162, 77, 0.05)
-    );
-  }
-
-  .cert-image {
-    width: 100%;
-    height: auto;
-    display: block;
-    object-fit: cover;
-  }
-
-  /* CONTENT */
-  .cert-content {
-    padding: 2.5rem 2rem 2rem;
-  }
-
-  .cert-name {
-    font-family: "Times New Roman", serif;
-    font-size: 1.6rem;
-    color: #c9a24d;
-    margin-bottom: 0.4rem;
-  }
-
-  .cert-role {
-    font-size: 0.9rem;
-    opacity: 0.85;
-    margin-bottom: 1.2rem;
-  }
-
-  .cert-receiving {
-    font-size: 0.75rem;
-    letter-spacing: 0.12em;
-    opacity: 0.6;
-    margin-bottom: 0.5rem;
-  }
-
-  .cert-officials {
-    font-size: 0.75rem;
-    opacity: 0.7;
-    margin-bottom: 1.5rem;
-    color: #fff;
-  }
-
-  .cert-org {
-    font-size: 0.85rem;
-    color: #c9a24d;
-    margin-top: 0;
-    padding: 1.5rem 2rem;
-    text-align: center;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-family: system-ui, sans-serif;
-    border-top: 1px solid rgba(201, 162, 77, 0.3);
-    background: rgba(201, 162, 77, 0.05);
-  }
-
-  /* FOOT */
-  .closing {
-    text-align: center;
-    letter-spacing: 0.2em;
-    font-size: 0.75rem;
-    padding: 3rem 1rem;
-    color: #777;
-  }
-
-  /* ===== DESKTOP ===== */
-  @media (min-width: 768px) {
-    .hero h1 {
-      font-size: 2.8rem;
-    }
-
-    .info-grid {
-      grid-template-columns: 1fr 1fr;
-    }
-
-    .event-section {
-      padding: 5rem 2rem;
-    }
-
-    .recognition {
-      padding: 5rem 2rem;
-    }
-
-    .cert-image-placeholder {
-      height: 400px;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .hero {
-      padding: 5rem 1rem 4rem;
-      min-height: 60vh;
-    }
-
-    .hero h1 {
-      font-size: 2rem;
-      letter-spacing: 0.18em;
-    }
-
-    .corner {
-      font-size: 0.6rem;
-      top: 1rem;
-    }
-
-    .corner.left {
-      left: 1rem;
-    }
-
-    .corner.right {
-      right: 1rem;
-    }
-
-    .event-section {
-      padding: 3rem 1rem;
-    }
-
-    .recognition {
-      padding: 3rem 1rem;
-    }
-
-    .recognition h2 {
-      font-size: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-    .cert-image-placeholder {
-      height: 250px;
-    }
-
-    .cert-content {
-      padding: 1.5rem;
-    }
-
-    .cert-name {
-      font-size: 1.2rem;
-    }
+  @media (hover:none), (pointer:coarse){
+    .btn-primary:hover{transform:none;}
   }
 </style>
+</head>
+<body>
+<img
+  id="mouse-follower"
+  src="/assets/logo-mouse-follower.png"
+  alt="Potli Logo"
+  class="z-[999] w-5 h-5 fixed top-0 left-0 pointer-events-none md:block hidden"
+/>
+
+<HomeMenu />
+
+<header class="hero">
+  <div class="hero-noise"></div>
+  <div class="hero-orb"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-tags reveal">
+      <span class="hero-tag">Official Branding Partner</span>
+      <span class="hero-tag">Talimi Mela · The Evighet</span>
+      <span class="hero-tag">Jamia Millia Islamia · 105th Foundation Day</span>
+    </div>
+    <h1 class="display hero-title reveal">Recognition, <em>earned</em> in partnership.</h1>
+    <p class="hero-sub reveal">Potli served as Official Branding Partner for the 98th edition of Talimi Mela — The Evighet, held for Jamia Millia Islamia's 105th Foundation Day. This is the story of what that partnership built.</p>
+
+    <div class="hero-stats reveal">
+      <div class="stat"><div class="num display">98th</div><div class="lbl">Edition of Talimi Mela</div></div>
+      <div class="stat"><div class="num display">105th</div><div class="lbl">Foundation Day, Jamia Millia Islamia</div></div>
+      <div class="stat"><div class="num display">2.5M+</div><div class="lbl">Digital interactions</div></div>
+      <div class="stat"><div class="num display">300K+</div><div class="lbl">Attendees on ground</div></div>
+    </div>
+  </div>
+</header>
+
+<section id="event">
+  <div class="wrap event-feature">
+    <div class="reveal">
+      <span class="eyebrow">The event</span>
+      <div class="event-meaning">Evighet</div>
+      <p style="color:var(--ink-soft); font-size:13px; margin-top:2px;">(Eternity)</p>
+      <h2 class="event-name display">Talimi Mela — The Evighet</h2>
+      <p class="event-detail">98th Edition of Talimi Mela, staged for Jamia Millia Islamia's 105th Foundation Day — one of the university's largest cultural gatherings, bringing together artists, scholars, government officials and community leaders.</p>
+    </div>
+    <div class="event-body reveal">
+      <p>The brief called for a single unifying idea strong enough to hold a century-old institution's most significant cultural moment together — across a physical festival ground, a stage program, and a nationwide digital audience.</p>
+      <p>Potli took the theme <em style="font-family:'Fraunces',serif; color:var(--accent-deep);">Evighet</em> — eternity — and built it into every layer of the experience: the narrative arc of the festival, the way visitors moved through the space, and a visual language that balanced Jamia's heritage with a contemporary point of view.</p>
+    </div>
+  </div>
+</section>
+
+<section id="role" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Potli's role</span>
+      <h2 class="display">What we were trusted to deliver.</h2>
+    </div>
+    <div class="values-list reveal">
+      <div class="value-row"><span class="vi">i.</span><p>Central theme development &amp; narrative curation</p></div>
+      <div class="value-row"><span class="vi">ii.</span><p>Unified festival experience design</p></div>
+      <div class="value-row"><span class="vi">iii.</span><p>Spatial architecture &amp; stage environments</p></div>
+      <div class="value-row"><span class="vi">iv.</span><p>Comprehensive visual language system</p></div>
+      <div class="value-row"><span class="vi">v.</span><p>Heritage–contemporary balance</p></div>
+      <div class="value-row"><span class="vi">vi.</span><p>Cultural sensitivity &amp; immersive storytelling</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="impact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Unprecedented impact</span>
+      <h2 class="display">Reach that outgrew the festival ground.</h2>
+    </div>
+    <div class="impact-grid reveal">
+      <div class="impact-card">
+        <div class="num display">2.5M+</div>
+        <div class="lbl">Digital interactions across the festival's online presence and campaign.</div>
+      </div>
+      <div class="impact-card">
+        <div class="num display">300K+</div>
+        <div class="lbl">Nationally acclaimed artists, scholars, government officials and community leaders in attendance.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="recognition" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="eyebrow">Official recognition</span>
+      <h2 class="display">A landmark chapter.</h2>
+    </div>
+    <div class="recognition reveal">
+      <div class="recog-photo">
+        <img src="https://potli.world/assets/award.jpg" alt="Shriya Gautam receiving official recognition on behalf of Potli at Jamia Millia Islamia" loading="lazy">
+      </div>
+      <div>
+        <span class="recog-quote-mark">“</span>
+        <h3>Shriya Gautam, Chief Technology Officer, received the recognition on behalf of Potli.</h3>
+        <div class="from">Presented by the Vice Chancellor, Registrar, and Dean Students' Welfare — Jamia Millia Islamia.</div>
+        <div class="tag-final">A landmark chapter for Potli.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="apply">
+  <div class="wrap">
+    <div class="cta-band reveal">
+      <span class="eyebrow">Let's talk</span>
+      <h2 class="display">Create a brand that <em>stands the test</em> of time.</h2>
+      <a href="mailto:careers@potli.world" class="btn-primary">Get in touch <span class="ico">↗</span></a>
+      <p style="margin-top:26px; font-size:13.5px; color:rgba(247,242,234,0.65);">Want to build the next landmark chapter? <a href="career" style="color:#C9A98C; border-bottom:1px solid rgba(201,169,140,0.4);">We're hiring →</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Potli. We fill it with meaning.</span>
+    <div class="foot-links">
+      <a href="/">Home</a>
+      <a href="/about-us">About</a>
+      <a href="/awards">Awards</a>
+      <a href="/career">Career</a>
+      <a href="/contact">Contact</a>
+    </div>
+  </div>
+</footer>
+
+<script is:inline>
+  const els = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
+  els.forEach(el=>io.observe(el));
+
+  const pill = document.querySelector('.nav-pill');
+  window.addEventListener('scroll', ()=>{
+    pill.style.boxShadow = window.scrollY > 40
+      ? '0 14px 34px -12px rgba(34,30,26,0.28)'
+      : '0 10px 30px -12px rgba(34,30,26,0.18)';
+  });
+</script>
+
+<script>
+  import { gsap } from "gsap";
+
+  const mouseFollower = document.getElementById("mouse-follower");
+  if (mouseFollower) {
+    gsap.set(mouseFollower, { xPercent: -50, yPercent: -50 });
+
+    const xTo = gsap.quickTo(mouseFollower, "x", { duration: 0.6, ease: "power3" });
+    const yTo = gsap.quickTo(mouseFollower, "y", { duration: 0.6, ease: "power3" });
+
+    window.addEventListener("mousemove", (e) => {
+      xTo(e.clientX);
+      yTo(e.clientY);
+    });
+  }
+
+</script>
+
+</body>
+</html>

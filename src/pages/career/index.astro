@@ -5,6 +5,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
 ---
 
 <!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -12,6 +13,15 @@ import HomeMenu from "../../components/HomeMenu.astro";
 <title>Career — Potli</title>
 <meta name="description" content="Join Potli. We're a small firm building brand experiences for the world's most discerning clients.">
 <link rel="icon" type="image/svg+xml" href="/assets/9.png" />
+<meta property="og:type" content="website">
+<meta property="og:title" content="Career — Potli">
+<meta property="og:description" content="Join Potli. We're a small firm building brand experiences for the world's most discerning clients.">
+<meta property="og:image" content="https://potli.world/assets/logo.png">
+<meta property="og:url" content="https://potli-sage.vercel.app/career">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Career — Potli">
+<meta name="twitter:description" content="Join Potli. We're a small firm building brand experiences for the world's most discerning clients.">
+<meta name="twitter:image" content="https://potli.world/assets/logo.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -144,13 +154,13 @@ import HomeMenu from "../../components/HomeMenu.astro";
   .link-underline:hover{color:var(--accent-deep); border-color:var(--accent-deep);}
 
   .hero-stats{
-    margin-top:100px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    margin-top:100px; display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
     background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;
   }
   .stat{background:var(--cream); padding:26px 24px;}
   .stat .num{font-family:'Fraunces',serif; font-size:30px;}
   .stat .lbl{font-size:12px; color:var(--ink-soft); margin-top:6px; line-height:1.4;}
-  @media(max-width:760px){ .hero-stats{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:640px){ .hero-stats{grid-template-columns:1fr;} }
 
   /* SECTION SHARED */
   section{padding:110px 0; position:relative;}
@@ -168,6 +178,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
   .model-card p{font-size:14px; line-height:1.6; color:var(--ink-soft);}
   @media(max-width:900px){ .model-grid{grid-template-columns:repeat(2,1fr);} }
   @media(max-width:560px){ .model-grid{grid-template-columns:1fr;} }
+  #model .model-grid .model-card:nth-child(7){ grid-column: 1 / -1; }
 
   /* VALUES */
   .values-list{display:flex; flex-direction:column;}
@@ -198,6 +209,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
   .role-apply{
     justify-self:end; font-size:13px; font-weight:500; color:var(--ink);
     display:flex; align-items:center; gap:8px; white-space:nowrap;
+    background:none; border:none; cursor:pointer; font-family:'Instrument Sans', sans-serif;
   }
   .role-apply .arrow{transition:transform .4s var(--ease);}
   .role:hover .role-apply .arrow{transform:translateX(4px);}
@@ -205,6 +217,56 @@ import HomeMenu from "../../components/HomeMenu.astro";
     .role{grid-template-columns:1fr; gap:14px;}
     .role-apply{justify-self:start;}
   }
+
+  /* APPLICATION FORM */
+  #apply-form{scroll-margin-top:110px;}
+  .form-shell{max-width:760px; margin:0 auto; background:var(--cream-deep); border:1px solid var(--line); border-radius:24px; padding:48px;}
+  @media(max-width:640px){ .form-shell{padding:30px 22px; border-radius:18px;} }
+  form.app-form{display:flex; flex-direction:column; gap:24px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media(max-width:560px){ .row2{grid-template-columns:1fr;} }
+  .field{position:relative; display:flex; flex-direction:column;}
+  .field label{font-size:12px; letter-spacing:.06em; text-transform:uppercase; color:var(--ink-soft); margin-bottom:9px;}
+  .field .opt{text-transform:none; letter-spacing:0; opacity:.7;}
+  .field input, .field select, .field textarea{
+    background:var(--cream); border:1px solid var(--line); border-radius:10px; color:var(--ink);
+    font-family:'Instrument Sans', sans-serif; font-size:15.5px; padding:13px 14px;
+    transition:border-color .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .field select{
+    appearance:none; -webkit-appearance:none;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%235C544B' stroke-width='1.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat:no-repeat; background-position:right 14px center; cursor:pointer; padding-right:36px;
+  }
+  .field textarea{resize:vertical; min-height:100px; line-height:1.6;}
+  .field input::placeholder, .field textarea::placeholder{color:var(--ink-faint);}
+  .field input:focus, .field select:focus, .field textarea:focus{
+    outline:none; border-color:var(--accent); box-shadow:0 0 0 3px rgba(156,107,79,0.14);
+  }
+  .file-drop{
+    border:1px dashed var(--line); border-radius:10px; padding:16px 14px; background:var(--cream);
+    font-size:14px; color:var(--ink-soft); display:flex; align-items:center; justify-content:space-between; gap:12px;
+    cursor:pointer; transition:border-color .3s var(--ease);
+  }
+  .file-drop:hover{border-color:var(--accent);}
+  .file-drop .fname{color:var(--ink); font-weight:500;}
+  #app-resume{
+    position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+    clip:rect(0,0,0,0); white-space:nowrap; border:0;
+  }
+  .file-hint{font-size:12px; color:var(--ink-faint); margin-top:8px;}
+  .submit-row{margin-top:4px; display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+  .app-form .btn-primary{border:none; cursor:pointer;}
+  .app-form .btn-primary:disabled{opacity:.6; cursor:not-allowed;}
+  .form-note{font-size:13px; color:var(--ink-soft);}
+  .status-msg{
+    display:none; align-items:center; gap:14px; padding:16px 20px; background:var(--cream);
+    border:1px solid var(--line); border-radius:12px; font-size:14px; color:var(--ink);
+  }
+  .status-msg.show{display:flex;}
+  .status-msg .dot{width:7px; height:7px; border-radius:50%; background:var(--accent-deep); flex-shrink:0;}
+  .status-msg.error .dot{background:#B0503A;}
+  .status-msg.error{border-color:rgba(176,80,58,0.35);}
 
   /* PERKS */
   .perks-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:22px; overflow:hidden;}
@@ -260,7 +322,6 @@ import HomeMenu from "../../components/HomeMenu.astro";
 </style>
 </head>
 <body>
-
 <img
   id="mouse-follower"
   src="/assets/logo-mouse-follower.png"
@@ -269,6 +330,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
 />
 
 <HomeMenu />
+
 
 <header class="hero">
   <div class="hero-noise"></div>
@@ -280,17 +342,16 @@ import HomeMenu from "../../components/HomeMenu.astro";
       <span class="hero-tag">Currently accepting applications</span>
     </div>
     <h1 class="display hero-title reveal">Build brands<br>the future <em>will remember.</em></h1>
-    <p class="hero-sub reveal">Potli is a small firm of five, working across strategy, design, technology and business — each project chosen deliberately, each collaborator trusted completely. We're looking for people who'd rather do fewer things exceptionally well.</p>
+    <p class="hero-sub reveal">Potli is a small firm of seven, working across strategy, design, technology and business — each project chosen deliberately, each collaborator trusted completely. We're looking for people who'd rather do fewer things exceptionally well.</p>
     <div class="hero-actions reveal">
       <a href="#roles" class="btn-primary">See open roles <span class="ico">↓</span></a>
       <a href="mailto:careers@potli.world" class="link-underline">Or write to us directly</a>
     </div>
 
     <div class="hero-stats reveal">
-      <div class="stat"><div class="num display">45+</div><div class="lbl">Brands transformed</div></div>
-      <div class="stat"><div class="num display">5</div><div class="lbl">Collaborators on the core team</div></div>
-      <div class="stat"><div class="num display">4</div><div class="lbl">Disciplines under one roof</div></div>
-      <div class="stat"><div class="num display">2025</div><div class="lbl">Branding Partner of the Year</div></div>
+      <div class="stat"><div class="num display">20+</div><div class="lbl">Brands transformed</div></div>
+      <div class="stat"><div class="num display">7</div><div class="lbl">Collaborators on the core team</div></div>
+      <div class="stat"><div class="num display">7</div><div class="lbl">Disciplines under one roof</div></div>
     </div>
   </div>
 </header>
@@ -302,26 +363,41 @@ import HomeMenu from "../../components/HomeMenu.astro";
       <h2 class="display">A firm, not a headcount.</h2>
       <p>We don't hire to fill seats. Potli runs as a tight, project-based collaborative — every person owns a discipline outright, and every engagement is chosen because it's worth doing properly.</p>
     </div>
-    <div class="model-grid reveal">
+    <div class="model-grid reveal" style="grid-template-columns:repeat(3,1fr);">
       <div class="model-card">
-        <span class="mk">01 — Consulting</span>
-        <h3>Strategy &amp; Brand</h3>
-        <p>Positioning, narrative and the thinking that sits underneath every decision a brand makes.</p>
+        <span class="mk">01 — Strategy</span>
+        <h3>Brand Strategy &amp; Positioning</h3>
+        <p>The narrative and market thinking that sits underneath every decision a brand makes.</p>
       </div>
       <div class="model-card">
-        <span class="mk">02 — Technical</span>
-        <h3>Design &amp; Build</h3>
-        <p>Visual identity, digital experiences and the craft that gives strategy a shape people can see.</p>
+        <span class="mk">02 — Design</span>
+        <h3>Visual Identity</h3>
+        <p>Logos, systems and the visual language that gives a strategy a shape people recognise.</p>
       </div>
       <div class="model-card">
-        <span class="mk">03 — Business</span>
+        <span class="mk">03 — Messaging</span>
+        <h3>Content &amp; Copywriting</h3>
+        <p>Tone of voice, brand messaging and the words that carry an identity beyond its visuals.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">04 — Digital</span>
+        <h3>Web &amp; Experience</h3>
+        <p>Acquisition-ready websites and digital experiences, built with the same precision as the identity itself.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">05 — Business</span>
         <h3>Growth &amp; Client Partnership</h3>
         <p>Bringing in the right clients and building relationships that outlast a single project.</p>
       </div>
       <div class="model-card">
-        <span class="mk">04 — Operations</span>
+        <span class="mk">06 — Operations</span>
         <h3>Delivery &amp; Coordination</h3>
         <p>Keeping every engagement precise, on time, and worthy of the Potli name.</p>
+      </div>
+      <div class="model-card">
+        <span class="mk">07 — Sales &amp; Marketing</span>
+        <h3>Campaigns &amp; Outreach</h3>
+        <p>Campaigns, outreach and the pipeline work that turns interest into signed, well-fit clients.</p>
       </div>
     </div>
   </div>
@@ -369,26 +445,42 @@ import HomeMenu from "../../components/HomeMenu.astro";
       <div class="role">
         <div>
           <h3>Brand Strategist</h3>
-          <div class="meta"><span class="tag">Consulting</span><span class="tag">Project-based</span></div>
+          <div class="meta"><span class="tag">Strategy</span><span class="tag">Project-based</span></div>
         </div>
         <p>Shape positioning and narrative for luxury clients across beauty, hospitality and lifestyle — from discovery through to brand guidelines.</p>
-        <a href="mailto:careers@potli.world?subject=Application%3A%20Brand%20Strategist" class="role-apply">Apply <span class="arrow">↗</span></a>
+        <a href="#apply-form" class="role-apply" data-role="Brand Strategist">Apply <span class="arrow">↗</span></a>
       </div>
       <div class="role">
         <div>
           <h3>Visual / Brand Designer</h3>
-          <div class="meta"><span class="tag">Technical</span><span class="tag">Project-based</span></div>
+          <div class="meta"><span class="tag">Design</span><span class="tag">Project-based</span></div>
         </div>
         <p>Design identity systems, logos and brand guidelines that hold up against the best in the industry — precision matters more than speed here.</p>
-        <a href="mailto:careers@potli.world?subject=Application%3A%20Visual%20Designer" class="role-apply">Apply <span class="arrow">↗</span></a>
+        <a href="#apply-form" class="role-apply" data-role="Visual / Brand Designer">Apply <span class="arrow">↗</span></a>
+      </div>
+      <div class="role">
+        <div>
+          <h3>Brand Copywriter</h3>
+          <div class="meta"><span class="tag">Messaging</span><span class="tag">Project-based</span></div>
+        </div>
+        <p>Develop tone of voice, naming and brand messaging that carries an identity as far as its visuals do.</p>
+        <a href="#apply-form" class="role-apply" data-role="Brand Copywriter">Apply <span class="arrow">↗</span></a>
       </div>
       <div class="role">
         <div>
           <h3>Front-End / Web Developer</h3>
-          <div class="meta"><span class="tag">Technical</span><span class="tag">Project-based</span></div>
+          <div class="meta"><span class="tag">Digital</span><span class="tag">Project-based</span></div>
         </div>
         <p>Build acquisition-ready websites for our clients — editorial layouts, considered motion, no templated defaults.</p>
-        <a href="mailto:careers@potli.world?subject=Application%3A%20Web%20Developer" class="role-apply">Apply <span class="arrow">↗</span></a>
+        <a href="#apply-form" class="role-apply" data-role="Front-End / Web Developer">Apply <span class="arrow">↗</span></a>
+      </div>
+      <div class="role">
+        <div>
+          <h3>Sales &amp; Marketing Associate</h3>
+          <div class="meta"><span class="tag">Sales &amp; Marketing</span><span class="tag">Project-based</span></div>
+        </div>
+        <p>Run outreach and campaigns that build Potli's pipeline — from cold outbound to nurturing warm leads into signed clients.</p>
+        <a href="#apply-form" class="role-apply" data-role="Sales &amp; Marketing Associate">Apply <span class="arrow">↗</span></a>
       </div>
       <div class="role">
         <div>
@@ -396,7 +488,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
           <div class="meta"><span class="tag">Business</span><span class="tag">Project-based</span></div>
         </div>
         <p>Open doors with prospective clients and help grow Potli's roster of discerning, long-term partnerships.</p>
-        <a href="mailto:careers@potli.world?subject=Application%3A%20Business%20Development" class="role-apply">Apply <span class="arrow">↗</span></a>
+        <a href="#apply-form" class="role-apply" data-role="Business Development Associate">Apply <span class="arrow">↗</span></a>
       </div>
       <div class="role">
         <div>
@@ -404,13 +496,91 @@ import HomeMenu from "../../components/HomeMenu.astro";
           <div class="meta"><span class="tag">Operations</span><span class="tag">Project-based</span></div>
         </div>
         <p>Keep every engagement on rails — timelines, deliverables, and the quiet coordination that makes the work look effortless.</p>
-        <a href="mailto:careers@potli.world?subject=Application%3A%20Operations%20Coordinator" class="role-apply">Apply <span class="arrow">↗</span></a>
+        <a href="#apply-form" class="role-apply" data-role="Operations Coordinator">Apply <span class="arrow">↗</span></a>
       </div>
     </div>
   </div>
 </section>
 
-<section id="process" style="background:var(--cream-deep);">
+<section id="apply-form" style="background:var(--cream-deep);">
+  <div class="wrap">
+    <div class="sec-head reveal" style="margin:0 auto 48px; text-align:center;">
+      <span class="eyebrow" style="justify-content:center;">Apply now</span>
+      <h2 class="display">Tell us about you.</h2>
+      <p style="margin-left:auto; margin-right:auto;">Attach your CV or portfolio and we'll route it straight to the right person — no queue, no bot.</p>
+    </div>
+    <div class="form-shell reveal">
+      <form id="applyForm" class="app-form" action="https://formsubmit.co/careers@potli.world" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_subject" value="New career application — Potli site">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="text" name="_honey" style="position:absolute; left:-9999px;" tabindex="-1" autocomplete="off">
+        <div class="row2">
+          <div class="field">
+            <label for="app-name">Name</label>
+            <input type="text" id="app-name" name="name" placeholder="Your full name" required>
+          </div>
+          <div class="field">
+            <label for="app-email">Email</label>
+            <input type="email" id="app-email" name="email" placeholder="you@email.com" required>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label for="app-phone">Phone <span class="opt">(optional)</span></label>
+            <input type="tel" id="app-phone" name="phone" placeholder="+91 00000 00000">
+          </div>
+          <div class="field">
+            <label for="app-role">Role you're applying for</label>
+            <select id="app-role" name="role" required>
+              <option value="" disabled selected>Choose one</option>
+              <option>Brand Strategist</option>
+              <option>Visual / Brand Designer</option>
+              <option>Brand Copywriter</option>
+              <option>Front-End / Web Developer</option>
+              <option>Sales &amp; Marketing Associate</option>
+              <option>Business Development Associate</option>
+              <option>Operations Coordinator</option>
+              <option>Something else</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="app-portfolio">Portfolio / LinkedIn <span class="opt">(optional)</span></label>
+          <input type="url" id="app-portfolio" name="portfolio" placeholder="Link to your work or profile">
+        </div>
+        <div class="field">
+          <label for="app-message">A line about what you'd bring</label>
+          <textarea id="app-message" name="message" placeholder="What you've worked on, and why this role fits." required></textarea>
+        </div>
+        <div class="field">
+          <label for="app-resume">Resume / CV</label>
+          <label class="file-drop" for="app-resume">
+            <span class="fname" id="fileLabel">Click to upload — PDF or DOCX, up to 5MB</span>
+            <span aria-hidden="true">↑</span>
+          </label>
+          <input type="file" id="app-resume" name="resume" accept=".pdf,.doc,.docx" required>
+        </div>
+        <div class="submit-row">
+          <button type="submit" class="btn-primary">
+            <span class="btn-label">Submit application</span>
+            <span class="ico">↗</span>
+          </button>
+          <span class="form-note">We read every application ourselves — no forms disappear into a queue.</span>
+        </div>
+        <div class="status-msg" id="appSuccess">
+          <span class="dot"></span>
+          <span>Got it — we'll write back within two working days.</span>
+        </div>
+        <div class="status-msg error" id="appError">
+          <span class="dot"></span>
+          <span>Something went wrong sending that. Please email your CV directly to <a href="mailto:careers@potli.world" style="text-decoration:underline;">careers@potli.world</a>.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="process">
   <div class="wrap">
     <div class="sec-head reveal">
       <span class="eyebrow">How you'd join us</span>
@@ -419,9 +589,9 @@ import HomeMenu from "../../components/HomeMenu.astro";
     </div>
     <div class="model-grid reveal" style="grid-template-columns:repeat(3,1fr);">
       <div class="model-card">
-        <span class="mk">01 — Write in</span>
+        <span class="mk">01 — Apply</span>
         <h3>Send your work</h3>
-        <p>Email your portfolio and a line on what you'd want to own here. No cover letter template needed — just show us the work.</p>
+        <p>Fill out the application above with your portfolio and a line on what you'd want to own here. No cover letter template needed — just show us the work.</p>
       </div>
       <div class="model-card">
         <span class="mk">02 — Talk it through</span>
@@ -467,7 +637,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
       <div class="perk">
         <span class="pnum">05</span>
         <h3>A tight, opinionated team</h3>
-        <p>Five people, no bureaucracy. Decisions happen in a conversation, not a committee.</p>
+        <p>Seven people, no bureaucracy. Decisions happen in a conversation, not a committee.</p>
       </div>
       <div class="perk">
         <span class="pnum">06</span>
@@ -510,7 +680,7 @@ import HomeMenu from "../../components/HomeMenu.astro";
     <div class="cta-band reveal">
       <span class="eyebrow" style="justify-content:center;">Let's talk</span>
       <h2 class="display">Come build brands that stand the test of time.</h2>
-      <a href="mailto:careers@potli.world?subject=Application%20—%20Potli" class="btn-primary">Send your portfolio <span class="ico">↗</span></a>
+      <a href="#apply-form" class="btn-primary">Send your portfolio <span class="ico">↗</span></a>
     </div>
   </div>
 </section>
@@ -519,9 +689,10 @@ import HomeMenu from "../../components/HomeMenu.astro";
   <div class="wrap foot-row">
     <span>© 2026 Potli. We fill it with meaning.</span>
     <div class="foot-links">
-      <a href="/">Home</a>
+     <a href="/">Home</a>
       <a href="/about-us">About</a>
       <a href="/awards">Awards</a>
+      <a href="/career">Career</a>
       <a href="/contact">Contact</a>
     </div>
   </div>
@@ -549,6 +720,73 @@ import HomeMenu from "../../components/HomeMenu.astro";
     q.addEventListener('keydown', (e)=>{ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); toggle(); } });
   });
 
+  // nav shadow on scroll
+  const pill = document.querySelector('.nav-pill');
+  window.addEventListener('scroll', ()=>{
+    pill.style.boxShadow = window.scrollY > 40
+      ? '0 14px 34px -12px rgba(34,30,26,0.28)'
+      : '0 10px 30px -12px rgba(34,30,26,0.18)';
+  });
+
+  // "Apply" links: scroll to the form and pre-select the matching role
+  const roleSelect = document.getElementById('app-role');
+  document.querySelectorAll('.role-apply[data-role]').forEach(link=>{
+    link.addEventListener('click', ()=>{
+      if (roleSelect) {
+        const wanted = link.getAttribute('data-role');
+        const match = Array.from(roleSelect.options).find(o => o.value === wanted);
+        if (match) roleSelect.value = wanted;
+      }
+      window.setTimeout(()=>{ document.getElementById('app-name')?.focus({preventScroll:true}); }, 500);
+    });
+  });
+
+  // resume file name preview
+  const resumeInput = document.getElementById('app-resume');
+  const fileLabel = document.getElementById('fileLabel');
+  if (resumeInput && fileLabel) {
+    resumeInput.addEventListener('change', ()=>{
+      fileLabel.textContent = resumeInput.files[0] ? resumeInput.files[0].name : 'Click to upload — PDF or DOCX, up to 5MB';
+    });
+  }
+
+  // application form submit
+  const appForm = document.getElementById('applyForm');
+  if (appForm) {
+    const appSuccess = document.getElementById('appSuccess');
+    const appError = document.getElementById('appError');
+    const appSubmitBtn = appForm.querySelector('.btn-primary');
+    const appSubmitLabel = appSubmitBtn.querySelector('.btn-label');
+
+    appForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      appSuccess.classList.remove('show');
+      appError.classList.remove('show');
+      appSubmitBtn.setAttribute('disabled', 'true');
+      appSubmitLabel.textContent = 'Sending…';
+
+      const ajaxUrl = appForm.action.replace('formsubmit.co/', 'formsubmit.co/ajax/');
+
+      fetch(ajaxUrl, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json' },
+        body: new FormData(appForm)
+      })
+        .then((res) => {
+          if (!res.ok) throw new Error('Request failed');
+          appSuccess.classList.add('show');
+          appForm.reset();
+          fileLabel.textContent = 'Click to upload — PDF or DOCX, up to 5MB';
+        })
+        .catch(() => {
+          appError.classList.add('show');
+        })
+        .finally(() => {
+          appSubmitBtn.removeAttribute('disabled');
+          appSubmitLabel.textContent = 'Submit application';
+        });
+    });
+  }
 
 </script>
 
