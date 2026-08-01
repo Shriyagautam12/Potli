@@ -10,13 +10,15 @@ interface Props {
 const { name, role, about, image, padding = "pt-28" } = Astro.props;
 ---
 
-<div
-  class="flex w-full h-[500px] md:h-96 rounded-xl break-inside-avoid flex-col mb-4"
->
+<div class="flex w-full rounded-xl break-inside-avoid flex-col mb-4">
   <div
-    class="w-full h-full bg-[#A1806E] rounded-lg relative overflow-hidden group"
+    class="w-full aspect-[3/4] bg-[#A1806E] rounded-lg relative overflow-hidden group"
   >
-    <img src={image} alt={name} class="w-full h-full object-fill" />
+    <img
+  src={image}
+  alt={name}
+  class="w-full h-full object-cover object-top"
+/>
 
     <div
       class={`absolute inset-0 bg-black text-white hidden group-hover:grid grid-cols-3 px-4 text-sm leading-tight ${padding} pb-2 gap-y-1`}
