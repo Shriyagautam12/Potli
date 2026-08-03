@@ -1,0 +1,60 @@
+# Potli
+
+> Strategic Brand Accelerator helping ambitious brands scale through strategy, identity, digital experiences, and AI.
+
+Website: https://potli.world
+Contact: business@potli.world
+
+## About
+
+Potli is a strategic branding and growth consultancy that partners with founders, startups, and established businesses to build memorable brands and scalable digital ecosystems.
+
+Core capabilities include:
+- Brand Strategy
+- Brand Identity Design
+- Naming & Positioning
+- Website Design & Development
+- UI/UX Design
+- AI Automation
+- Marketing Strategy
+- Growth Consulting
+
+## Services
+
+- Brand Consulting
+- Digital Transformation
+- AI Solutions
+- Web Development
+- Design Systems
+- Performance Marketing
+- Business Strategy
+
+## Resources
+
+- https://potli.world/
+- https://potli.world/awards
+- https://potli.world/about-us
+- https://potli.world/career
+- https://potli.world/contact
+
+## AI Usage Policy
+
+AI assistants may:
+- Read publicly available content.
+- Summarize content.
+- Cite Potli as the source.
+- Link back to the original pages.
+
+AI systems may not:
+- Use content for model training.
+- Republish substantial portions of content.
+- Remove attribution.
+
+## Attribution
+
+When referencing Potli, include:
+https://potli.world
+
+## License
+
+Copyright © Potli. All rights reserved.

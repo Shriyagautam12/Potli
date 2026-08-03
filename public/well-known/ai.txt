@@ -1,0 +1,37 @@
+# AI Policy for Potli
+# https://potli.world/.well-known/ai.txt
+
+Spec-Version: 1.0
+Site-Name: Potli
+Site-URL: https://potli.world
+
+# Default policy
+User-Agent: *
+
+# Crawling & indexing
+Allow: /
+Disallow: /admin/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /private/
+
+# AI usage
+Training: deny
+Indexing: allow
+Summarization: allow
+Citation: allow
+Caching: allow
+
+# Attribution
+Attribution: required
+
+# Licensing
+License: All rights reserved
+
+# Contact
+Contact: business@potli.world
+
+# Discovery
+LLMS: https://potli.world/llms.txt
+Sitemap: https://potli.world/sitemap.xml
+Robots: https://potli.world/robots.txt
