@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://potli.world/sitemap-index.xml

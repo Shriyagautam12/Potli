@@ -2,9 +2,11 @@
 import { defineConfig } from 'astro/config';
 
 import tailwindcss from '@tailwindcss/vite';
+import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
+  site: 'https://potli.world',
   vite: {
     plugins: [tailwindcss()]
   },
@@ -12,4 +14,5 @@ export default defineConfig({
     enabled: false,
   },
   output: 'static',
+  integrations: [sitemap()],
 });
