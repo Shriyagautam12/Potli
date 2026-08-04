@@ -2,7 +2,7 @@
 // Standalone career page — self-contained styles, nav and footer.
 import "../../styles/global.css";
 import HomeMenu from "../../components/HomeMenu.astro";
-// Footer.astro
+import Footer from "../../components/Footer/Footer.astro";
 import {ArrowRight} from "@lucide/astro";
 ---
 
@@ -686,30 +686,59 @@ import {ArrowRight} from "@lucide/astro";
     </div>
   </div>
 </section>
+<!-- footer custom -->
+<section class="hero z-20 relative h-[100vh] w-full bg-[#C7A697] md:bg-[#BEAB9A] overflow-hidden text-[#111] !p-0">
+   <div class="absolute inset-x-0 top-[50%] -translate-y-[50.5%] w-full">
+    <div class="h-[20rem]"></div>
+      <video autoplay loop muted playsinline class="md:block hidden w-full h-auto max-h-[110vh] object-contain pb-4 [transform:translateZ(0)] blur-[0.4px]">
+        <source src="/assets/footer.mp4" type="video/mp4" class="h-full w-full" />
+          Your browser does not support the video tag.
+        </video>
+</div>
+    <!-- <video autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-1/2 object-cover !p-0">
+    <source src="/assets/footer.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video> -->
 
-<section id="apply">
-  <div class="wrap">
-    <div class="cta-band reveal">
-      <span class="eyebrow" style="justify-content:center;">Let's talk</span>
-      <h2 class="display">Come build brands that stand the test of time.</h2>
-      <a href="#apply-form" class="btn-primary">Send your portfolio <span class="ico">↗</span></a>
+  <div class="relative z-20 flex flex-col justify-between h-full !px-8 !pt-0 !pb-8">
+    <div class="text-center items-center flex flex-col mt-13!">
+      <h2 class="text-5xl md:text-6xl font-medium tracking-tight font-sans">
+        Create a brand that <br />
+        stands the test of <span class="text-[#574F48]">time.</span>
+      </h2>
+      <p class="my-4! text-[#333] text-lg font-sans">
+        Potli designs. Lasting impressions. Let's craft a brand that endures and inspires.
+      </p>
+      <a href="#apply-form" class="group rounded-full relative z-50 bg-[#EFEAE5] transition-all duration-200 ease-in-out hover:bg-[#e7e1db] font-semibold font-sans w-fit flex items-center"><p class="px-6! py-3.5! ">Send your portfolio</p> <span class="rounded-full bg-white p-3! mr-1!"><ArrowRight color="#000000" size={"20px"}!/></span>
+    <div class="bg-white w-12 h-12 -z-10  group-hover:w-[calc(100%-0.5rem)] group-hover:h-[calc(100%-0.5rem)] transition-[width,height] duration-700 ease-in-out flex absolute rounded-full right-1 top-1/2 -translate-y-1/2 will-change-[width,height]"></div>
+  </a>
+  <!-- not required in career page <p style="margin-top:26px; font-size:16.5px; color:#574F48;">Want to build the next landmark chapter? <a href="career" style="color:#000000; border-bottom:1px solid rgb(0, 0, 0);">We're hiring →</a></p> -->
     </div>
+     <!-- Footer -->
+    <div class=" flex items-center justify-between pt-6 text-sm font-sans">
+
+      <span>
+        © 2026 Potli. We fill it with meaning.
+      </span>
+
+      <div class="hidden md:flex gap-8">
+        <a href="/" class="hover:text-[#574F48]">Home</a>
+        <a href="/about-us" class="hover:text-[#574F48]">About</a>
+        <a href="/awards" class="hover:text-[#574F48]">Awards</a>
+        <a href="/career" class="hover:text-[#574F48]">Career</a>
+        <a href="/contact" class="hover:text-[#574F48]">Contact</a>
+      </div>
+
+     </div>
   </div>
+  <div class="block md:hidden absolute z-10 bottom-0 left-0 right-0 h-[34vh] pointer-events-none overflow-hidden">
+  <div class="absolute top-0 left-0 right-0 z-20 h-10 bg-gradient-to-b from-[#C7A697]/95 via-[#C7A697]/70 to-transparent backdrop-blur-sm"></div>
+  <video class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[18%] rotate-90 h-[450px] w-auto max-w-none bg-[#C7A697] md:bg-[#BEAB9A]" autoplay loop muted playsinline>
+    <source src="/assets/bg.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+</div>
 </section>
-
-<footer>
-  <div class="wrap foot-row">
-    <span>© 2026 Potli. We fill it with meaning.</span>
-    <div class="foot-links">
-     <a href="/">Home</a>
-      <a href="/about-us">About</a>
-      <a href="/awards">Awards</a>
-      <a href="/career">Career</a>
-      <a href="/contact">Contact</a>
-    </div>
-  </div>
-</footer>
-
 <script is:inline>
   // scroll reveal
   const els = document.querySelectorAll('.reveal');
