@@ -3,425 +3,671 @@
 import "../../styles/global.css";
 import HomeMenu from "../../components/HomeMenu.astro";
 import Footer from "../../components/Footer/Footer.astro";
-import {ArrowRight} from "@lucide/astro";
+import { ArrowRight } from "@lucide/astro";
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-43WGNKHHN4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-43WGNKHHN4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'G-43WGNKHHN4');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Awards — Potli</title>
-<meta name="description" content="See the awards and industry recognition Potli has earned for brand strategy and visual identity work with luxury and premium clients.">
-<meta name="description" content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day.">
-<link rel="icon" type="image/svg+xml" href="/assets/9.png" />
-<meta property="og:type" content="website">
-<meta property="og:title" content="Awards — Potli">
-<meta property="og:description" content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day.">
-<meta property="og:image" content="https://potli.world/assets/award.jpg">
-<meta property="og:url" content="https://potli-sage.vercel.app/awards">
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Awards — Potli">
-<meta name="twitter:description" content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day.">
-<meta name="twitter:image" content="https://potli.world/assets/award.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Segoe+UI:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
-<style is:global>
-  :root{
-    --cream:#F7F2EA;
-    --cream-deep:#F1E9DB;
-    --taupe:#E7DBC7;
-    --ink:#221E1A;
-    --ink-soft:#5C544B;
-    --ink-faint:#8A8074;
-    --accent:#9C6B4F;
-    --accent-deep:#7A4F39;
-    --line: rgba(34,30,26,0.12);
-    --line-soft: rgba(34,30,26,0.07);
-    --ease: cubic-bezier(.16,.84,.32,1);
-  }
-  *{margin:0;padding:0;box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    background:var(--cream);
-    color:var(--ink);
-    font-family:'Segoe UI', sans-serif;
-    font-weight:400;
-    -webkit-font-smoothing:antialiased;
-    overflow-x:hidden;
-  }
-  ::selection{background:var(--accent);color:var(--cream);}
-  .display{font-family:'Fraunces', serif; font-optical-sizing:auto;}
-  .eyebrow{
-    font-size:11px; letter-spacing:.22em; text-transform:uppercase;
-    color:var(--accent-deep); font-weight:600; display:flex; align-items:center; gap:10px;
-  }
-  .eyebrow::before{content:''; width:16px; height:1px; background:var(--accent-deep); display:inline-block;}
-  a{color:inherit; text-decoration:none;}
-  img,svg{display:block; max-width:100%;}
-  .wrap{max-width:1180px; margin:0 auto; padding:0 40px;}
-  @media(max-width:720px){ .wrap{padding:0 22px;} }
-  a:focus-visible, button:focus-visible{outline:2px solid var(--accent-deep); outline-offset:3px; border-radius:4px;}
+      gtag("config", "G-43WGNKHHN4");
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Awards — Potli</title>
+    <meta
+      name="description"
+      content="See the awards and industry recognition Potli has earned for brand strategy and visual identity work with luxury and premium clients."
+    />
+    <meta
+      name="description"
+      content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day."
+    />
+    <link rel="icon" type="image/svg+xml" href="/assets/9.png" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Awards — Potli" />
+    <meta
+      property="og:description"
+      content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day."
+    />
+    <meta property="og:image" content="https://potli.world/assets/award.jpg" />
+    <meta property="og:url" content="https://potli-sage.vercel.app/awards" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Awards — Potli" />
+    <meta
+      name="twitter:description"
+      content="Potli's recognition as Official Branding Partner for Talimi Mela — The Evighet, Jamia Millia Islamia's 105th Foundation Day."
+    />
+    <meta name="twitter:image" content="https://potli.world/assets/award.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Segoe+UI:ital,wght@0,400;0,500;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+    <style is:global>
+      :root {
+        --cream: #f7f2ea;
+        --cream-deep: #f1e9db;
+        --taupe: #e7dbc7;
+        --ink: #221e1a;
+        --ink-soft: #5c544b;
+        --ink-faint: #8a8074;
+        --accent: #9c6b4f;
+        --accent-deep: #7a4f39;
+        --line: rgba(34, 30, 26, 0.12);
+        --line-soft: rgba(34, 30, 26, 0.07);
+        --ease: cubic-bezier(0.16, 0.84, 0.32, 1);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        background: var(--cream);
+        color: var(--ink);
+        font-family: "Segoe UI", sans-serif;
+        font-weight: 400;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      ::selection {
+        background: var(--accent);
+        color: var(--cream);
+      }
+      .display {
+        font-family: "Fraunces", serif;
+        font-optical-sizing: auto;
+      }
+      .eyebrow {
+        font-size: 11px;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--accent-deep);
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .eyebrow::before {
+        content: "";
+        width: 16px;
+        height: 1px;
+        background: var(--accent-deep);
+        display: inline-block;
+      }
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+      img,
+      svg {
+        display: block;
+        max-width: 100%;
+      }
+      .wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 40px;
+      }
+      @media (max-width: 720px) {
+        .wrap {
+          padding: 0 22px;
+        }
+      }
+      a:focus-visible,
+      button:focus-visible {
+        outline: 2px solid var(--accent-deep);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
 
-  /* NAV */
-  nav.floater{
-    position:fixed; top:22px; left:0; right:0; z-index:100;
-    display:flex; justify-content:center; pointer-events:none;
-  }
-  .nav-pill{
-    pointer-events:all;
-    display:flex; align-items:center; gap:38px;
-    background:rgba(247,242,234,0.78);
-    backdrop-filter: blur(18px) saturate(140%);
-    -webkit-backdrop-filter: blur(18px) saturate(140%);
-    border:1px solid var(--line);
-    border-radius:100px;
-    padding:11px 14px 11px 22px;
-    box-shadow: 0 10px 30px -12px rgba(34,30,26,0.18);
-    transition: box-shadow .5s var(--ease);
-  }
-  .nav-logo{font-family:'Fraunces', serif; font-size:16px; font-weight:600; letter-spacing:.01em;}
-  .nav-links{display:flex; gap:30px; font-size:13px; color:var(--ink-soft);}
-  .nav-links a{position:relative; padding:2px 0; transition:color .3s var(--ease);}
-  .nav-links a:hover{color:var(--ink);}
-  .nav-links a.current{color:var(--ink); font-weight:500;}
-  .nav-links a.current::after{content:''; position:absolute; left:0; right:0; bottom:-4px; height:1px; background:var(--accent-deep);}
-  .nav-cta{
-    font-size:12.5px; font-weight:500; background:var(--ink); color:var(--cream);
-    padding:9px 18px; border-radius:100px; white-space:nowrap;
-    transition: transform .45s var(--ease), background .3s var(--ease);
-  }
-  .nav-cta:hover{background:var(--accent-deep); transform:translateY(-1px);}
-  @media(max-width:820px){ .nav-links{display:none;} .nav-pill{gap:18px;} }
+      /* NAV */
+      nav.floater {
+        position: fixed;
+        top: 22px;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        justify-content: center;
+        pointer-events: none;
+      }
+      .nav-pill {
+        pointer-events: all;
+        display: flex;
+        align-items: center;
+        gap: 38px;
+        background: rgba(247, 242, 234, 0.78);
+        backdrop-filter: blur(18px) saturate(140%);
+        -webkit-backdrop-filter: blur(18px) saturate(140%);
+        border: 1px solid var(--line);
+        border-radius: 100px;
+        padding: 11px 14px 11px 22px;
+        box-shadow: 0 10px 30px -12px rgba(34, 30, 26, 0.18);
+        transition: box-shadow 0.5s var(--ease);
+      }
+      .nav-logo {
+        font-family: "Fraunces", serif;
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.01em;
+      }
+      .nav-links {
+        display: flex;
+        gap: 30px;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      .nav-links a {
+        position: relative;
+        padding: 2px 0;
+        transition: color 0.3s var(--ease);
+      }
+      .nav-links a:hover {
+        color: var(--ink);
+      }
+      .nav-links a.current {
+        color: var(--ink);
+        font-weight: 500;
+      }
+      .nav-links a.current::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -4px;
+        height: 1px;
+        background: var(--accent-deep);
+      }
+      .nav-cta {
+        font-size: 12.5px;
+        font-weight: 500;
+        background: var(--ink);
+        color: var(--cream);
+        padding: 9px 18px;
+        border-radius: 100px;
+        white-space: nowrap;
+        transition:
+          transform 0.45s var(--ease),
+          background 0.3s var(--ease);
+      }
+      .nav-cta:hover {
+        background: var(--accent-deep);
+        transform: translateY(-1px);
+      }
+      @media (max-width: 820px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-pill {
+          gap: 18px;
+        }
+      }
 
-  /* HERO */
-  header.hero{
-    position:relative; min-height:88vh; display:flex; flex-direction:column; justify-content:center;
-    padding:150px 0 70px; overflow:hidden;
-  }
-  .hero-noise{
-    position:absolute; inset:0; z-index:0; opacity:.35; pointer-events:none;
-    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
-    mix-blend-mode:multiply;
-  }
-  .hero-orb{
-    position:absolute; z-index:0; border-radius:50%;
-    background: radial-gradient(circle at 35% 35%, rgba(156,107,79,0.28), rgba(156,107,79,0) 70%);
-    width:640px; height:640px; top:-220px; right:-180px; filter:blur(10px);
-  }
-  .hero-inner{position:relative; z-index:1;}
-  .hero-tags{display:flex; gap:10px; flex-wrap:wrap; margin-bottom:34px;}
-  .hero-tag{
-    font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink-soft);
-    border:1px solid var(--line); padding:6px 14px; border-radius:100px;
-  }
-  h1.hero-title{
-    font-size:clamp(44px, 8vw, 108px); font-weight:400; line-height:0.98; letter-spacing:-0.015em; max-width:960px;
-  }
-  h1.hero-title em{font-style:italic; font-weight:400; color:var(--accent-deep);}
-  .hero-sub{margin-top:30px; max-width:560px; font-size:17px; line-height:1.65; color:var(--ink-soft);}
+      /* HERO */
+      header.hero {
+        position: relative;
+        min-height: 88vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 150px 0 70px;
+        overflow: hidden;
+      }
+      .hero-noise {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        opacity: 0.35;
+        pointer-events: none;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
+        mix-blend-mode: multiply;
+      }
+      .hero-orb {
+        position: absolute;
+        z-index: 0;
+        border-radius: 50%;
+        background: radial-gradient(
+          circle at 35% 35%,
+          rgba(156, 107, 79, 0.28),
+          rgba(156, 107, 79, 0) 70%
+        );
+        width: 640px;
+        height: 640px;
+        top: -220px;
+        right: -180px;
+        filter: blur(10px);
+      }
+      .hero-inner {
+        position: relative;
+        z-index: 1;
+      }
+      .hero-tags {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 34px;
+      }
+      .hero-tag {
+        font-size: 11px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ink-soft);
+        border: 1px solid var(--line);
+        padding: 6px 14px;
+        border-radius: 100px;
+      }
+      h1.hero-title {
+        font-size: clamp(44px, 8vw, 108px);
+        font-weight: 400;
+        line-height: 0.98;
+        letter-spacing: -0.015em;
+        max-width: 960px;
+      }
+      h1.hero-title em {
+        font-style: italic;
+        font-weight: 400;
+        color: var(--accent-deep);
+      }
+      .hero-sub {
+        margin-top: 30px;
+        max-width: 560px;
+        font-size: 17px;
+        line-height: 1.65;
+        color: var(--ink-soft);
+      }
 
-  .hero-stats{
-    margin-top:100px; display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
-    background:var(--line); border:1px solid var(--line); border-radius:20px; overflow:hidden;
-  }
-  .stat{background:var(--cream); padding:26px 24px;}
-  .stat .num{font-family:'Fraunces',serif; font-size:30px;}
-  .stat .lbl{font-size:12px; color:var(--ink-soft); margin-top:6px; line-height:1.4;}
-  @media(max-width:760px){ .hero-stats{grid-template-columns:repeat(2,1fr);} }
+      .hero-stats {
+        margin-top: 100px;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        overflow: hidden;
+      }
+      .stat {
+        background: var(--cream);
+        padding: 26px 24px;
+      }
+      .stat .num {
+        font-family: "Fraunces", serif;
+        font-size: 30px;
+      }
+      .stat .lbl {
+        font-size: 12px;
+        color: var(--ink-soft);
+        margin-top: 6px;
+        line-height: 1.4;
+      }
+      @media (max-width: 760px) {
+        .hero-stats {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
 
-  /* SECTION SHARED */
-  section{padding:110px 0; position:relative;}
-  .sec-head{max-width:680px; margin-bottom:64px;}
-  .sec-head h2{font-size:clamp(30px,4vw,46px); font-weight:400; line-height:1.12; margin-top:18px; letter-spacing:-.01em;}
-  .sec-head p{margin-top:18px; color:var(--ink-soft); font-size:16px; line-height:1.65; max-width:560px;}
+      /* SECTION SHARED */
+      section {
+        padding: 110px 0;
+        position: relative;
+      }
+      .sec-head {
+        max-width: 680px;
+        margin-bottom: 64px;
+      }
+      .sec-head h2 {
+        font-size: clamp(30px, 4vw, 46px);
+        font-weight: 400;
+        line-height: 1.12;
+        margin-top: 18px;
+        letter-spacing: -0.01em;
+      }
+      .sec-head p {
+        margin-top: 18px;
+        color: var(--ink-soft);
+        font-size: 16px;
+        line-height: 1.65;
+        max-width: 560px;
+      }
 
-  /* EVENT FEATURE */
-  .event-feature{
-    display:grid; grid-template-columns:0.9fr 1.1fr; gap:70px; align-items:start;
-  }
-  @media(max-width:900px){ .event-feature{grid-template-columns:1fr; gap:40px;} }
-  .event-meaning{
-    font-family:'Fraunces',serif; font-style:italic; font-size:20px; color:var(--accent-deep);
-    margin-top:6px;
-  }
-  .event-name{font-family:'Fraunces',serif; font-size:clamp(30px,3.6vw,44px); font-weight:500; margin-top:16px; line-height:1.1;}
-  .event-detail{margin-top:22px; font-size:15px; color:var(--ink-soft); line-height:1.7;}
-  .event-body p{font-size:16px; line-height:1.75; color:var(--ink-soft);}
-  .event-body p + p{margin-top:18px;}
+      /* EVENT FEATURE */
+      .event-feature {
+        display: grid;
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: 70px;
+        align-items: start;
+      }
+      @media (max-width: 900px) {
+        .event-feature {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
+      }
+      .event-meaning {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 20px;
+        color: var(--accent-deep);
+        margin-top: 6px;
+      }
+      .event-name {
+        font-family: "Fraunces", serif;
+        font-size: clamp(30px, 3.6vw, 44px);
+        font-weight: 500;
+        margin-top: 16px;
+        line-height: 1.1;
+      }
+      .event-detail {
+        margin-top: 22px;
+        font-size: 15px;
+        color: var(--ink-soft);
+        line-height: 1.7;
+      }
+      .event-body p {
+        font-size: 16px;
+        line-height: 1.75;
+        color: var(--ink-soft);
+      }
+      .event-body p + p {
+        margin-top: 18px;
+      }
 
-  /* VALUES-STYLE LIST (role list) */
-  .values-list{display:flex; flex-direction:column;}
-  .value-row{
-    display:grid; grid-template-columns:90px 1fr; gap:26px; align-items:start;
-    padding:26px 0; border-top:1px solid var(--line);
-  }
-  .value-row:last-child{border-bottom:1px solid var(--line);}
-  .value-row .vi{font-family:'Fraunces',serif; font-style:italic; font-size:15px; color:var(--ink-faint);}
-  .value-row p{font-size:16px; line-height:1.6; color:var(--ink);}
-  @media(max-width:600px){ .value-row{grid-template-columns:1fr; gap:8px;} }
+      /* VALUES-STYLE LIST (role list) */
+      .values-list {
+        display: flex;
+        flex-direction: column;
+      }
+      .value-row {
+        display: grid;
+        grid-template-columns: 90px 1fr;
+        gap: 26px;
+        align-items: start;
+        padding: 26px 0;
+        border-top: 1px solid var(--line);
+      }
+      .value-row:last-child {
+        border-bottom: 1px solid var(--line);
+      }
+      .value-row .vi {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 15px;
+        color: var(--ink-faint);
+      }
+      .value-row p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: var(--ink);
+      }
+      @media (max-width: 600px) {
+        .value-row {
+          grid-template-columns: 1fr;
+          gap: 8px;
+        }
+      }
 
-  /* IMPACT GRID */
-  .impact-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-radius:22px; overflow:hidden;}
-  .impact-card{background:var(--cream); padding:48px 40px;}
-  .impact-card .num{font-family:'Fraunces',serif; font-size:clamp(40px,5vw,64px); line-height:1;}
-  .impact-card .lbl{margin-top:14px; font-size:14.5px; color:var(--ink-soft); line-height:1.6; max-width:340px;}
-  @media(max-width:720px){ .impact-grid{grid-template-columns:1fr;} }
+      /* IMPACT GRID */
+      .impact-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1px;
+        background: var(--line);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        overflow: hidden;
+      }
+      .impact-card {
+        background: var(--cream);
+        padding: 48px 40px;
+      }
+      .impact-card .num {
+        font-family: "Fraunces", serif;
+        font-size: clamp(40px, 5vw, 64px);
+        line-height: 1;
+      }
+      .impact-card .lbl {
+        margin-top: 14px;
+        font-size: 14.5px;
+        color: var(--ink-soft);
+        line-height: 1.6;
+        max-width: 340px;
+      }
+      @media (max-width: 720px) {
+        .impact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
 
-  /* RECOGNITION PHOTO */
-  .recognition{
-    display:grid; grid-template-columns:1.1fr 0.9fr; gap:60px; align-items:center;
-  }
-  @media(max-width:900px){ .recognition{grid-template-columns:1fr; gap:36px;} }
-  .recog-photo{border-radius:22px; overflow:hidden; border:1px solid var(--line); aspect-ratio:4/3;}
-  .recog-photo img{width:100%; height:100%; object-fit:cover;}
-  .recog-quote-mark{font-family:'Fraunces',serif; font-style:italic; font-size:52px; color:var(--accent-deep); line-height:1;}
-  .recognition h3{font-family:'Fraunces',serif; font-size:clamp(24px,2.8vw,32px); font-weight:500; margin-top:8px; line-height:1.25;}
-  .recognition .role{margin-top:14px; font-size:14px; color:var(--ink-soft); letter-spacing:.02em;}
-  .recognition .from{margin-top:26px; font-size:14px; color:var(--ink-soft); line-height:1.7; border-left:2px solid var(--line); padding-left:18px;}
-  .recognition .tag-final{margin-top:26px; font-family:'Fraunces',serif; font-style:italic; font-size:16px; color:var(--accent-deep);}
+      /* RECOGNITION PHOTO */
+      .recognition {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 60px;
+        align-items: center;
+      }
+      @media (max-width: 900px) {
+        .recognition {
+          grid-template-columns: 1fr;
+          gap: 36px;
+        }
+      }
+      .recog-photo {
+        border-radius: 22px;
+        overflow: hidden;
+        border: 1px solid var(--line);
+        aspect-ratio: 4/3;
+      }
+      .recog-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .recog-quote-mark {
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 52px;
+        color: var(--accent-deep);
+        line-height: 1;
+      }
+      .recognition h3 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(24px, 2.8vw, 32px);
+        font-weight: 500;
+        margin-top: 8px;
+        line-height: 1.25;
+      }
+      .recognition .role {
+        margin-top: 14px;
+        font-size: 14px;
+        color: var(--ink-soft);
+        letter-spacing: 0.02em;
+      }
+      .recognition .from {
+        margin-top: 26px;
+        font-size: 14px;
+        color: var(--ink-soft);
+        line-height: 1.7;
+        border-left: 2px solid var(--line);
+        padding-left: 18px;
+      }
+      .recognition .tag-final {
+        margin-top: 26px;
+        font-family: "Fraunces", serif;
+        font-style: italic;
+        font-size: 16px;
+        color: var(--accent-deep);
+      }
 
-  /* CTA FOOTER */
-  .cta-band{
-    background:var(--ink); color:var(--cream); border-radius:32px; margin:0 auto;
-    padding:90px 60px; text-align:center; position:relative; overflow:hidden;
-  }
-  .cta-band .eyebrow{color:#C9A98C; justify-content:center;}
-  .cta-band .eyebrow::before{background:#C9A98C;}
-  .cta-band h2{font-family:'Fraunces',serif; font-size:clamp(32px,5vw,58px); font-weight:400; margin:22px auto 34px; max-width:720px; line-height:1.1;}
-  .cta-band h2 em{font-style:italic; color:#C9A98C;}
-  .btn-primary{
-    display:inline-flex; align-items:center; gap:10px; background:var(--ink); color:var(--cream);
-    font-size:14px; font-weight:500; padding:15px 15px 15px 26px; border-radius:100px;
-    transition: transform .5s var(--ease), background .35s var(--ease);
-  }
-  .btn-primary .ico{
-    width:32px; height:32px; border-radius:50%; background:rgba(247,242,234,0.16);
-    display:flex; align-items:center; justify-content:center; font-size:14px; transition: transform .5s var(--ease);
-  }
-  .btn-primary:hover{background:var(--accent-deep); transform:translateY(-2px);}
-  .btn-primary:active{transform:scale(0.97);}
-  .btn-primary:hover .ico{transform:translate(3px,-3px);}
-  .cta-band .btn-primary{background:var(--cream); color:var(--ink);}
-  .cta-band .btn-primary .ico{background:rgba(34,30,26,0.08); color:var(--ink);}
-  .cta-band .btn-primary:hover{background:#C9A98C;}
-  @media(max-width:720px){ .cta-band{padding:60px 26px; border-radius:22px;} }
+      /* CTA FOOTER */
+      .cta-band {
+        background: var(--ink);
+        color: var(--cream);
+        border-radius: 32px;
+        margin: 0 auto;
+        padding: 90px 60px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .cta-band .eyebrow {
+        color: #c9a98c;
+        justify-content: center;
+      }
+      .cta-band .eyebrow::before {
+        background: #c9a98c;
+      }
+      .cta-band h2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(32px, 5vw, 58px);
+        font-weight: 400;
+        margin: 22px auto 34px;
+        max-width: 720px;
+        line-height: 1.1;
+      }
+      .cta-band h2 em {
+        font-style: italic;
+        color: #c9a98c;
+      }
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        background: var(--ink);
+        color: var(--cream);
+        font-size: 14px;
+        font-weight: 500;
+        padding: 15px 15px 15px 26px;
+        border-radius: 100px;
+        transition:
+          transform 0.5s var(--ease),
+          background 0.35s var(--ease);
+      }
+      .btn-primary .ico {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: rgba(247, 242, 234, 0.16);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        transition: transform 0.5s var(--ease);
+      }
+      .btn-primary:hover {
+        background: var(--accent-deep);
+        transform: translateY(-2px);
+      }
+      .btn-primary:active {
+        transform: scale(0.97);
+      }
+      .btn-primary:hover .ico {
+        transform: translate(3px, -3px);
+      }
+      .cta-band .btn-primary {
+        background: var(--cream);
+        color: var(--ink);
+      }
+      .cta-band .btn-primary .ico {
+        background: rgba(34, 30, 26, 0.08);
+        color: var(--ink);
+      }
+      .cta-band .btn-primary:hover {
+        background: #c9a98c;
+      }
+      @media (max-width: 720px) {
+        .cta-band {
+          padding: 60px 26px;
+          border-radius: 22px;
+        }
+      }
 
-  footer{padding:60px 0 40px;}
-  .foot-row{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px; font-size:13px; color:var(--ink-soft);}
-  .foot-links{display:flex; gap:26px;}
-  .foot-links a:hover{color:var(--ink);}
+      footer {
+        padding: 60px 0 40px;
+      }
+      .foot-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        font-size: 13px;
+        color: var(--ink-soft);
+      }
+      .foot-links {
+        display: flex;
+        gap: 26px;
+      }
+      .foot-links a:hover {
+        color: var(--ink);
+      }
 
-  .reveal{opacity:0; transform:translateY(26px); transition:opacity .9s var(--ease), transform .9s var(--ease);}
-  .reveal.in{opacity:1; transform:translateY(0);}
+      .reveal {
+        opacity: 0;
+        transform: translateY(26px);
+        transition:
+          opacity 0.9s var(--ease),
+          transform 0.9s var(--ease);
+      }
+      .reveal.in {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-  @media (prefers-reduced-motion: reduce){
-    *{transition:none !important; animation:none !important; scroll-behavior:auto !important;}
-    .reveal{opacity:1; transform:none;}
-  }
-  @media (hover:none), (pointer:coarse){
-    .btn-primary:hover{transform:none;}
-  }
-</style>
-</head>
-<body>
-<img
-  id="mouse-follower"
-  src="/assets/logo-mouse-follower.png"
-  alt="Potli Logo"
-  class="z-[999] w-5 h-5 fixed top-0 left-0 pointer-events-none md:block hidden"
-/>
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          transition: none !important;
+          animation: none !important;
+          scroll-behavior: auto !important;
+        }
+        .reveal {
+          opacity: 1;
+          transform: none;
+        }
+      }
+      @media (hover: none), (pointer: coarse) {
+        .btn-primary:hover {
+          transform: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      import { gsap } from "gsap";
 
-<HomeMenu />
+      const mouseFollower = document.getElementById("mouse-follower");
+      if (mouseFollower) {
+        gsap.set(mouseFollower, { xPercent: -50, yPercent: -50 });
 
-<header class="hero">
-  <div class="hero-noise"></div>
-  <div class="hero-orb"></div>
-  <div class="wrap hero-inner">
-    <div class="hero-tags reveal">
-      <span class="hero-tag">Official Branding Partner</span>
-      <span class="hero-tag">Talimi Mela · The Evighet</span>
-      <span class="hero-tag">Jamia Millia Islamia · 105th Foundation Day</span>
-    </div>
-    <h1 class="display hero-title reveal">Recognition, <em>earned</em> in partnership.</h1>
-    <p class="hero-sub reveal">Potli served as Official Branding Partner for the 98th edition of Talimi Mela — The Evighet, held for Jamia Millia Islamia's 105th Foundation Day. This is the story of what that partnership built.</p>
+        const xTo = gsap.quickTo(mouseFollower, "x", {
+          duration: 0.6,
+          ease: "power3",
+        });
+        const yTo = gsap.quickTo(mouseFollower, "y", {
+          duration: 0.6,
+          ease: "power3",
+        });
 
-    <div class="hero-stats reveal">
-      <div class="stat"><div class="num display">98th</div><div class="lbl">Edition of Talimi Mela</div></div>
-      <div class="stat"><div class="num display">105th</div><div class="lbl">Foundation Day, Jamia Millia Islamia</div></div>
-      <div class="stat"><div class="num display">2.5M+</div><div class="lbl">Digital interactions</div></div>
-      <div class="stat"><div class="num display">300K+</div><div class="lbl">Attendees on ground</div></div>
-    </div>
-  </div>
-</header>
-
-<section id="event">
-  <div class="wrap event-feature">
-    <div class="reveal">
-      <span class="eyebrow">The event</span>
-      <div class="event-meaning">Evighet</div>
-      <p style="color:var(--ink-soft); font-size:13px; margin-top:2px;">(Eternity)</p>
-      <h2 class="event-name display">Talimi Mela — The Evighet</h2>
-      <p class="event-detail">98th Edition of Talimi Mela, staged for Jamia Millia Islamia's 105th Foundation Day — one of the university's largest cultural gatherings, bringing together artists, scholars, government officials and community leaders.</p>
-    </div>
-    <div class="event-body reveal">
-      <p>The brief called for a single unifying idea strong enough to hold a century-old institution's most significant cultural moment together — across a physical festival ground, a stage program, and a nationwide digital audience.</p>
-      <p>Potli took the theme <em style="font-family:'Fraunces',serif; color:var(--accent-deep);">Evighet</em> — eternity — and built it into every layer of the experience: the narrative arc of the festival, the way visitors moved through the space, and a visual language that balanced Jamia's heritage with a contemporary point of view.</p>
-    </div>
-  </div>
-</section>
-
-<section id="role" style="background:var(--cream-deep);">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Potli's role</span>
-      <h2 class="display">What we were trusted to deliver.</h2>
-    </div>
-    <div class="values-list reveal">
-      <div class="value-row"><span class="vi">i.</span><p>Central theme development &amp; narrative curation</p></div>
-      <div class="value-row"><span class="vi">ii.</span><p>Unified festival experience design</p></div>
-      <div class="value-row"><span class="vi">iii.</span><p>Spatial architecture &amp; stage environments</p></div>
-      <div class="value-row"><span class="vi">iv.</span><p>Comprehensive visual language system</p></div>
-      <div class="value-row"><span class="vi">v.</span><p>Heritage–contemporary balance</p></div>
-      <div class="value-row"><span class="vi">vi.</span><p>Cultural sensitivity &amp; immersive storytelling</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="impact">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Unprecedented impact</span>
-      <h2 class="display">Reach that outgrew the festival ground.</h2>
-    </div>
-    <div class="impact-grid reveal">
-      <div class="impact-card">
-        <div class="num display">2.5M+</div>
-        <div class="lbl">Digital interactions across the festival's online presence and campaign.</div>
-      </div>
-      <div class="impact-card">
-        <div class="num display">300K+</div>
-        <div class="lbl">Nationally acclaimed artists, scholars, government officials and community leaders in attendance.</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="recognition" style="background:var(--cream-deep);">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <span class="eyebrow">Official recognition</span>
-      <h2 class="display">A landmark chapter.</h2>
-    </div>
-    <div class="recognition reveal">
-      <div class="recog-photo">
-        <img src="https://potli.world/assets/award.jpg" alt="Shriya Gautam receiving official recognition on behalf of Potli at Jamia Millia Islamia" loading="lazy">
-      </div>
-      <div>
-        <span class="recog-quote-mark">“</span>
-        <h3>Shriya Gautam, Chief Technology Officer, received the recognition on behalf of Potli.</h3>
-        <div class="from">Presented by the Vice Chancellor, Registrar, and Dean Students' Welfare — Jamia Millia Islamia.</div>
-        <div class="tag-final">A landmark chapter for Potli.</div>
-      </div>
-    </div>
-  </div>
-</section>
- <!-- footer custom -->
-<section class="hero z-20 relative h-[100vh] w-full bg-[#C7A697] md:bg-[#BEAB9A] overflow-hidden text-[#111] !p-0">
-   <div class="absolute inset-x-0 top-[50%] -translate-y-[50.5%] w-full">
-    <div class="h-[20rem]"></div>
-      <video autoplay loop muted playsinline class="md:block hidden w-full h-auto max-h-[110vh] object-contain pb-4 [transform:translateZ(0)] blur-[0.4px]">
-        <source src="/assets/footer.mp4" type="video/mp4" class="h-full w-full" />
-          Your browser does not support the video tag.
-        </video>
-</div>
-    <!-- <video autoplay loop muted playsinline class="absolute top-1/2 left-1/2 min-w-full min-h-full -translate-1/2 object-cover !p-0">
-    <source src="/assets/footer.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video> -->
-
-  <div class="relative z-20 flex flex-col justify-between h-full !px-8 !pt-0 !pb-8">
-    <div class="text-center items-center flex flex-col mt-13!">
-      <h2 class="text-5xl md:text-6xl font-medium tracking-tight font-sans">
-        Create a brand that <br />
-        stands the test of <span class="text-[#574F48]">time.</span>
-      </h2>
-      <p class="my-4! text-[#333] text-lg font-sans">
-        Potli designs. Lasting impressions. Let's craft a brand that endures and inspires.
-      </p>
-      <a href="/contact#reach" class="group rounded-full relative z-50 bg-[#EFEAE5] transition-all duration-200 ease-in-out hover:bg-[#e7e1db] font-semibold font-sans w-fit flex items-center"><p class="px-6! py-3.5! ">Get in touch</p> <span class="rounded-full bg-white p-3! mr-1!"><ArrowRight color="#000000" size={"20px"}!/></span>
-    <div class="bg-white w-12 h-12 -z-10  group-hover:w-[calc(100%-0.5rem)] group-hover:h-[calc(100%-0.5rem)] transition-[width,height] duration-700 ease-in-out flex absolute rounded-full right-1 top-1/2 -translate-y-1/2 will-change-[width,height]"></div>
-  </a>
-  <p style="margin-top:26px; font-size:16.5px; color:#574F48;">Want to build the next landmark chapter? <a href="career" style="color:#000000; border-bottom:1px solid rgb(0, 0, 0);">We're hiring →</a></p>
-    </div>
-     <!-- Footer -->
-    <div class=" flex items-center justify-between pt-6 text-sm font-sans">
-
-      <span>
-        © 2026 Potli. We fill it with meaning.
-      </span>
-
-      <div class="hidden md:flex gap-8">
-        <a href="/" class="hover:text-[#574F48]">Home</a>
-        <a href="/about-us" class="hover:text-[#574F48]">About</a>
-        <a href="/awards" class="hover:text-[#574F48]">Awards</a>
-        <a href="/career" class="hover:text-[#574F48]">Career</a>
-        <a href="/contact" class="hover:text-[#574F48]">Contact</a>
-      </div>
-
-     </div>
-  </div>
-  <div class="block md:hidden absolute z-10 bottom-0 left-0 right-0 h-[34vh] pointer-events-none overflow-hidden">
-  <div class="absolute top-0 left-0 right-0 z-20 h-10 bg-gradient-to-b from-[#C7A697]/95 via-[#C7A697]/70 to-transparent backdrop-blur-sm"></div>
-  <video class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-[18%] rotate-90 h-[450px] w-auto max-w-none bg-[#C7A697] md:bg-[#BEAB9A]" autoplay loop muted playsinline>
-    <source src="/assets/bg.mp4" type="video/mp4" />
-    Your browser does not support the video tag.
-  </video>
-</div>
-</section>
-
-<script is:inline>
-  const els = document.querySelectorAll('.reveal');
-  const io = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
-  }, {threshold:0.12, rootMargin:'0px 0px -60px 0px'});
-  els.forEach(el=>io.observe(el));
-
-  const pill = document.querySelector('.nav-pill');
-  window.addEventListener('scroll', ()=>{
-    pill.style.boxShadow = window.scrollY > 40
-      ? '0 14px 34px -12px rgba(34,30,26,0.28)'
-      : '0 10px 30px -12px rgba(34,30,26,0.18)';
-  });
-</script>
-
-<script>
-  import { gsap } from "gsap";
-
-  const mouseFollower = document.getElementById("mouse-follower");
-  if (mouseFollower) {
-    gsap.set(mouseFollower, { xPercent: -50, yPercent: -50 });
-
-    const xTo = gsap.quickTo(mouseFollower, "x", { duration: 0.6, ease: "power3" });
-    const yTo = gsap.quickTo(mouseFollower, "y", { duration: 0.6, ease: "power3" });
-
-    window.addEventListener("mousemove", (e) => {
-      xTo(e.clientX);
-      yTo(e.clientY);
-    });
-  }
-
-</script>
-
-</body>
+        window.addEventListener("mousemove", (e) => {
+          xTo(e.clientX);
+          yTo(e.clientY);
+        });
+      }
+    </script>
+  </body>
 </html>
